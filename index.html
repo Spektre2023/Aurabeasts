@@ -130,7 +130,7 @@ main{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:16px 18px 4
 
 /* MODALS */
 .overlay{position:fixed;inset:0;background:rgba(5,7,20,.82);backdrop-filter:blur(4px);
-  display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
+  display:none;align-items:center;justify-content:center;z-index:70;padding:20px}
 .overlay.show{display:flex}
 .modal{background:linear-gradient(180deg,var(--panel),var(--bg2));border:1px solid var(--line);
   border-radius:20px;padding:22px;max-width:560px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.6)}
@@ -164,28 +164,54 @@ textarea{min-height:90px;resize:vertical}
 .team-pick .grid{margin-top:10px}
 .card.selected{outline:3px solid var(--gold);outline-offset:1px}
 .card.disabled{opacity:.4;pointer-events:none}
-.battle{position:fixed;inset:0;background:radial-gradient(900px 600px at 50% 0,#2a1f4d,#0a0c1c);z-index:60;display:none;flex-direction:column;padding:14px 18px}
+.battle{position:fixed;inset:0;background:radial-gradient(1000px 720px at 50% 0,#3a2470,#0a0c1c 72%);z-index:60;display:none;flex-direction:column;
+  padding:calc(8px + env(safe-area-inset-top)) 16px calc(16px + env(safe-area-inset-bottom));overflow:hidden}
 .battle.show{display:flex}
-.bteam{display:flex;align-items:center;gap:10px}
-.bench{display:flex;gap:6px}
-.benchslot{width:34px;height:34px;border-radius:8px;border:2px solid var(--line);overflow:hidden;opacity:1}
-.benchslot.fainted{filter:grayscale(1) brightness(.4)}
+.turn-banner{text-align:center;font-weight:900;font-size:21px;padding:6px 0;letter-spacing:1px}
+.turn-you{color:#7fffb0;text-shadow:0 0 16px rgba(127,255,176,.5)}
+.turn-foe{color:#ff9a5d;text-shadow:0 0 16px rgba(255,154,93,.5)}
+.fighter{display:flex;align-items:center;gap:12px;background:rgba(0,0,0,.34);border:2px solid var(--line);border-radius:18px;padding:10px 12px}
+.fighter.foe{border-color:#6a3a6a}.fighter.you{border-color:#3a6a7a}
+.fighter .pic{width:104px;height:104px;border-radius:14px;overflow:hidden;flex-shrink:0;border:2px solid rgba(255,255,255,.35);
+  animation:bob 2.6s ease-in-out infinite;transition:transform .25s}
+.fighter .pic img{width:100%;height:100%;object-fit:cover}
+.fighter .info{flex:1;min-width:0}
+.fighter .nm{font-weight:900;font-size:18px;display:flex;align-items:center;gap:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hpbar{height:20px;background:#0c1024;border-radius:11px;overflow:hidden;border:1px solid var(--line);margin-top:7px}
+.hpfill{height:100%;background:linear-gradient(90deg,#36d77f,#8affc0);transition:width .5s ease;border-radius:11px}
+.hpfill.low{background:linear-gradient(90deg,#ff5d5d,#ffba5d)}
+.hptxt{font-weight:900;font-size:15px;margin-top:4px;color:#d6e2ff}
+.field{flex:1;display:flex;align-items:center;justify-content:center;position:relative}
+.ticker{text-align:center;font-size:14px;color:#c8d2f5;font-weight:700;padding:0 10px}
+.bench{display:flex;gap:6px;margin-top:8px}
+.benchslot{width:30px;height:30px;border-radius:7px;border:2px solid var(--line);overflow:hidden;position:relative}
+.benchslot.cur{border-color:var(--gold);box-shadow:0 0 8px rgba(255,207,92,.7)}
+.benchslot.fainted{filter:grayscale(1) brightness(.35)}
 .benchslot img{width:100%;height:100%;object-fit:cover}
-.active-card{display:flex;gap:14px;align-items:center;background:rgba(0,0,0,.3);border:1px solid var(--line);border-radius:16px;padding:12px;margin:8px 0}
-.active-card .pic{width:96px;height:96px;border-radius:12px;overflow:hidden;flex-shrink:0;border:2px solid rgba(255,255,255,.3)}
-.active-card .pic img{width:100%;height:100%;object-fit:cover}
-.hpbar{height:14px;background:#0c1024;border-radius:8px;overflow:hidden;border:1px solid var(--line);margin-top:6px}
-.hpfill{height:100%;background:linear-gradient(90deg,#43e08a,#7fffb0);transition:width .4s}
-.hpfill.low{background:linear-gradient(90deg,#ff5d5d,#ff9a5d)}
-.blog{flex:1;overflow-y:auto;background:rgba(0,0,0,.35);border-radius:12px;padding:10px 14px;font-size:14px;line-height:1.7;margin:6px 0}
-.blog .eff{color:#ffd54f;font-weight:800}
-.atk-btns{display:flex;gap:10px}
-.atk-btns button{flex:1;padding:14px;border-radius:14px;border:0;font-weight:900;font-size:15px;color:#fff;cursor:pointer;
-  background:linear-gradient(180deg,#4a5bc4,#33409a);display:flex;flex-direction:column;gap:2px;align-items:center}
-.atk-btns button .d{font-size:13px;color:#ffd54f}
-.vs{text-align:center;font-weight:900;color:var(--muted);font-size:13px;letter-spacing:2px}
-.shake{animation:shk .4s}
-@keyframes shk{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.benchslot.fainted::after{content:"\2715";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#ff6b6b;font-weight:900;font-size:16px}
+.pic.hit{animation:hit .45s}
+@keyframes hit{0%,100%{transform:translateX(0)}15%{transform:translateX(-10px)}30%{transform:translateX(10px);filter:brightness(2.4) saturate(1.6)}45%{transform:translateX(-7px)}60%{transform:translateX(7px);filter:brightness(1)}80%{transform:translateX(-3px)}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.atk-tray{display:flex;gap:10px;margin-top:10px}
+.atk-tray button{flex:1;padding:15px 10px;border-radius:16px;border:0;font-weight:900;font-size:16px;color:#fff;cursor:pointer;
+  display:flex;flex-direction:column;gap:3px;align-items:center;box-shadow:0 4px 0 rgba(0,0,0,.4);text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.atk-tray button:active{transform:translateY(3px);box-shadow:0 1px 0 rgba(0,0,0,.4)}
+.atk-tray button .d{font-size:15px;color:#fff3b0;font-weight:900}
+.atk-tray .waiting{flex:1;text-align:center;color:var(--muted);font-weight:800;padding:16px;font-size:16px}
+.fxlayer{position:fixed;inset:0;pointer-events:none;z-index:64}
+.dmgnum{position:absolute;transform:translate(-50%,0);font-weight:900;font-size:34px;color:#fff;text-shadow:0 2px 8px #000,0 0 14px rgba(255,80,80,.6);animation:floatup 1.05s ease-out forwards}
+.dmgnum.sup{color:#ffd54f;font-size:42px;text-shadow:0 2px 8px #000,0 0 18px rgba(255,213,79,.8)}
+@keyframes floatup{0%{opacity:0;transform:translate(-50%,12px) scale(.5)}25%{opacity:1;transform:translate(-50%,-8px) scale(1.2)}100%{opacity:0;transform:translate(-50%,-66px) scale(1)}}
+.suppop{position:absolute;transform:translate(-50%,-50%);font-weight:900;font-size:20px;color:#fff;background:linear-gradient(90deg,#ff7b3f,#ffd23f);
+  padding:5px 14px;border-radius:20px;white-space:nowrap;animation:pop 1s ease-out forwards;box-shadow:0 4px 16px rgba(0,0,0,.5)}
+@keyframes pop{0%{opacity:0;transform:translate(-50%,-50%) scale(.3)}30%{opacity:1;transform:translate(-50%,-50%) scale(1.12)}100%{opacity:0;transform:translate(-50%,-95%) scale(1)}}
+.battle-result{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:rgba(6,8,22,.93);z-index:66;padding:24px;text-align:center;overflow-y:auto}
+.battle-result h1{font-size:36px;margin:6px 0}
+.win-title{background:linear-gradient(90deg,#ffd54f,#7fffb0,#7c8cff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.steal-cards{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:16px 0;max-width:540px}
+.steal-cards>div{width:132px;cursor:pointer;transition:transform .12s}
+.steal-cards>div:active{transform:scale(1.06)}
 
 /* tasks */
 .task{display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin-bottom:10px}
@@ -642,97 +668,107 @@ function activeP(){return battle.p[battle.pa];}
 function activeC(){return battle.c[battle.ca];}
 function blog(msg){battle.log.unshift(msg);}
 function hpClass(f){return f.hp/f.maxHp<=.3?'hpfill low':'hpfill';}
-function benchHTML(team,act){return team.map((f,i)=>`<div class="benchslot ${f.hp<=0?'fainted':''} ${i===act?'':''}" style="${i===act?'border-color:var(--gold)':''}"><img src="${ART[f.id]}"></div>`).join('');}
-function renderBattle(){
-  const p=activeP(),c=activeC();
-  const el=document.getElementById('battle');
-  el.innerHTML=`
-    <div class="bteam"><b>🤖 Rival</b><div class="bench" style="margin-left:auto">${benchHTML(battle.c,battle.ca)}</div></div>
-    <div class="active-card" id="cpuCard"><div class="pic"><img src="${ART[c.id]}"></div>
-      <div style="flex:1"><div style="display:flex;justify-content:space-between"><b>${c.c.name} ${TYPES[c.c.type].ic}</b><span>${Math.max(0,c.hp)}/${c.maxHp}</span></div>
-      <div class="hpbar"><div class="${hpClass(c)}" style="width:${Math.max(0,c.hp/c.maxHp*100)}%"></div></div></div></div>
-    <div class="vs">— V S —</div>
-    <div class="active-card" id="playerCard"><div class="pic"><img src="${ART[p.id]}"></div>
-      <div style="flex:1"><div style="display:flex;justify-content:space-between"><b>${p.c.name} ${TYPES[p.c.type].ic}</b><span>${Math.max(0,p.hp)}/${p.maxHp}</span></div>
-      <div class="hpbar"><div class="${hpClass(p)}" style="width:${Math.max(0,p.hp/p.maxHp*100)}%"></div></div></div></div>
-    <div class="blog" id="blogBox">${battle.log.map(l=>`<div>${l}</div>`).join('')}</div>
-    <div class="bteam" style="margin-bottom:6px"><div class="bench">${benchHTML(battle.p,battle.pa)}</div><b style="margin-left:auto">You 🧢</b></div>
-    <div class="atk-btns" id="atkBtns">${battle.phase==="player"?p.c.atk.map((a,i)=>
-      `<button onclick="playerAttack(${i})">${a.n}<span class="d">💥 ${a.d}${a.self?` (−${a.self} self)`:''}</span></button>`).join(''):
-      '<button disabled style="opacity:.5">Rival is thinking…</button>'}</div>`;
-}
+function benchHTML(team,act){return team.map((f,i)=>`<div class="benchslot ${f.hp<=0?'fainted':''} ${i===act?'cur':''}"><img src="${ART[f.id]}"></div>`).join('');}
 function eff(att,def){return att.c.type===def.c.weak?2:1;}
-function dealDamage(attacker,defender,atk){
-  const mult=eff(attacker,defender);const dmg=atk.d*mult;
-  defender.hp-=dmg;
-  blog(`${attacker.c.name} used <b>${atk.n}</b>! ${mult>1?`<span class="eff">It's super effective!</span> `:''}Dealt ${dmg} damage.`);
-  if(atk.self){attacker.hp-=atk.self;blog(`${attacker.c.name} took ${atk.self} recoil damage.`);}
+function tickerMsg(){return battle.log[0]||'';}
+function updateTicker(){const t=document.getElementById('ticker');if(t)t.textContent=tickerMsg();}
+function setHp(side,f){const fill=document.getElementById(side+'Hp');const txt=document.getElementById(side+'HpTxt');
+  const pct=Math.max(0,f.hp/f.maxHp*100);
+  if(fill){fill.style.width=pct+'%';fill.className='hpfill'+(pct<=30?' low':'');}
+  if(txt)txt.textContent=Math.max(0,Math.round(f.hp))+'/'+f.maxHp;}
+function updateHpUI(){setHp('cpu',activeC());setHp('player',activeP());}
+function picId(side){return side==='cpu'?'cpuPic':'playerPic';}
+function flash(side){const el=document.getElementById(picId(side));if(!el)return;el.classList.remove('hit');void el.offsetWidth;el.classList.add('hit');}
+function floatDmg(side,amount,sup){
+  const layer=document.getElementById('fxLayer');const host=document.getElementById(picId(side));if(!layer||!host)return;
+  const r=host.getBoundingClientRect();
+  const d=document.createElement('div');d.className='dmgnum'+(sup?' sup':'');d.textContent='-'+amount;
+  d.style.left=(r.left+r.width/2)+'px';d.style.top=(r.top+8)+'px';layer.appendChild(d);setTimeout(()=>d.remove(),1100);
+  if(sup){const s=document.createElement('div');s.className='suppop';s.textContent='SUPER EFFECTIVE!';
+    s.style.left=(r.left+r.width/2)+'px';s.style.top=(r.top-6)+'px';layer.appendChild(s);setTimeout(()=>s.remove(),1100);}
+}
+function renderBattle(){
+  const p=activeP(),c=activeC();const youTurn=battle.phase==='player';
+  document.getElementById('battle').innerHTML=`
+   <div class="turn-banner ${youTurn?'turn-you':'turn-foe'}">${youTurn?'\u2694\uFE0F YOUR TURN':"\uD83E\uDD16 RIVAL'S TURN"}</div>
+   <div class="fighter foe">
+     <div class="pic" id="cpuPic"><img src="${ART[c.id]}"></div>
+     <div class="info"><div class="nm">${c.c.name} ${TYPES[c.c.type].ic}</div>
+       <div class="hpbar"><div class="hpfill ${c.hp/c.maxHp<=.3?'low':''}" id="cpuHp" style="width:${Math.max(0,c.hp/c.maxHp*100)}%"></div></div>
+       <div class="hptxt" id="cpuHpTxt">${Math.max(0,c.hp)}/${c.maxHp}</div>
+       <div class="bench">${benchHTML(battle.c,battle.ca)}</div></div>
+   </div>
+   <div class="field"><div class="ticker" id="ticker">${tickerMsg()}</div></div>
+   <div class="fighter you">
+     <div class="pic" id="playerPic"><img src="${ART[p.id]}"></div>
+     <div class="info"><div class="nm">${p.c.name} ${TYPES[p.c.type].ic} <span style="font-size:12px;color:var(--muted);font-weight:700">(YOU)</span></div>
+       <div class="hpbar"><div class="hpfill ${p.hp/p.maxHp<=.3?'low':''}" id="playerHp" style="width:${Math.max(0,p.hp/p.maxHp*100)}%"></div></div>
+       <div class="hptxt" id="playerHpTxt">${Math.max(0,p.hp)}/${p.maxHp}</div>
+       <div class="bench">${benchHTML(battle.p,battle.pa)}</div></div>
+   </div>
+   <div class="atk-tray">${youTurn?p.c.atk.map((a,i)=>`<button style="background:linear-gradient(180deg,${TYPES[p.c.type].c},rgba(0,0,0,.5))" onclick="playerAttack(${i})">${a.n}<span class="d">\uD83D\uDCA5 ${a.d}${a.self?` \u26A0\uFE0F-${a.self}`:''}</span></button>`).join(''):'<div class="waiting">\uD83E\uDD16 Rival is attacking\u2026</div>'}</div>
+   <div class="fxlayer" id="fxLayer"></div>`;
 }
 function playerAttack(i){
-  if(battle.phase!=="player")return;
-  const atk=activeP().c.atk[i];
-  dealDamage(activeP(),activeC(),atk);
-  shake('cpuCard');
-  battle.phase="busy";renderBattle();
-  setTimeout(checkAfterPlayer,650);
+  if(battle.phase!=='player')return;
+  const atk=activeP().c.atk[i];battle.phase='busy';
+  const pp=document.getElementById('playerPic');if(pp)pp.style.transform='translateY(-12px) scale(1.06)';
+  const tray=document.querySelector('.atk-tray');if(tray)tray.innerHTML='<div class="waiting">\uD83D\uDCA5</div>';
+  setTimeout(()=>{
+    if(pp)pp.style.transform='';
+    const mult=eff(activeP(),activeC());const dmg=atk.d*mult;
+    activeC().hp-=dmg;flash('cpu');floatDmg('cpu',dmg,mult>1);
+    if(atk.self){activeP().hp-=atk.self;floatDmg('player',atk.self,false);}
+    blog(`${activeP().c.name} used ${atk.n}!`);updateHpUI();updateTicker();
+    setTimeout(afterPlayerHit,800);
+  },300);
 }
-function checkAfterPlayer(){
-  if(activeC().hp<=0){blog(`💥 Rival's ${activeC().c.name} fainted!`);
-    const next=battle.c.findIndex((f,i)=>i>battle.ca&&f.hp>0);
-    const anyAlive=battle.c.some(f=>f.hp>0);
-    if(!anyAlive){return endBattle(true);}
-    battle.ca=battle.c.findIndex(f=>f.hp>0);
-    blog(`Rival sent out ${activeC().c.name}!`);
-  }
-  if(activeP().hp<=0){return playerFaintCheck();}
-  battle.phase="cpu";renderBattle();setTimeout(cpuTurn,800);
+function afterPlayerHit(){
+  if(activeC().hp<=0){blog(`Rival's ${activeC().c.name} fainted!`);
+    if(!battle.c.some(f=>f.hp>0))return endBattle(true);
+    battle.ca=battle.c.findIndex(f=>f.hp>0);blog(`Rival sent out ${activeC().c.name}!`);}
+  battle.phase='cpu';renderBattle();setTimeout(cpuTurn,950);
 }
 function cpuTurn(){
+  if(battle.phase==='ended')return;
   const c=activeC(),p=activeP();
-  // AI: use KO move if possible else 55% big
-  let idx=0;
-  const lethal=c.c.atk.findIndex(a=>a.d*eff(c,p)>=p.hp);
+  let idx=0;const lethal=c.c.atk.findIndex(a=>a.d*eff(c,p)>=p.hp);
   if(lethal>=0)idx=lethal;else idx=Math.random()<.55?c.c.atk.length-1:0;
-  dealDamage(c,p,c.c.atk[idx]);
-  shake('playerCard');
-  battle.phase="busy";renderBattle();
+  const atk=c.c.atk[idx];
+  const cp=document.getElementById('cpuPic');if(cp)cp.style.transform='translateY(12px) scale(1.06)';
   setTimeout(()=>{
-    if(activeC().hp<=0){ // recoil could faint cpu
-      const anyAlive=battle.c.some(f=>f.hp>0);
-      if(!anyAlive)return endBattle(true);
-      battle.ca=battle.c.findIndex(f=>f.hp>0);
-    }
-    playerFaintCheck();
-  },650);
+    if(cp)cp.style.transform='';
+    const mult=eff(c,p);const dmg=atk.d*mult;
+    p.hp-=dmg;flash('player');floatDmg('player',dmg,mult>1);
+    if(atk.self){c.hp-=atk.self;floatDmg('cpu',atk.self,false);}
+    blog(`Rival's ${c.c.name} used ${atk.n}!`);updateHpUI();updateTicker();
+    setTimeout(afterCpuHit,800);
+  },300);
 }
-function playerFaintCheck(){
-  if(activeP().hp<=0){blog(`💥 Your ${activeP().c.name} fainted!`);
-    const anyAlive=battle.p.some(f=>f.hp>0);
-    if(!anyAlive)return endBattle(false);
-    battle.pa=battle.p.findIndex(f=>f.hp>0);
-    blog(`Go, ${activeP().c.name}!`);
-  }
-  battle.phase="player";renderBattle();
+function afterCpuHit(){
+  if(activeC().hp<=0){if(!battle.c.some(f=>f.hp>0))return endBattle(true);battle.ca=battle.c.findIndex(f=>f.hp>0);}
+  if(activeP().hp<=0){blog(`Your ${activeP().c.name} fainted!`);
+    if(!battle.p.some(f=>f.hp>0))return endBattle(false);
+    battle.pa=battle.p.findIndex(f=>f.hp>0);blog(`Go, ${activeP().c.name}!`);}
+  battle.phase='player';renderBattle();
 }
 function endBattle(win){
-  battle.phase="ended";
-  if(win){
-    confetti();
-    const stealable=battle.c.map(f=>f.id);
-    let html=`<button class="x" onclick="closeBattleModalOnly()">×</button><h2>🏆 You Won!</h2>
-      <p class="sub">Choose one card to steal from the rival's deck:</p><div class="grid">`;
-    stealable.forEach(id=>html+=`<div onclick="claimCard('${id}')">${renderCard(CARD_BY_ID[id],{})}</div>`);
-    html+=`</div>`;openModal(html);
-  }else{
-    const lost=Math.min(state.coins,WAGER);addCoins(-lost,"Lost a battle");
-    openModal(`<button class="x" onclick="exitBattle()">×</button><h2>😵 You Lost</h2>
-      <p class="sub">Your team was defeated. You forfeited <b>${lost} coins</b>. Train up and try again!</p>
-      <div style="text-align:center"><button class="btn" onclick="exitBattle()">Back to Arena</button></div>`);
+  battle.phase='ended';const el=document.getElementById('battle');
+  if(win){confetti();const ids=battle.c.map(f=>f.id);
+    el.insertAdjacentHTML('beforeend',`<div class="battle-result" id="battleResult">
+      <h1 class="win-title">\uD83C\uDFC6 YOU WON!</h1>
+      <p class="sub">Pick one card to take from the rival's deck:</p>
+      <div class="steal-cards">${ids.map(id=>`<div onclick="claimCard('${id}')">${renderCard(CARD_BY_ID[id],{flat:true})}</div>`).join('')}</div></div>`);
+  }else{const lost=Math.min(state.coins,WAGER);addCoins(-lost,'Lost a battle');
+    el.insertAdjacentHTML('beforeend',`<div class="battle-result" id="battleResult">
+      <h1 style="color:#ff8a8a">\uD83D\uDE13 Defeated</h1>
+      <p class="sub">Your team fainted. You lost <b>${lost} \uD83E\uDE99</b>. Train up and try again!</p>
+      <button class="btn" onclick="exitBattle()">Back to Arena</button></div>`);
   }
 }
-function claimCard(id){addCard(id);closeModal();toast("🎉 You stole "+CARD_BY_ID[id].name+"!");exitBattle();}
-function closeBattleModalOnly(){closeModal();exitBattle();}
-function exitBattle(){document.getElementById('battle').classList.remove('show');arenaTeam=[];renderArena();renderBinder();renderStore();refreshHeader();}
+function claimCard(id){addCard(id);confetti();const r=document.getElementById('battleResult');
+  if(r)r.innerHTML=`<h1 class="win-title">\uD83C\uDF89 Got it!</h1><p class="sub"><b>${CARD_BY_ID[id].name}</b> was added to your binder!</p><button class="btn green" onclick="exitBattle()">Awesome!</button>`;}
+function exitBattle(){const b=document.getElementById('battle');b.classList.remove('show');b.innerHTML='';arenaTeam=[];renderArena();renderBinder();renderStore();refreshHeader();}
 
 /* =================== QUESTS =================== */
 function renderQuests(){
