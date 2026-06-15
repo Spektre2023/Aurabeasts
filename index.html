@@ -375,27 +375,34 @@ const MYSTERY_PRICE=60, PACK_PRICE=120, WAGER=25;
 /* =================== STATE =================== */
 const SAVE_KEY="aurabeasts_v1";
 const DEFAULT_TASKS=[
- {id:"t1",title:"Finish reading practice",cat:"Homework",reward:15},
- {id:"t2",title:"Complete maths worksheet",cat:"Homework",reward:20},
- {id:"t3",title:"Practise spelling words",cat:"Homework",reward:15},
- {id:"t4",title:"Tidy your bedroom",cat:"Chore",reward:10},
- {id:"t5",title:"Put your toys away",cat:"Chore",reward:5},
- {id:"t6",title:"Help set the table",cat:"Chore",reward:8},
- {id:"t7",title:"Brush teeth morning & night",cat:"Chore",reward:5},
- {id:"t8",title:"Listened the first time",cat:"Behaviour",reward:10},
- {id:"t9",title:"Kind & gentle today",cat:"Behaviour",reward:10}
+ {id:"t1",title:"Finish reading practice",cat:"Homework",reward:1},
+ {id:"t2",title:"Complete maths worksheet",cat:"Homework",reward:1},
+ {id:"t3",title:"Practise spelling words",cat:"Homework",reward:1},
+ {id:"t4",title:"Tidy your bedroom",cat:"Chore",reward:1},
+ {id:"t5",title:"Put your toys away",cat:"Chore",reward:1},
+ {id:"t6",title:"Help set the table",cat:"Chore",reward:1},
+ {id:"t7",title:"Brush teeth morning & night",cat:"Chore",reward:1},
+ {id:"t8",title:"Listened the first time",cat:"Behaviour",reward:1},
+ {id:"t9",title:"Kind & gentle today",cat:"Behaviour",reward:1}
 ];
 let state;
 function freshState(){return{coins:150,collection:{},tasks:JSON.parse(JSON.stringify(DEFAULT_TASKS)),
-  pending:[],log:[],parentPin:"1234",motion:false,priceOverrides:{}};}
+  pending:[],log:[],parentPin:"0811",motion:false,priceOverrides:{}};}
 function load(){
   try{const s=JSON.parse(localStorage.getItem(SAVE_KEY));
     if(!s) state=freshState();
     else{state=Object.assign(freshState(),s);
       state.collection=s.collection||{};state.tasks=s.tasks||DEFAULT_TASKS;
-      state.pending=s.pending||[];state.log=s.log||[];state.parentPin=s.parentPin||"1234";
+      state.pending=s.pending||[];state.log=s.log||[];state.parentPin=s.parentPin||"0811";
       state.priceOverrides=s.priceOverrides||{};}
   }catch(e){state=freshState();}
+  // one-time parent-requested config update (runs once on existing saves)
+  if(!state.cfgV2){
+    state.tasks.forEach(t=>t.reward=1);
+    state.parentPin="0811";
+    state.cfgV2=true;
+    save();
+  }
 }
 function save(){localStorage.setItem(SAVE_KEY,JSON.stringify(state));}
 function addCoins(n,reason){state.coins=Math.max(0,state.coins+n);
@@ -788,10 +795,27 @@ function renderParent(){
       <button class="btn red" onclick="quickAdjust(-20,'Misbehaviour')">−20</button>
     </div>
     <div class="row" style="margin-top:10px;align-items:flex-end">
-      <div style="flex:1"><label style="font-size:13px;color:var(--muted)">Custom amount</label>
+      <div style="flex:1"><label style="font-size:13px;color:var(--muted)">Custom amount (+ or −)</label>
         <input id="customAmt" type="number" placeholder="e.g. 15 or -15"></div>
       <button class="btn" onclick="customAdjust()">Apply</button>
+    </div>
+    <div class="row" style="margin-top:10px;align-items:flex-end">
+      <div style="flex:1"><label style="font-size:13px;color:var(--muted)">Set exact balance (now ${state.coins} 🪙)</label>
+        <input id="setAmt" type="number" placeholder="e.g. 100"></div>
+      <button class="btn gold" onclick="setCoinsExact(document.getElementById('setAmt').value)">Set</button>
     </div>`;
+
+  // manage album cards
+  html+=`<h3 style="margin:20px 0 8px">🃏 Manage Album Cards</h3>
+    <p class="sub" style="margin-bottom:8px">Give a card to Lincoln (+) or take one away (−).</p>`;
+  CARDS.slice().sort((a,b)=>a.num-b.num).forEach(c=>{
+    const n=ownCount(c.id);
+    html+=`<div class="task">
+      <div class="ti"><div class="tt"><span class="cat-tag" style="background:${RARITY[c.rarity].c};color:#1a1330">${c.rarity}</span>${c.name}</div>
+        <div class="tc" id="own-${c.id}">Owned: ${n}</div></div>
+      <button class="btn red" id="minus-${c.id}" onclick="takeCard('${c.id}')" ${n?'':'disabled'}>−</button>
+      <button class="btn green" onclick="giveCard('${c.id}')">+</button></div>`;
+  });
 
   // manage tasks
   html+=`<h3 style="margin:18px 0 8px">📋 Manage Tasks &amp; Rewards</h3>
@@ -873,6 +897,18 @@ function setCardPrice(id,val){
   else{const n=parseInt(val,10);if(isNaN(n)||n<1)return toast('Enter a price of 1 or more');state.priceOverrides[id]=n;}
   save();renderStore();renderParent();toast('Price updated ✓');}
 function resetPrices(){state.priceOverrides={};save();renderStore();renderParent();toast('All prices reset to auto');}
+function setCoinsExact(val){const n=parseInt(val,10);if(isNaN(n)||n<0)return toast('Enter 0 or more');
+  const delta=n-state.coins;state.coins=n;
+  state.log.unshift({ts:Date.now(),delta,reason:'Balance set to '+n});state.log=state.log.slice(0,80);
+  save();refreshHeader();renderParent();toast('Balance set to '+n+' 🪙');}
+function updCardRow(id){const n=ownCount(id);
+  const el=document.getElementById('own-'+id);if(el)el.textContent='Owned: '+n;
+  const mb=document.getElementById('minus-'+id);if(mb)mb.disabled=!n;}
+function giveCard(id){state.collection[id]=(state.collection[id]||0)+1;save();
+  refreshHeader();renderBinder();updCardRow(id);toast('Gave '+CARD_BY_ID[id].name+' ✓');}
+function takeCard(id){if(!ownCount(id))return toast("He doesn't have that card");
+  state.collection[id]--;if(state.collection[id]<=0)delete state.collection[id];save();
+  refreshHeader();renderBinder();updCardRow(id);toast('Removed '+CARD_BY_ID[id].name);}
 function changePin(){const v=document.getElementById('newPin').value.trim();
   if(!/^\d{4}$/.test(v))return toast("PIN must be 4 digits");state.parentPin=v;save();toast("PIN updated");document.getElementById('newPin').value="";}
 function exportSave(){const blob=new Blob([JSON.stringify(state)],{type:"application/json"});
