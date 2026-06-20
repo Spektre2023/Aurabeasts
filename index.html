@@ -324,6 +324,10 @@ textarea{min-height:90px;resize:vertical}
 .shelf-ledge{height:16px;margin:0 6px 22px;border-radius:5px;background:linear-gradient(180deg,#85572f,#4a2f16);box-shadow:0 12px 18px rgba(0,0,0,.55),inset 0 2px 0 rgba(255,255,255,.18),inset 0 -3px 6px rgba(0,0,0,.4)}
 .cabinet-note{font-size:12.5px;color:#d7c3a0;margin:10px 2px 20px;text-align:center}
 @media(max-width:560px){.sleeve{width:120px}.shelf-row .shelf-card{width:104px}}
+.card.legend{animation:legendpulse 2.6s ease-in-out infinite}
+@keyframes legendpulse{0%{box-shadow:0 0 0 2px #7be0ff,0 0 18px rgba(123,224,255,.7)}33%{box-shadow:0 0 0 2px #c98bff,0 0 26px rgba(201,139,255,.85)}66%{box-shadow:0 0 0 2px #ffd76a,0 0 26px rgba(255,215,106,.85)}100%{box-shadow:0 0 0 2px #7be0ff,0 0 18px rgba(123,224,255,.7)}}
+.card.legend .rbadge{background:linear-gradient(90deg,#7be0ff,#c98bff,#ffd76a)!important;color:#10131c}
+.feat-ultimate{background:linear-gradient(135deg,#1e3fae,#7a2da0 55%,#d83ad8)}
 </style>
 </head>
 <body>
@@ -378,6 +382,13 @@ textarea{min-height:90px;resize:vertical}
                 <p>The big one: three mid slots and two premium slots with a real shot at an Apex.</p>
                 <div class="feat-count">10 cards</div>
                 <div class="price"><span class="coin-ico">$</span><b id="legendaryPrice">750</b></div>
+              </div>
+              <div class="shop-feat feat-ultimate" onclick="buyUltimate()">
+                <div class="feat-emoji">💎</div>
+                <h3>Ultimate Pack</h3>
+                <p>12 cards. A real chance at a Giga, a slim shot at an Apex, and a whisper of a Legendary.</p>
+                <div class="feat-count">12 cards</div>
+                <div class="price"><span class="coin-ico">$</span><b id="ultimatePrice">1500</b></div>
               </div>
             </div>
             <div class="counter-base"></div>
@@ -449,7 +460,7 @@ textarea{min-height:90px;resize:vertical}
 
 <script>
 /* =================== ART (injected) =================== */
-const ART = {"sparkit": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/sparkit.jpg", "pebblepup": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/pebblepup.jpg", "sprigling": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/sprigling.jpg", "puddlet": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/puddlet.jpg", "gustling": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gustling.jpg", "frostfawn": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/frostfawn.jpg", "bramblebuck": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/bramblebuck.jpg", "tidewhisker": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/tidewhisker.jpg", "cinderquill": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/cinderquill.jpg", "stonehorn": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/stonehorn.jpg", "voltcrest": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/voltcrest.jpg", "mirefang": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/mirefang.jpg", "glaciowl": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/glaciowl.jpg", "aurelynx": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/aurelynx.jpg", "tempestrike": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/tempestrike.jpg", "thornmaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/thornmaw.jpg", "glaciathan": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/glaciathan.jpg", "pyroclast": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/pyroclast.jpg", "magmaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/magmaw.jpg", "celestidrake": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/celestidrake.jpg", "flarepup": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/flarepup.jpg", "blazehound": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/blazehound.jpg", "finnow": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/finnow.jpg", "wavetail": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/wavetail.jpg", "tsunamaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/tsunamaw.jpg", "budbun": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/budbun.jpg", "bloomlop": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/bloomlop.jpg", "zaplet": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/zaplet.jpg", "voltic": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/voltic.jpg", "thundron": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/thundron.jpg", "snowkit": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/snowkit.jpg", "glacipaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/glacipaw.jpg", "rocklet": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/rocklet.jpg", "boulderon": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/boulderon.jpg", "shadewisp": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/shadewisp.jpg", "nightmaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/nightmaw.jpg", "lumicub": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/lumicub.jpg", "solarae": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/solarae.jpg", "emberdrake": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/emberdrake.jpg", "aurorath": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/aurorath.jpg", "cindercub": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/cindercub.jpg", "pyrowolf": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/pyrowolf.jpg", "bubblet": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/bubblet.jpg", "coralisk": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/coralisk.jpg", "seedsprout": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/seedsprout.jpg", "leaflynx": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/leaflynx.jpg", "forestguard": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/forestguard.jpg", "sparkfly": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/sparkfly.jpg", "thunderwing": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/thunderwing.jpg", "iciclebit": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/iciclebit.jpg", "frostmane": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/frostmane.jpg", "mudpup": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/mudpup.jpg", "claytitan": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/claytitan.jpg", "gloomling": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gloomling.jpg", "umbrowl": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/umbrowl.jpg", "glowmoth": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/glowmoth.jpg", "prismwing": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/prismwing.jpg", "breezel": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/breezel.jpg", "cyclorin": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/cyclorin.jpg", "cinderling": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/cinderling.jpg", "magmalith": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/magmalith.jpg", "aquadrake": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/aquadrake.jpg", "voidpanther": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/voidpanther.jpg", "seraphwing": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/seraphwing.jpg", "tempestlord": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/tempestlord.jpg", "cryoceros": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/cryoceros.jpg", "verdantitan": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/verdantitan.jpg", "terravore": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/terravore.jpg", "pyrothar": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/pyrothar.jpg", "celestion": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/celestion.jpg", "voltfox": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/voltfox.jpg", "craghound": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/craghound.jpg", "vinelash": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/vinelash.jpg", "splashfin": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/splashfin.jpg", "zephyon": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/zephyon.jpg", "crysthart": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/crysthart.jpg", "blazequill": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/blazequill.jpg", "pearltide": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/pearltide.jpg", "nocturnyx": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/nocturnyx.jpg", "stormraptor": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/stormraptor.jpg", "gigamagmaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigamagmaw.jpg", "gigaglaciowl": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigaglaciowl.jpg", "gigathornmaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigathornmaw.jpg", "gigatempestrike": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigatempestrike.jpg", "gigaglaciathan": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigaglaciathan.jpg", "gigapyroclast": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigapyroclast.jpg", "gigaaurelynx": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigaaurelynx.jpg", "gigastonehorn": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigastonehorn.jpg", "gigablazehound": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigablazehound.jpg", "gigatsunamaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigatsunamaw.jpg"};
+const ART = {"sparkit": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/sparkit.jpg", "pebblepup": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/pebblepup.jpg", "sprigling": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/sprigling.jpg", "puddlet": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/puddlet.jpg", "gustling": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gustling.jpg", "frostfawn": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/frostfawn.jpg", "bramblebuck": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/bramblebuck.jpg", "tidewhisker": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/tidewhisker.jpg", "cinderquill": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/cinderquill.jpg", "stonehorn": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/stonehorn.jpg", "voltcrest": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/voltcrest.jpg", "mirefang": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/mirefang.jpg", "glaciowl": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/glaciowl.jpg", "aurelynx": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/aurelynx.jpg", "tempestrike": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/tempestrike.jpg", "thornmaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/thornmaw.jpg", "glaciathan": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/glaciathan.jpg", "pyroclast": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/pyroclast.jpg", "magmaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/magmaw.jpg", "celestidrake": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/celestidrake.jpg", "flarepup": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/flarepup.jpg", "blazehound": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/blazehound.jpg", "finnow": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/finnow.jpg", "wavetail": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/wavetail.jpg", "tsunamaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/tsunamaw.jpg", "budbun": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/budbun.jpg", "bloomlop": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/bloomlop.jpg", "zaplet": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/zaplet.jpg", "voltic": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/voltic.jpg", "thundron": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/thundron.jpg", "snowkit": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/snowkit.jpg", "glacipaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/glacipaw.jpg", "rocklet": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/rocklet.jpg", "boulderon": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/boulderon.jpg", "shadewisp": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/shadewisp.jpg", "nightmaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/nightmaw.jpg", "lumicub": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/lumicub.jpg", "solarae": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/solarae.jpg", "emberdrake": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/emberdrake.jpg", "aurorath": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/aurorath.jpg", "cindercub": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/cindercub.jpg", "pyrowolf": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/pyrowolf.jpg", "bubblet": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/bubblet.jpg", "coralisk": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/coralisk.jpg", "seedsprout": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/seedsprout.jpg", "leaflynx": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/leaflynx.jpg", "forestguard": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/forestguard.jpg", "sparkfly": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/sparkfly.jpg", "thunderwing": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/thunderwing.jpg", "iciclebit": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/iciclebit.jpg", "frostmane": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/frostmane.jpg", "mudpup": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/mudpup.jpg", "claytitan": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/claytitan.jpg", "gloomling": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gloomling.jpg", "umbrowl": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/umbrowl.jpg", "glowmoth": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/glowmoth.jpg", "prismwing": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/prismwing.jpg", "breezel": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/breezel.jpg", "cyclorin": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/cyclorin.jpg", "cinderling": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/cinderling.jpg", "magmalith": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/magmalith.jpg", "aquadrake": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/aquadrake.jpg", "voidpanther": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/voidpanther.jpg", "seraphwing": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/seraphwing.jpg", "tempestlord": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/tempestlord.jpg", "cryoceros": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/cryoceros.jpg", "verdantitan": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/verdantitan.jpg", "terravore": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/terravore.jpg", "pyrothar": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/pyrothar.jpg", "celestion": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/celestion.jpg", "voltfox": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/voltfox.jpg", "craghound": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/craghound.jpg", "vinelash": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/vinelash.jpg", "splashfin": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/splashfin.jpg", "zephyon": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/zephyon.jpg", "crysthart": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/crysthart.jpg", "blazequill": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/blazequill.jpg", "pearltide": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/pearltide.jpg", "nocturnyx": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/nocturnyx.jpg", "stormraptor": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/stormraptor.jpg", "gigamagmaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigamagmaw.jpg", "gigaglaciowl": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigaglaciowl.jpg", "gigathornmaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigathornmaw.jpg", "gigatempestrike": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigatempestrike.jpg", "gigaglaciathan": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigaglaciathan.jpg", "gigapyroclast": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigapyroclast.jpg", "gigaaurelynx": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigaaurelynx.jpg", "gigastonehorn": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigastonehorn.jpg", "gigablazehound": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigablazehound.jpg", "gigatsunamaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigatsunamaw.jpg", "voidmonarch": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/voidmonarch.jpg", "leviarch": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/leviarch.jpg", "gaialord": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gaialord.jpg", "gigastormraptor": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigastormraptor.jpg", "giganocturnyx": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/giganocturnyx.jpg", "gigacrysthart": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigacrysthart.jpg", "gigablazequill": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigablazequill.jpg", "gigavinelash": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigavinelash.jpg", "umbraking": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/umbraking.jpg", "galethron": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/galethron.jpg", "magmara": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/magmara.jpg", "cryowyrm": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/cryowyrm.jpg", "aetherion": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/aetherion.jpg", "nyxaroth": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/nyxaroth.jpg", "pyrovornax": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/pyrovornax.jpg", "glacemortis": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/glacemortis.jpg", "tempestarch": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/tempestarch.jpg", "sparklet": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/sparklet.jpg", "dustpup": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/dustpup.jpg", "leafling": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/leafling.jpg", "dewlet": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/dewlet.jpg", "breezling": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/breezling.jpg", "snowflit": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/snowflit.jpg", "cindermouse": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/cindermouse.jpg", "lavapup": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/lavapup.jpg", "sporelet": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/sporelet.jpg", "mistfox": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/mistfox.jpg", "tidepup": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/tidepup.jpg", "sparkfin": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/sparkfin.jpg", "flamekit": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/flamekit.jpg", "frostbun": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/frostbun.jpg", "shadelet": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/shadelet.jpg", "glimmercub": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/glimmercub.jpg", "boulderram": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/boulderram.jpg", "galehawk": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/galehawk.jpg", "magmaram": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/magmaram.jpg", "voltlynx": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/voltlynx.jpg"};
 
 /* =================== DATA =================== */
 const TYPES = {
@@ -467,7 +478,8 @@ const RARITY = {
   UR:{label:"Ultra Rare",c:"#ffc46b",mult:6.2,weight:9,holo:true},
   MUR:{label:"Mythic Ultra Rare",c:"#ff6b6b",mult:9.0,weight:5,holo:true},
   GIGA:{label:"Giga Form",c:"#ff5470",mult:8.0,weight:4,holo:true},
-  APEX:{label:"Apex Beast",c:"#ffd23f",mult:13.0,weight:2,holo:true}
+  APEX:{label:"Apex Beast",c:"#ffd23f",mult:13.0,weight:2,holo:true},
+  LEGEND:{label:"Legendary",c:"#a0f0ff",mult:20.0,weight:1,holo:true}
 };
 // id, name, type, rarity, hp, weak, flavor, attacks[{n,d,cost,self}]
 const CARDS = [
@@ -560,7 +572,44 @@ const CARDS = [
  {id:"gigaaurelynx",name:"Giga Aurelynx",type:"Radiant",rarity:"GIGA",hp:300,weak:"Shadow",num:87,gigaOf:"aurelynx",flavor:"Aurelynx grown radiant and immense, glowing like a small sun.",atk:[{n:"G-Light Claw",d:90,cost:3},{n:"G-Radiant Pounce",d:160,cost:5}]},
  {id:"gigastonehorn",name:"Giga Stonehorn",type:"Terra",rarity:"GIGA",hp:330,weak:"Verdant",num:88,gigaOf:"stonehorn",flavor:"Stonehorn swollen into a moving mountain of granite.",atk:[{n:"G-Boulder Ram",d:90,cost:3},{n:"G-Granite Charge",d:160,cost:5}]},
  {id:"gigablazehound",name:"Giga Blazehound",type:"Ember",rarity:"GIGA",hp:310,weak:"Aqua",num:89,gigaOf:"blazehound",flavor:"Blazehound grown gigantic, its mane a wildfire that lights the sky.",atk:[{n:"G-Fire Fang",d:90,cost:3},{n:"G-Flame Charge",d:160,cost:5}]},
- {id:"gigatsunamaw",name:"Giga Tsunamaw",type:"Aqua",rarity:"GIGA",hp:330,weak:"Storm",num:90,gigaOf:"tsunamaw",flavor:"Tsunamaw grown to titanic size — a tidal wave given a heartbeat.",atk:[{n:"G-Aqua Crush",d:90,cost:3},{n:"G-Tidal Wave",d:165,cost:5}]}
+ {id:"gigatsunamaw",name:"Giga Tsunamaw",type:"Aqua",rarity:"GIGA",hp:330,weak:"Storm",num:90,gigaOf:"tsunamaw",flavor:"Tsunamaw grown to titanic size — a tidal wave given a heartbeat.",atk:[{n:"G-Aqua Crush",d:90,cost:3},{n:"G-Tidal Wave",d:165,cost:5}]},
+ {id:"voidmonarch",name:"Voidmonarch",type:"Shadow",rarity:"APEX",hp:330,weak:"Radiant",num:91,flavor:"The apex shadow monarch. Where it treads, light forgets to shine.",atk:[{n:"Void Rend",d:115,cost:3},{n:"Oblivion Wave",d:205,cost:5,self:20}]},
+ {id:"leviarch",name:"Leviarch",type:"Aqua",rarity:"APEX",hp:335,weak:"Storm",num:92,flavor:"The apex ocean leviathan, older than the seas themselves.",atk:[{n:"Tidal Rend",d:115,cost:3},{n:"Maelstrom",d:210,cost:5}]},
+ {id:"gaialord",name:"Gaialord",type:"Verdant",rarity:"APEX",hp:345,weak:"Ember",num:93,flavor:"The apex forest titan; entire woodlands grow upon its back.",atk:[{n:"Titan Smash",d:120,cost:3},{n:"Worldroot",d:210,cost:5}]},
+ {id:"gigastormraptor",name:"Giga Stormraptor",type:"Storm",rarity:"GIGA",hp:315,weak:"Terra",num:94,gigaOf:"stormraptor",flavor:"Stormraptor grown titanic, a thunderhead given wings and fury.",atk:[{n:"G-Thunder Talon",d:95,cost:3},{n:"G-Tempest Dive",d:165,cost:5}]},
+ {id:"giganocturnyx",name:"Giga Nocturnyx",type:"Shadow",rarity:"GIGA",hp:310,weak:"Radiant",num:95,gigaOf:"nocturnyx",flavor:"Nocturnyx swollen to colossal size, a living moonless night.",atk:[{n:"G-Shadow Claw",d:90,cost:3},{n:"G-Eclipse",d:165,cost:5}]},
+ {id:"gigacrysthart",name:"Giga Crysthart",type:"Frost",rarity:"GIGA",hp:320,weak:"Ember",num:96,gigaOf:"crysthart",flavor:"Crysthart grown immense, antlers like frozen cathedrals.",atk:[{n:"G-Crystal Antler",d:90,cost:3},{n:"G-Avalanche",d:165,cost:5}]},
+ {id:"gigablazequill",name:"Giga Blazequill",type:"Ember",rarity:"GIGA",hp:310,weak:"Aqua",num:97,gigaOf:"blazequill",flavor:"Blazequill grown gigantic, every quill a roaring bonfire.",atk:[{n:"G-Quill Storm",d:90,cost:3},{n:"G-Inferno Roll",d:165,cost:5}]},
+ {id:"gigavinelash",name:"Giga Vinelash",type:"Verdant",rarity:"GIGA",hp:315,weak:"Ember",num:98,gigaOf:"vinelash",flavor:"Vinelash grown vast, a walking thicket that swallows the sun.",atk:[{n:"G-Vine Crush",d:90,cost:3},{n:"G-Bloomburst",d:160,cost:5}]},
+ {id:"umbraking",name:"Umbraking",type:"Shadow",rarity:"MUR",hp:205,weak:"Radiant",num:99,flavor:"A mythic king of shadows, crowned in living darkness.",atk:[{n:"Dread Slash",d:90,cost:3},{n:"Royal Eclipse",d:155,cost:5}]},
+ {id:"galethron",name:"Galethron",type:"Gale",rarity:"MUR",hp:200,weak:"Frost",num:100,flavor:"A mythic wind-dragon that rides the high jet streams.",atk:[{n:"Gale Slash",d:90,cost:3},{n:"Cyclone Nova",d:155,cost:5}]},
+ {id:"magmara",name:"Magmara",type:"Magma",rarity:"MUR",hp:210,weak:"Aqua",num:101,flavor:"A mythic magma serpent born in the planet's core.",atk:[{n:"Magma Slash",d:90,cost:3},{n:"Eruption Nova",d:158,cost:5}]},
+ {id:"cryowyrm",name:"Cryowyrm",type:"Frost",rarity:"MUR",hp:205,weak:"Ember",num:102,flavor:"A mythic ice wyrm whose breath freezes time itself.",atk:[{n:"Frost Slash",d:90,cost:3},{n:"Glacial Nova",d:155,cost:5}]},
+ {id:"aetherion",name:"Aetherion",type:"Radiant",rarity:"LEGEND",hp:420,weak:"Shadow",num:103,flavor:"The legendary god of light. Its dawn ends all darkness.",atk:[{n:"Prism Edge",d:150,cost:4},{n:"Genesis Radiance",d:290,cost:5}]},
+ {id:"nyxaroth",name:"Nyxaroth",type:"Shadow",rarity:"LEGEND",hp:420,weak:"Radiant",num:104,flavor:"The legendary god of darkness, woven from the light of dead stars.",atk:[{n:"Void Edge",d:150,cost:4},{n:"Cosmic Eclipse",d:290,cost:5}]},
+ {id:"pyrovornax",name:"Pyrovornax",type:"Magma",rarity:"LEGEND",hp:410,weak:"Aqua",num:105,flavor:"The legendary fire god. Its heartbeat is a volcano.",atk:[{n:"Solar Fang",d:150,cost:4},{n:"Supernova Burst",d:300,cost:5,self:30}]},
+ {id:"glacemortis",name:"Glacemortis",type:"Frost",rarity:"LEGEND",hp:415,weak:"Ember",num:106,flavor:"The legendary ice sovereign. Eternity sleeps within its frost.",atk:[{n:"Aurora Edge",d:150,cost:4},{n:"Absolute Zero",d:285,cost:5}]},
+ {id:"tempestarch",name:"Tempestarch",type:"Storm",rarity:"LEGEND",hp:410,weak:"Terra",num:107,flavor:"The legendary storm god, the living voice of the thunderheads.",atk:[{n:"Storm Fang",d:150,cost:4},{n:"Galaxybreaker",d:295,cost:5}]},
+ {id:"sparklet",name:"Sparklet",type:"Storm",rarity:"C",hp:45,weak:"Terra",num:108,flavor:"A pocket of static with a heartbeat. Crackles when happy.",atk:[{n:"Spark",d:12,cost:1},{n:"Zap",d:24,cost:2}]},
+ {id:"dustpup",name:"Dustpup",type:"Terra",rarity:"C",hp:52,weak:"Verdant",num:109,flavor:"A puppy with little stone paws. Loves digging holes.",atk:[{n:"Scratch",d:12,cost:1},{n:"Dust Toss",d:22,cost:2}]},
+ {id:"leafling",name:"Leafling",type:"Verdant",rarity:"C",hp:48,weak:"Ember",num:110,flavor:"A tiny sprout-sprite that turns toward the sun.",atk:[{n:"Sprout",d:10,cost:1},{n:"Leaf Cut",d:22,cost:2}]},
+ {id:"dewlet",name:"Dewlet",type:"Aqua",rarity:"C",hp:50,weak:"Storm",num:111,flavor:"A happy little water-blob that giggles in bubbles.",atk:[{n:"Bubble",d:12,cost:1},{n:"Splash",d:22,cost:2}]},
+ {id:"breezling",name:"Breezling",type:"Gale",rarity:"C",hp:46,weak:"Frost",num:112,flavor:"A wisp of wind that loves to tickle and tumble.",atk:[{n:"Puff",d:12,cost:1},{n:"Gust",d:24,cost:2}]},
+ {id:"snowflit",name:"Snowflit",type:"Frost",rarity:"C",hp:50,weak:"Ember",num:113,flavor:"A fluffy snow-critter that never melts, even in summer.",atk:[{n:"Chill",d:12,cost:1},{n:"Frost Nip",d:22,cost:2}]},
+ {id:"cindermouse",name:"Cindermouse",type:"Ember",rarity:"C",hp:48,weak:"Aqua",num:114,flavor:"A tiny mouse with a warm, glowing tail.",atk:[{n:"Ember",d:12,cost:1},{n:"Singe",d:24,cost:2}]},
+ {id:"lavapup",name:"Lavapup",type:"Magma",rarity:"C",hp:55,weak:"Aqua",num:115,flavor:"A pup of cooling lava rock with glowing cracks.",atk:[{n:"Hot Paw",d:12,cost:1},{n:"Lava Lick",d:24,cost:2}]},
+ {id:"sporelet",name:"Sporelet",type:"Verdant",rarity:"U",hp:66,weak:"Ember",num:116,flavor:"A cheerful mushroom-sprite that puffs healing spores.",atk:[{n:"Spore",d:16,cost:1},{n:"Bind",d:32,cost:2}]},
+ {id:"mistfox",name:"Mistfox",type:"Gale",rarity:"U",hp:64,weak:"Frost",num:117,flavor:"A silvery fox that fades in and out of the morning mist.",atk:[{n:"Mist",d:16,cost:1},{n:"Wind Bite",d:34,cost:2}]},
+ {id:"tidepup",name:"Tidepup",type:"Aqua",rarity:"U",hp:70,weak:"Storm",num:118,flavor:"A round seal pup that surfs on every wave.",atk:[{n:"Splash",d:16,cost:1},{n:"Bubble Beam",d:34,cost:2}]},
+ {id:"sparkfin",name:"Sparkfin",type:"Storm",rarity:"U",hp:66,weak:"Terra",num:119,flavor:"An electric fish whose fins crackle with sparks.",atk:[{n:"Zap",d:16,cost:1},{n:"Volt Snap",d:34,cost:2}]},
+ {id:"flamekit",name:"Flamekit",type:"Ember",rarity:"U",hp:68,weak:"Aqua",num:120,flavor:"A playful kitten with a flame-tipped tail.",atk:[{n:"Ember",d:16,cost:1},{n:"Fire Paw",d:35,cost:2}]},
+ {id:"frostbun",name:"Frostbun",type:"Frost",rarity:"U",hp:70,weak:"Ember",num:121,flavor:"A fluffy bunny with frosty ears and a cold little nose.",atk:[{n:"Frost",d:16,cost:1},{n:"Ice Hop",d:34,cost:2}]},
+ {id:"shadelet",name:"Shadelet",type:"Shadow",rarity:"U",hp:66,weak:"Radiant",num:122,flavor:"A shy little shadow imp with two glowing eyes.",atk:[{n:"Shade",d:16,cost:1},{n:"Dark Nip",d:35,cost:2}]},
+ {id:"glimmercub",name:"Glimmercub",type:"Radiant",rarity:"U",hp:68,weak:"Shadow",num:123,flavor:"A golden lion cub that glows warm in the dark.",atk:[{n:"Glow",d:16,cost:1},{n:"Light Paw",d:34,cost:2}]},
+ {id:"boulderram",name:"Boulderram",type:"Terra",rarity:"R",hp:95,weak:"Verdant",num:124,flavor:"A sturdy ram with horns of solid granite.",atk:[{n:"Headbutt",d:28,cost:2},{n:"Boulder Charge",d:55,cost:3}]},
+ {id:"galehawk",name:"Galehawk",type:"Gale",rarity:"R",hp:90,weak:"Frost",num:125,flavor:"A swift wind-hawk that dives from the clouds.",atk:[{n:"Wing Slash",d:28,cost:2},{n:"Sky Dive",d:58,cost:3}]},
+ {id:"magmaram",name:"Magmaram",type:"Magma",rarity:"R",hp:98,weak:"Aqua",num:126,flavor:"A fierce ram with molten cracks and lava-hot horns.",atk:[{n:"Molten Ram",d:30,cost:2},{n:"Lava Charge",d:58,cost:3}]},
+ {id:"voltlynx",name:"Voltlynx",type:"Storm",rarity:"RR",hp:112,weak:"Terra",num:127,flavor:"A sleek lynx whose fur snaps with blue lightning.",atk:[{n:"Volt Claw",d:40,cost:2},{n:"Thunder Pounce",d:78,cost:3}]}
 ];
 const CARD_BY_ID = Object.fromEntries(CARDS.map(c=>[c.id,c]));
 const TOTAL=CARDS.length;
@@ -614,10 +663,12 @@ function uniqueOwned(){return Object.keys(state.collection).filter(k=>state.coll
 function totalOwned(){return Object.values(state.collection).reduce((a,b)=>a+b,0);}
 function collectionPower(){return Object.keys(state.collection).reduce((s,id)=>{
   return s + (CARD_BY_ID[id]?power(CARD_BY_ID[id])*state.collection[id]:0);},0);}
+function trainerLevel(){return 1+Math.floor(collectionPower()/300);}
+function teamSize(){const lv=trainerLevel();return lv>=60?6:lv>=40?5:lv>=10?4:3;}
 
 /* =================== HELPERS =================== */
 function pipsHTML(type,n){let h='<span class="pips">';for(let i=0;i<n;i++)h+=`<span class="pip" style="background:${TYPES[type].c}"></span>`;return h+'</span>';}
-function cardClasses(c){const r=RARITY[c.rarity];let cl="card";if(r.holo){cl+=" holo";if(c.rarity==="RR")cl+=" rr";}if(c.rarity==="APEX")cl+=" apex";if(c.rarity==="GIGA")cl+=" giga";return cl;}
+function cardClasses(c){const r=RARITY[c.rarity];let cl="card";if(r.holo){cl+=" holo";if(c.rarity==="RR")cl+=" rr";}if(c.rarity==="APEX")cl+=" apex";if(c.rarity==="GIGA")cl+=" giga";if(c.rarity==="LEGEND")cl+=" legend";return cl;}
 function evoLineHTML(c){
   if(c.gigaOf){const b=CARD_BY_ID[c.gigaOf];return '<div><span class="lbl">Form:</span> ⚡ Giant <b style="color:#ff7a90">GIGA</b> form of '+(b?b.name:c.gigaOf)+'</div>';}
   const from=c.evoFrom?CARD_BY_ID[c.evoFrom]:null;
@@ -655,7 +706,7 @@ function renderCard(c,opts={}){
 }
 function refreshHeader(){
   document.getElementById('coinText').textContent=state.coins;
-  const lv=1+Math.floor(collectionPower()/300);
+  const lv=trainerLevel();
   document.getElementById('lvlText').textContent="Trainer Lv."+lv;
 }
 
@@ -671,15 +722,16 @@ function weeklyStore(){
   pick=pick.concat(pickSeeded(by(["C","U"]),9,rnd));        // everyday cards (shelves)
   pick=pick.concat(pickSeeded(by(["R","RR"]),5,rnd));        // solid mid cards (shelves)
   pick=pick.concat(pickSeeded(by(["SR","SAR","UR"]),4,rnd)); // strong cards (cabinet)
-  pick=pick.concat(pickSeeded(by(["MUR","GIGA","APEX"]),2,rnd)); // chase headliners (cabinet)
+  pick=pick.concat(pickSeeded(by(["MUR","GIGA","APEX","LEGEND"]),2,rnd)); // chase headliners (cabinet)
   return pick.map(c=>c.id);
 }
-const PREMIUM_R=["SR","SAR","UR","MUR","GIGA","APEX"];
+const PREMIUM_R=["SR","SAR","UR","MUR","GIGA","APEX","LEGEND"];
 function renderStore(){
   document.getElementById('mysteryPrice').textContent=MYSTERY_PRICE;
   document.getElementById('packPrice').textContent=PACK_PRICE;
   const mp=document.getElementById('masteryPrice');if(mp)mp.textContent=MASTERY_PRICE;
   const lp=document.getElementById('legendaryPrice');if(lp)lp.textContent=LEGENDARY_PRICE;
+  const up=document.getElementById('ultimatePrice');if(up)up.textContent=ULTIMATE_PRICE;
   const ids=weeklyStore();
   const premium=ids.filter(id=>PREMIUM_R.includes(CARD_BY_ID[id].rarity));
   const everyday=ids.filter(id=>!PREMIUM_R.includes(CARD_BY_ID[id].rarity));
@@ -759,6 +811,22 @@ function buyLegendary(){
   pulls.forEach(c=>addCard(c.id));
   openPackAnimation(pulls,{name:'LEGENDARY PACK',grad:'linear-gradient(135deg,#6a2da0,#caa24a)',edge:'#ffd76a'});renderStore();
 }
+const ULTIMATE_PRICE=1500;
+function buyUltimate(){
+  if(state.coins<ULTIMATE_PRICE)return toast("Not enough coins for an Ultimate Pack — you need "+(ULTIMATE_PRICE-state.coins)+" more!");
+  addCoins(-ULTIMATE_PRICE,"Ultimate pack");
+  const com=CARDS.filter(c=>["C","U","R"].includes(c.rarity));
+  const mid=CARDS.filter(c=>["R","RR","SR"].includes(c.rarity));
+  const strong=CARDS.filter(c=>["SR","SAR","UR"].includes(c.rarity));
+  const head=CARDS.filter(c=>["UR","MUR","GIGA","APEX","LEGEND"].includes(c.rarity));
+  const pulls=[];
+  for(let i=0;i<6;i++)pulls.push(weightedPull(com));
+  for(let i=0;i<3;i++)pulls.push(weightedPull(mid));
+  for(let i=0;i<2;i++)pulls.push(weightedPull(strong));
+  pulls.push(weightedPull(head));
+  pulls.forEach(c=>addCard(c.id));
+  openPackAnimation(pulls,{name:'ULTIMATE PACK',grad:'linear-gradient(135deg,#1e3fae,#7a2da0 55%,#d83ad8)',edge:'#e08bff'});renderStore();
+}
 
 /* =================== REVEAL MODAL =================== */
 function openRevealModal(cards,title){
@@ -774,7 +842,7 @@ function openRevealModal(cards,title){
     <button class="btn ghost" onclick="closeModal();afterReveal()">Done</button></div>`;
   openModal(html);
   // celebrate big pulls
-  if(["SR","SAR","UR","MUR","GIGA","APEX"].includes(best.rarity))setTimeout(()=>confetti(),400);
+  if(["SR","SAR","UR","MUR","GIGA","APEX","LEGEND"].includes(best.rarity))setTimeout(()=>confetti(),400);
 }
 function miniReveal(c){const r=RARITY[c.rarity],t=TYPES[c.type];
   return `<div class="${cardClasses(c)}" style="background:linear-gradient(160deg,${t.c},#1a1f3d 70%);padding:5px;height:100%">
@@ -922,20 +990,23 @@ function renderArena(){
     return;
   }
   const owned=CARDS.filter(c=>ownCount(c.id)>0).sort((a,b)=>b.hp-a.hp);
-  if(owned.length<3){box.innerHTML=`<div class="empty">You need at least <b>3 cards</b> to battle.<br>You have ${owned.length}. Visit the Store to collect more! 🛒</div>`;return;}
+  const need=teamSize();
+  if(owned.length<need){box.innerHTML=`<div class="empty">You need at least <b>${need} cards</b> to battle at your level.<br>You have ${owned.length}. Visit the Store to collect more! 🛒</div>`;return;}
+  if(arenaTeam.length>need)arenaTeam=arenaTeam.slice(0,need);
   arenaTeam=arenaTeam.filter(id=>ownCount(id)>0);
   let html=`<div class="row" style="align-items:center;margin-bottom:6px">
-    <b>Your team: ${arenaTeam.length}/3</b>
-    <button class="btn green" ${arenaTeam.length===3?'':'disabled'} onclick="scoutOpponent()" style="margin-left:auto">🔍 Scout Opponent</button></div>
+    <b>Your team: ${arenaTeam.length}/${need}</b> <span class="sub" style="font-size:11px">(Lv.${trainerLevel()})</span>
+    <button class="btn green" ${arenaTeam.length===need?'':'disabled'} onclick="scoutOpponent()" style="margin-left:auto">🔍 Scout Opponent</button></div>
     <div class="grid">`;
-  owned.forEach(c=>{const sel=arenaTeam.includes(c.id);const dis=(!sel&&arenaTeam.length>=3);
+  owned.forEach(c=>{const sel=arenaTeam.includes(c.id);const dis=(!sel&&arenaTeam.length>=teamSize());
     html+=`<div onclick="toggleTeam('${c.id}')" class="${sel?'selected':''}${dis?' disabled':''}" style="border-radius:14px">${renderCard(c,{flat:true})}</div>`;});
   box.innerHTML=html+'</div>';
 }
 function scoutOpponent(){
   if(Date.now()<state.arenaLockUntil)return renderArena();
-  if(arenaTeam.length!==3)return toast('Pick 3 cards first');
-  const cpuIds=cpuDeck();const rivals=cpuIds.map(id=>CARD_BY_ID[id]);
+  if(arenaTeam.length!==teamSize())return toast('Pick '+teamSize()+' cards first');
+  const tAvg=arenaTeam.reduce((s,id)=>s+power(CARD_BY_ID[id]),0)/arenaTeam.length;
+  const cpuIds=cpuDeck(teamSize(),tAvg);const rivals=cpuIds.map(id=>CARD_BY_ID[id]);
   const best=Math.max(...rivals.map(priceOf));
   const stake=Math.min(150,Math.max(5,Math.round(best*0.2/5)*5));
   prefight={cpuIds,stake,best};
@@ -962,17 +1033,24 @@ function acceptFight(){const pf=prefight;prefight=null;closeModal();startBattle(
 function cancelPrefight(){prefight=null;closeModal();renderArena();toast('You backed out — next opponent in 30 min.');}
 function resetArenaLock(){state.arenaLockUntil=0;save();toast('Arena cooldown cleared');renderParent();}
 function toggleTeam(id){const i=arenaTeam.indexOf(id);
-  if(i>=0)arenaTeam.splice(i,1);else if(arenaTeam.length<3)arenaTeam.push(id);renderArena();}
+  if(i>=0)arenaTeam.splice(i,1);else if(arenaTeam.length<teamSize())arenaTeam.push(id);renderArena();}
 
 let battle=null;
 function makeFighter(id){const c=CARD_BY_ID[id];return{id,c,hp:c.hp,maxHp:c.hp};}
-function cpuDeck(){
-  // weighted toward easier cards, occasional tougher
-  const pool=CARDS.filter(c=>["C","U","R","RR","SR"].includes(c.rarity));
-  const w={C:50,U:40,R:30,RR:12,SR:5};
-  const pick=()=>{let tot=pool.reduce((s,c)=>s+w[c.rarity],0);let r=Math.random()*tot;
-    for(const c of pool){r-=w[c.rarity];if(r<=0)return c.id;}return pool[0].id;};
-  const ids=[];while(ids.length<3){const id=pick();ids.push(id);}return ids;
+function cpuDeck(size,targetAvg){
+  size=size||3; targetAvg=targetAvg||120;
+  // build a rival roster comparable to the player's fielded team strength
+  const lo=targetAvg*0.82, hi=targetAvg*1.3;
+  let band=CARDS.filter(c=>{const p=power(c);return p>=lo&&p<=hi;});
+  if(band.length<size) band=CARDS.slice().sort((a,b)=>Math.abs(power(a)-targetAvg)-Math.abs(power(b)-targetAvg)).slice(0,Math.max(size*3,10));
+  const ids=[],used={}; let guard=0;
+  while(ids.length<size && guard++<300){
+    const c=band[Math.floor(Math.random()*band.length)];
+    if(used[c.id] && band.length>size) continue;   // prefer distinct cards when we can
+    used[c.id]=1; ids.push(c.id);
+  }
+  while(ids.length<size) ids.push(band[0].id);
+  return ids;
 }
 function startBattle(cpuIds,stake){
   battle={p:arenaTeam.map(makeFighter),c:cpuIds.map(makeFighter),pa:0,ca:0,phase:"player",log:[],stake:stake,pEnergy:3,cEnergy:3};
