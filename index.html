@@ -336,6 +336,11 @@ textarea{min-height:90px;resize:vertical}
 .glitz.apex::after{filter:drop-shadow(0 0 2px #ffe9a8)}
 .glitz.legend::before{width:55%;background:linear-gradient(90deg,transparent,rgba(150,240,255,.6),rgba(255,170,255,.65),rgba(255,235,150,.6),transparent);animation-duration:2.6s}
 .glitz.legend::after{animation-duration:1.3s}
+.dmgnum.crit{color:#ffd23f;font-size:30px;text-shadow:0 0 10px rgba(255,210,63,.85)}
+.dmgnum.heal{color:#7ddc8c}
+.suppop.crit{color:#ffd23f}
+.suppop.miss{color:#cfd6e6}
+.ftrait{font-size:11px;color:#bfe3ff;font-weight:800;margin-top:2px}
 </style>
 </head>
 <body>
@@ -895,6 +900,8 @@ function showDetail(id){const c=CARD_BY_ID[id],r=RARITY[c.rarity];
     <div class="detail-meta">
       <div><span class="lbl">Type:</span> ${TYPES[c.type].ic} ${c.type} &nbsp;•&nbsp; <span class="lbl">Rarity:</span> <b style="color:${r.c}">${r.label} (${c.rarity})</b></div>
       <div><span class="lbl">Weakness:</span> ${TYPES[c.weak].ic} ${c.weak} (×2)&nbsp;•&nbsp; <span class="lbl">Power:</span> ${power(c)}</div>
+      <div><span class="lbl">Ability:</span> ${TYPE_TRAITS[c.type].label} — ${TYPE_TRAITS[c.type].desc}</div>
+      <div><span class="lbl">Defense:</span> ${defRating(c)}</div>
       <div><span class="lbl">Shop price:</span> <span class="coin-amt">${priceOf(c)} 🪙</span> &nbsp;•&nbsp; <span class="lbl">You own:</span> ${ownCount(c.id)}</div>
       ${evoLineHTML(c)}
       <div class="flavor">${c.flavor}</div>
@@ -1073,6 +1080,44 @@ function blog(msg){battle.log.unshift(msg);}
 function hpClass(f){return f.hp/f.maxHp<=.3?'hpfill low':'hpfill';}
 function benchHTML(team,act){return team.map((f,i)=>`<div class="benchslot ${f.hp<=0?'fainted':''} ${i===act?'cur':''}"><img src="${ART[f.id]}"></div>`).join('');}
 function eff(att,def){if(att.c.type===def.c.weak)return 2;if(att.c.weak===def.c.type)return 0.5;return 1;}
+const TYPE_TRAITS={
+  Storm:{key:'crit',label:'⚡ Swift',desc:'Higher critical-hit chance'},
+  Gale:{key:'crit',label:'💨 Swift',desc:'Higher critical-hit chance'},
+  Frost:{key:'crit',label:'❄️ Frostbite',desc:'Higher critical-hit chance'},
+  Ember:{key:'blaze',label:'🔥 Blaze',desc:'Deals extra damage'},
+  Terra:{key:'sturdy',label:'🪨 Sturdy',desc:'Takes less damage'},
+  Magma:{key:'sturdy',label:'🪨 Sturdy',desc:'Takes less damage'},
+  Aqua:{key:'flow',label:'💧 Flow',desc:'Takes a little less damage'},
+  Shadow:{key:'evade',label:'🌑 Evasive',desc:'Can dodge attacks'},
+  Verdant:{key:'heal',label:'🌿 Regrow',desc:'Heals a little each turn'},
+  Radiant:{key:'heal',label:'✨ Blessed',desc:'Heals a little each turn'}
+};
+function traitKey(type){return (TYPE_TRAITS[type]||{}).key;}
+function accuracyOf(cost){return Math.max(0.78, 1.04 - 0.045*cost);}
+function defRating(c){let r=Math.min(.25,c.hp/1600);const k=traitKey(c.type);if(k==='sturdy')r+=.18;if(k==='flow')r+=.12;return r>=.30?'High 🛡️🛡️🛡️':r>=.16?'Medium 🛡️🛡️':'Low 🛡️';}
+function computeHit(atkF,atk,defF){
+  const a=atkF.c,d=defF.c;
+  if(Math.random()>accuracyOf(atk.cost)) return {miss:true};
+  if(traitKey(d.type)==='evade' && Math.random()<0.15) return {miss:true,dodged:true};
+  const mult=eff(atkF,defF);
+  let dmg=atk.d*mult;
+  dmg*=0.85+Math.random()*0.15;
+  let blaze=false; if(traitKey(a.type)==='blaze'){dmg*=1.2;blaze=true;}
+  let critChance=0.10+(traitKey(a.type)==='crit'?0.12:0);
+  let crit=false; if(Math.random()<critChance){dmg*=1.6;crit=true;}
+  let red=Math.min(.25,d.hp/1600); const dk=traitKey(d.type); let guard=false;
+  if(dk==='sturdy'){red+=.18;guard=true;} else if(dk==='flow'){red+=.12;guard=true;}
+  red=Math.min(.55,red);
+  const before=dmg; dmg*=(1-red);
+  return {dmg:Math.max(1,Math.round(dmg)),crit,mult,blaze,reduced:guard&&(before-dmg)>=3};
+}
+function maybeHeal(side){
+  const f=side==='player'?activeP():activeC(); if(!f||f.hp<=0)return;
+  if(traitKey(f.c.type)==='heal' && f.hp<f.maxHp){
+    const h=Math.round(f.maxHp*0.06); f.hp=Math.min(f.maxHp,f.hp+h);
+    floatHeal(side,h); blog(`${side==='player'?'':"Rival's "}${f.c.name} ${TYPE_TRAITS[f.c.type].label} — restored ${h} HP.`);
+  }
+}
 function tickerMsg(){return battle.log[0]||'';}
 function updateTicker(){const t=document.getElementById('ticker');if(t)t.textContent=tickerMsg();}
 function setHp(side,f){const fill=document.getElementById(side+'Hp');const txt=document.getElementById(side+'HpTxt');
@@ -1082,13 +1127,23 @@ function setHp(side,f){const fill=document.getElementById(side+'Hp');const txt=d
 function updateHpUI(){setHp('cpu',activeC());setHp('player',activeP());}
 function picId(side){return side==='cpu'?'cpuPic':'playerPic';}
 function flash(side){const el=document.getElementById(picId(side));if(!el)return;el.classList.remove('hit');void el.offsetWidth;el.classList.add('hit');}
-function floatDmg(side,amount,mult){
+function floatDmg(side,amount,mult,crit){
   const layer=document.getElementById('fxLayer');const host=document.getElementById(picId(side));if(!layer||!host)return;
   const r=host.getBoundingClientRect();
-  const d=document.createElement('div');d.className='dmgnum'+(mult>1?' sup':mult<1?' weakhit':'');d.textContent='-'+amount;
+  const d=document.createElement('div');d.className='dmgnum'+(crit?' crit':'')+(mult>1?' sup':mult<1?' weakhit':'');d.textContent='-'+amount;
   d.style.left=(r.left+r.width/2)+'px';d.style.top=(r.top+8)+'px';layer.appendChild(d);setTimeout(()=>d.remove(),1100);
-  if(mult!==1){const s=document.createElement('div');s.className='suppop'+(mult<1?' weak':'');s.textContent=mult>1?'SUPER EFFECTIVE!':'not very effective';
-    s.style.left=(r.left+r.width/2)+'px';s.style.top=(r.top-6)+'px';layer.appendChild(s);setTimeout(()=>s.remove(),1100);}
+  const lbl=crit?'CRITICAL HIT!':mult>1?'SUPER EFFECTIVE!':mult<1?'not very effective':'';
+  if(lbl)popText(side,lbl,crit?'crit':mult<1?'weak':'sup');
+}
+function popText(side,text,cls){
+  const layer=document.getElementById('fxLayer');const host=document.getElementById(picId(side));if(!layer||!host)return;
+  const r=host.getBoundingClientRect();const s=document.createElement('div');s.className='suppop '+cls;s.textContent=text;
+  s.style.left=(r.left+r.width/2)+'px';s.style.top=(r.top-6)+'px';layer.appendChild(s);setTimeout(()=>s.remove(),1100);
+}
+function floatHeal(side,amount){
+  const layer=document.getElementById('fxLayer');const host=document.getElementById(picId(side));if(!layer||!host)return;
+  const r=host.getBoundingClientRect();const d=document.createElement('div');d.className='dmgnum heal';d.textContent='+'+amount;
+  d.style.left=(r.left+r.width/2)+'px';d.style.top=(r.top+8)+'px';layer.appendChild(d);setTimeout(()=>d.remove(),1100);
 }
 function renderBattle(){
   const p=activeP(),c=activeC();const youTurn=battle.phase==='player';const m=eff(p,c);
@@ -1096,7 +1151,7 @@ function renderBattle(){
    <div class="turn-banner ${youTurn?'turn-you':'turn-foe'}">${youTurn?'\u2694\uFE0F YOUR TURN':"\uD83E\uDD16 RIVAL'S TURN"}</div>
    <div class="fighter foe">
      <div class="pic" id="cpuPic"><img src="${ART[c.id]}"></div>
-     <div class="info"><div class="nm">${c.c.name} ${TYPES[c.c.type].ic}</div>
+     <div class="info"><div class="nm">${c.c.name} ${TYPES[c.c.type].ic}</div><div class="ftrait">${TYPE_TRAITS[c.c.type].label}</div>
        <div class="hpbar"><div class="hpfill ${c.hp/c.maxHp<=.3?'low':''}" id="cpuHp" style="width:${Math.max(0,c.hp/c.maxHp*100)}%"></div></div>
        <div class="hptxt" id="cpuHpTxt">${Math.max(0,c.hp)}/${c.maxHp}</div>
        <div class="bench">${benchHTML(battle.c,battle.ca)}</div></div>
@@ -1104,13 +1159,13 @@ function renderBattle(){
    <div class="field"><div class="ticker" id="ticker">${tickerMsg()}</div></div>
    <div class="fighter you">
      <div class="pic" id="playerPic"><img src="${ART[p.id]}"></div>
-     <div class="info"><div class="nm">${p.c.name} ${TYPES[p.c.type].ic} <span style="font-size:12px;color:var(--muted);font-weight:700">(YOU)</span></div>
+     <div class="info"><div class="nm">${p.c.name} ${TYPES[p.c.type].ic} <span style="font-size:12px;color:var(--muted);font-weight:700">(YOU)</span></div><div class="ftrait">${TYPE_TRAITS[p.c.type].label}</div>
        <div class="hpbar"><div class="hpfill ${p.hp/p.maxHp<=.3?'low':''}" id="playerHp" style="width:${Math.max(0,p.hp/p.maxHp*100)}%"></div></div>
        <div class="hptxt" id="playerHpTxt">${Math.max(0,p.hp)}/${p.maxHp}</div>
        <div class="bench">${benchHTML(battle.p,battle.pa)}</div></div>
    </div>
    ${youTurn?`<div class="eff-hint ${m>1?'sup':m<1?'weak':''}">${m>1?'🔥 Your '+p.c.type+' attacks are SUPER EFFECTIVE on '+c.c.name+'!':m<1?'🛡️ '+p.c.type+' is not very effective on '+c.c.name+'…':'💡 '+c.c.name+"'s weakness is "+c.c.weak+' — hit it for double damage!'}</div><div class="energy-bar">⚡ Energy ${battle.pEnergy}/8</div>`:''}
-   <div class="atk-tray">${youTurn?p.c.atk.map((a,i)=>{const can=battle.pEnergy>=a.cost;return `<button ${can?'':'disabled'} style="background:linear-gradient(180deg,${TYPES[p.c.type].c},rgba(0,0,0,.5))" onclick="playerAttack(${i})">${a.n}<span class="d">💥 ${a.d}${a.self?' ⚠️-'+a.self:''}</span><span class="cost">⚡${a.cost}${can?'':' (need '+(a.cost-battle.pEnergy)+')'}</span></button>`;}).join('')+`<button class="charge" onclick="chargeTurn()">⚡ Charge<span class="d">+1 energy</span></button>`:'<div class="waiting">🤖 Rival is attacking…</div>'}</div>
+   <div class="atk-tray">${youTurn?p.c.atk.map((a,i)=>{const can=battle.pEnergy>=a.cost;return `<button ${can?'':'disabled'} style="background:linear-gradient(180deg,${TYPES[p.c.type].c},rgba(0,0,0,.5))" onclick="playerAttack(${i})">${a.n}<span class="d">💥 ${a.d}${a.self?' ⚠️-'+a.self:''}</span><span class="cost">⚡${a.cost} · 🎯${Math.round(Math.max(78,104-4.5*a.cost))}%${can?'':' (need '+(a.cost-battle.pEnergy)+')'}</span></button>`;}).join('')+`<button class="charge" onclick="chargeTurn()">⚡ Charge<span class="d">+1 energy</span></button>`:'<div class="waiting">🤖 Rival is attacking…</div>'}</div>
    <div class="fxlayer" id="fxLayer"></div>`;
 }
 function playerAttack(i){
@@ -1122,11 +1177,15 @@ function playerAttack(i){
   const tray=document.querySelector('.atk-tray');if(tray)tray.innerHTML='<div class="waiting">\uD83D\uDCA5</div>';
   setTimeout(()=>{
     if(pp)pp.style.transform='';
-    const mult=eff(activeP(),activeC());const dmg=Math.round(atk.d*mult);
-    activeC().hp-=dmg;flash('cpu');floatDmg('cpu',dmg,mult);
-    if(atk.self){activeP().hp-=atk.self;floatDmg('player',atk.self,1);}
-    blog(`${activeP().c.name} used ${atk.n}!`);updateHpUI();updateTicker();
-    setTimeout(afterPlayerHit,800);
+    const A=activeP(),D=activeC();const res=computeHit(A,atk,D);
+    if(res.miss){flash('cpu');popText('cpu',res.dodged?'DODGED!':'MISS!','miss');blog(`${A.c.name}'s ${atk.n} ${res.dodged?'was dodged by '+D.c.name+'!':'missed!'}`);}
+    else{D.hp-=res.dmg;flash('cpu');floatDmg('cpu',res.dmg,res.mult,res.crit);
+      let x=res.crit?' Critical hit!':res.mult>1?' Super effective!':res.mult<1?' Not very effective…':'';
+      if(res.blaze)x+=' 🔥Blaze!'; if(res.reduced)x+=' 🛡️softened';
+      blog(`${A.c.name} used ${atk.n}!`+x);
+      if(atk.self){A.hp-=atk.self;floatDmg('player',atk.self,1,false);}}
+    updateHpUI();updateTicker();
+    setTimeout(afterPlayerHit,850);
   },300);
 }
 function chargeTurn(){
@@ -1140,7 +1199,7 @@ function afterPlayerHit(){
   if(activeC().hp<=0){blog(`Rival's ${activeC().c.name} fainted!`);
     if(!battle.c.some(f=>f.hp>0))return endBattle(true);
     battle.ca=battle.c.findIndex(f=>f.hp>0);blog(`Rival sent out ${activeC().c.name}!`);}
-  battle.cEnergy=Math.min(8,battle.cEnergy+1);battle.phase='cpu';renderBattle();setTimeout(cpuTurn,950);
+  battle.cEnergy=Math.min(8,battle.cEnergy+1);battle.phase='cpu';renderBattle();maybeHeal('cpu');updateHpUI();setTimeout(cpuTurn,950);
 }
 function cpuTurn(){
   if(battle.phase==='ended')return;
@@ -1148,7 +1207,7 @@ function cpuTurn(){
   const opts=c.c.atk.map((a,i)=>({a,i})).filter(o=>o.a.cost<=battle.cEnergy);
   if(opts.length===0){ // can't afford anything → charge up
     battle.cEnergy=Math.min(8,battle.cEnergy+1);blog(`Rival's ${c.c.name} is charging up…`);updateTicker();
-    setTimeout(()=>{battle.pEnergy=Math.min(8,battle.pEnergy+1);battle.phase='player';renderBattle();},850);return;
+    setTimeout(()=>{battle.pEnergy=Math.min(8,battle.pEnergy+1);battle.phase='player';renderBattle();maybeHeal('player');updateHpUI();},850);return;
   }
   let pick=opts.find(o=>Math.round(o.a.d*mm)>=p.hp); // go for the knockout
   if(!pick){opts.sort((x,y)=>y.a.d-x.a.d);pick=Math.random()<.75?opts[0]:opts[opts.length-1];}
@@ -1156,11 +1215,15 @@ function cpuTurn(){
   const cp=document.getElementById('cpuPic');if(cp)cp.style.transform='translateY(12px) scale(1.06)';
   setTimeout(()=>{
     if(cp)cp.style.transform='';
-    const mult=eff(c,p);const dmg=Math.round(atk.d*mult);
-    p.hp-=dmg;flash('player');floatDmg('player',dmg,mult);
-    if(atk.self){c.hp-=atk.self;floatDmg('cpu',atk.self,1);}
-    blog(`Rival's ${c.c.name} used ${atk.n}!`);updateHpUI();updateTicker();
-    setTimeout(afterCpuHit,800);
+    const res=computeHit(c,atk,p);
+    if(res.miss){flash('player');popText('player',res.dodged?'DODGED!':'MISS!','miss');blog(`Rival's ${c.c.name} ${res.dodged?"was dodged!":"missed!"}`);}
+    else{p.hp-=res.dmg;flash('player');floatDmg('player',res.dmg,res.mult,res.crit);
+      let x=res.crit?' Critical hit!':res.mult>1?' Super effective!':res.mult<1?' Not very effective…':'';
+      if(res.blaze)x+=' 🔥Blaze!'; if(res.reduced)x+=' 🛡️softened';
+      blog(`Rival's ${c.c.name} used ${atk.n}!`+x);
+      if(atk.self){c.hp-=atk.self;floatDmg('cpu',atk.self,1,false);}}
+    updateHpUI();updateTicker();
+    setTimeout(afterCpuHit,850);
   },300);
 }
 function afterCpuHit(){
@@ -1168,7 +1231,7 @@ function afterCpuHit(){
   if(activeP().hp<=0){blog(`Your ${activeP().c.name} fainted!`);
     if(!battle.p.some(f=>f.hp>0))return endBattle(false);
     battle.pa=battle.p.findIndex(f=>f.hp>0);blog(`Go, ${activeP().c.name}!`);}
-  battle.pEnergy=Math.min(8,battle.pEnergy+1);battle.phase='player';renderBattle();
+  battle.pEnergy=Math.min(8,battle.pEnergy+1);battle.phase='player';renderBattle();maybeHeal('player');updateHpUI();
 }
 function endBattle(win){
   battle.phase='ended';const el=document.getElementById('battle');
