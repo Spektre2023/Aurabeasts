@@ -354,6 +354,69 @@ textarea{min-height:90px;resize:vertical}
 @keyframes celpulse{0%,100%{box-shadow:0 0 0 2px #ffe08a,0 0 18px rgba(255,210,90,.6),0 0 34px rgba(255,200,80,.35)}50%{box-shadow:0 0 0 3px #fff0b8,0 0 30px rgba(255,225,120,.95),0 0 60px rgba(255,200,80,.6)}}
 .glitz.celestial::before{width:60%;background:linear-gradient(90deg,transparent,rgba(255,240,180,.85),rgba(255,255,255,.92),rgba(255,225,130,.85),transparent);animation-duration:2.1s}
 .glitz.celestial::after{animation-duration:1.05s;filter:drop-shadow(0 0 3px #ffe9a8)}
+
+/* ===== Academy styles ===== */
+nav button{font-size:12.5px;padding:9px 2px}
+nav button .ic{font-size:18px}
+.scholar-pill{background:linear-gradient(180deg,#3a2f6e,#2a2350);color:#ffe9a8;font-weight:800}
+.acad-gate{text-align:center;padding:30px 16px;color:var(--muted)}
+.acad-gate .ic{font-size:54px}
+.acad-gate h2{color:#fff;margin:8px 0}
+.acad-hero{background:linear-gradient(135deg,#2b2470,#3b2f86);border:1px solid #4d3fa0;border-radius:16px;padding:14px 16px;margin-bottom:6px}
+.acad-hero-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.acad-lv{font-weight:900;color:#ffe9a8;font-size:17px}
+.acad-chip{background:rgba(0,0,0,.3);border-radius:20px;padding:4px 12px;font-weight:800;color:#cfe3ff}
+.xpbar{height:12px;background:rgba(0,0,0,.35);border-radius:8px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,#7ad7ff,#9b8bff);border-radius:8px;transition:.4s}
+.acad-sub{font-size:12px;color:#c7c7e6;margin-top:5px}
+.acad-h{margin:18px 0 8px;color:#fff}
+.chiprow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.subchip{background:#1c2147;border:1px solid var(--line);color:#cfd2ff;font-weight:800;padding:8px 14px;border-radius:20px;cursor:pointer}
+.subchip.on{background:linear-gradient(180deg,#4a5cc0,#33408f);color:#fff;border-color:#6a78d8}
+.btn.big{width:100%;font-size:16px;padding:14px}
+.mastery{margin:8px 0}
+.mlabel{font-size:13px;font-weight:800;color:#dfe2ff;display:flex;justify-content:space-between}
+.mlabel span{color:var(--muted);font-weight:600}
+.mbar{height:10px;background:rgba(255,255,255,.08);border-radius:6px;overflow:hidden;margin-top:3px}
+.mfill{height:100%;background:linear-gradient(90deg,#5be8a0,#39c0ff);border-radius:6px}
+.mfill.gold{background:linear-gradient(90deg,#ffd86b,#ff9d3c)}
+.acad-streak{margin-top:8px;font-weight:800;color:#ffb86b}
+.season-card{display:flex;gap:12px;background:#161a38;border:1px solid #4d3fa0;border-radius:14px;padding:12px}
+.season-card img{width:90px;height:90px;border-radius:10px;object-fit:cover;flex:none}
+.season-info{flex:1}
+.season-name{font-weight:900;color:#ffe9a8;font-size:16px}
+.perk{display:flex;gap:10px;align-items:flex-start;background:#13172f;border:1px solid var(--line);border-radius:12px;padding:10px;margin-bottom:7px;opacity:.6}
+.perk.on{opacity:1;border-color:#5be8a0}
+.perk-ic{font-size:20px}
+.achgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.achcard{background:#13172f;border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center;opacity:.55}
+.achcard.on{opacity:1;border-color:#ffd86b;background:linear-gradient(180deg,#221c46,#161a38)}
+.ach-ic{font-size:26px}
+.ach-t{font-weight:900;font-size:13px;color:#fff;margin-top:2px}
+.ach-d{font-size:11px;color:var(--muted);margin:2px 0}
+.ach-r{font-size:12px;font-weight:800;color:var(--coin)}
+.quizwrap{padding:4px}
+.quiz-top{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:8px}
+.quiz-q{font-size:18px;font-weight:800;color:#fff;line-height:1.35;margin-bottom:14px}
+.quiz-opts{display:flex;flex-direction:column;gap:9px}
+.quiz-opt{background:#1c2147;border:2px solid var(--line);color:#eef0ff;font-weight:800;font-size:15px;padding:13px;border-radius:12px;cursor:pointer;text-align:left;transition:.12s}
+.quiz-opt:hover{border-color:#6a78d8}
+.quiz-opt.correct{background:linear-gradient(180deg,#1f7a4d,#155e3a);border-color:#5be8a0;color:#fff}
+.quiz-opt.wrong{background:linear-gradient(180deg,#7a2a2a,#5e1f1f);border-color:#ff8a8a;color:#fff}
+.quiz-fb{margin-top:12px}
+.fb-line{font-weight:900;font-size:16px;margin-bottom:4px}
+.fb-line.ok{color:#5be8a0}.fb-line.no{color:#ff9d9d}
+.fb-ex{font-size:14px;color:#cfd2ff;background:rgba(255,255,255,.05);border-radius:10px;padding:10px;margin-bottom:12px}
+.round-score{font-size:44px;font-weight:900;color:#ffe9a8;margin:8px 0}
+.tok-lv{font-size:11px;font-weight:800;color:var(--coin);text-align:center;margin-top:2px}
+.focus-overlay{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;background:rgba(6,8,22,.82);padding:18px}
+.focus-overlay.show{display:flex}
+.focus-modal{background:linear-gradient(180deg,#1a1f44,#12152f);border:2px solid #6a78d8;border-radius:18px;padding:18px;max-width:460px;width:100%;box-shadow:0 18px 60px rgba(0,0,0,.6)}
+.focus-title{font-weight:900;color:#9b8bff;font-size:15px;margin-bottom:8px;text-align:center}
+.focus-q{font-size:18px;font-weight:800;color:#fff;line-height:1.35;margin-bottom:14px;text-align:center}
+.focus-opts{display:flex;flex-direction:column;gap:9px}
+.focus-fb{margin-top:12px}
+.atk-tray button.focusbtn{background:linear-gradient(180deg,#6a4fd0,#4a36a0)!important;flex:.85}
 </style>
 </head>
 <body>
@@ -362,6 +425,7 @@ textarea{min-height:90px;resize:vertical}
     <div class="logo"><span class="spark">✦</span><b>AURABEASTS</b></div>
     <div class="spacer"></div>
     <div class="lvl" id="lvlText">Trainer Lv.1</div>
+    <div class="stat-pill scholar-pill" id="scholarPill" style="display:none"><span>🎓</span><span id="scholarText">1</span></div>
     <div class="stat-pill"><span class="coin-ico">$</span><span class="coin-amt" id="coinText">0</span></div>
   </header>
   <nav>
@@ -369,6 +433,7 @@ textarea{min-height:90px;resize:vertical}
     <button data-tab="binder"><span class="ic">📒</span>Binder</button>
     <button data-tab="arena"><span class="ic">⚔️</span>Arena</button>
     <button data-tab="quests"><span class="ic">✅</span>Quests</button>
+    <button data-tab="academy"><span class="ic">🎓</span>Academy</button>
     <button data-tab="parent"><span class="ic">🔒</span>Parent</button>
   </nav>
   <main>
@@ -461,6 +526,12 @@ textarea{min-height:90px;resize:vertical}
       <div class="sec-title">Quests &amp; Tasks</div>
       <div class="sub">Finish a task, then tap <b>"I did it!"</b>. A grown-up checks it and pays your coins. 🪙</div>
       <div id="questList"></div>
+    </section>
+
+    <!-- ACADEMY -->
+    <section class="view" id="view-academy">
+      <div class="sec-title">🎓 Academy</div>
+      <div id="academyBody"></div>
     </section>
 
     <!-- PARENT -->
@@ -686,7 +757,10 @@ const DEFAULT_TASKS=[
 ];
 let state;
 function freshState(){return{coins:150,collection:{},levels:{},tasks:JSON.parse(JSON.stringify(DEFAULT_TASKS)),
-  pending:[],log:[],parentPin:"0811",motion:false,priceOverrides:{},arenaLockUntil:0,lastGift:0};}
+  pending:[],log:[],parentPin:"0811",motion:false,priceOverrides:{},arenaLockUntil:0,lastGift:0,
+  edu:{on:false,year:2,subj:{English:true,Maths:true,Science:true}},
+  scholar:{xp:0,tokens:0,answered:0,correct:0,perSubj:{English:{a:0,c:0},Maths:{a:0,c:0},Science:{a:0,c:0}},streakDays:0,lastStudyDay:"",recent:[]},
+  cardXp:{},ach:{},season:null,stats:{wins:0,losses:0,surges:0,flawless:0,bestStreak:0}};}
 function load(){
   try{const s=JSON.parse(localStorage.getItem(SAVE_KEY));
     if(!s) state=freshState();
@@ -694,7 +768,11 @@ function load(){
       state.collection=s.collection||{};state.tasks=s.tasks||DEFAULT_TASKS;
       state.pending=s.pending||[];state.log=s.log||[];state.parentPin=s.parentPin||"0811";
       state.priceOverrides=s.priceOverrides||{};state.arenaLockUntil=s.arenaLockUntil||0;
-      state.levels=s.levels||{};state.lastGift=s.lastGift||0;}
+      state.levels=s.levels||{};state.lastGift=s.lastGift||0;
+      state.edu=Object.assign({on:false,year:2,subj:{English:true,Maths:true,Science:true}},s.edu||{});if(!state.edu.subj)state.edu.subj={English:true,Maths:true,Science:true};
+      state.scholar=Object.assign({xp:0,tokens:0,answered:0,correct:0,perSubj:{English:{a:0,c:0},Maths:{a:0,c:0},Science:{a:0,c:0}},streakDays:0,lastStudyDay:"",recent:[]},s.scholar||{});if(!state.scholar.perSubj)state.scholar.perSubj={};["English","Maths","Science"].forEach(k=>{if(!state.scholar.perSubj[k])state.scholar.perSubj[k]={a:0,c:0};});if(!Array.isArray(state.scholar.recent))state.scholar.recent=[];
+      state.cardXp=s.cardXp||{};state.ach=s.ach||{};state.season=s.season||null;
+      state.stats=Object.assign({wins:0,losses:0,surges:0,flawless:0,bestStreak:0},s.stats||{});}
   }catch(e){state=freshState();}
   // one-time parent-requested config update (runs once on existing saves)
   if(!state.cfgV2){
@@ -708,7 +786,7 @@ function save(){localStorage.setItem(SAVE_KEY,JSON.stringify(state));}
 function addCoins(n,reason){state.coins=Math.max(0,state.coins+n);
   state.log.unshift({ts:Date.now(),delta:n,reason});state.log=state.log.slice(0,80);save();refreshHeader();}
 function ownCount(id){return state.collection[id]||0;}
-function addCard(id,lvl){const had=state.collection[id]||0;state.collection[id]=had+1;if(!had){if(!state.levels)state.levels={};state.levels[id]=Math.min(10,Math.max(1,lvl||1));}save();}
+function addCard(id,lvl){const had=state.collection[id]||0;state.collection[id]=had+1;if(!had){if(!state.levels)state.levels={};state.levels[id]=Math.min(10,Math.max(1,lvl||1));}save();if(typeof checkAchievements==='function')checkAchievements();}
 function uniqueOwned(){return Object.keys(state.collection).filter(k=>state.collection[k]>0).length;}
 function totalOwned(){return Object.values(state.collection).reduce((a,b)=>a+b,0);}
 function collectionPower(){return Object.keys(state.collection).reduce((s,id)=>{
@@ -761,6 +839,8 @@ function refreshHeader(){
   document.getElementById('coinText').textContent=state.coins;
   const lv=trainerLevel();
   document.getElementById('lvlText').textContent="Trainer Lv."+lv;
+  var sp=document.getElementById('scholarPill');
+  if(sp){if(typeof eduOn==='function'&&eduOn()){sp.style.display='';document.getElementById('scholarText').textContent='Lv.'+scholarLevel()+' · 📘'+tokens();}else sp.style.display='none';}
 }
 
 /* =================== STORE =================== */
@@ -962,7 +1042,7 @@ function showDetail(id){const c=CARD_BY_ID[id],r=RARITY[c.rarity];
     <div class="detail-meta">
       <div><span class="lbl">Type:</span> ${TYPES[c.type].ic} ${c.type} &nbsp;•&nbsp; <span class="lbl">Rarity:</span> <b style="color:${r.c}">${r.label} (${c.rarity})</b></div>
       <div><span class="lbl">Weakness:</span> ${TYPES[c.weak].ic} ${c.weak} (×2)&nbsp;•&nbsp; <span class="lbl">Power:</span> ${ownCount(c.id)?effPower(c,cardLevel(c.id)):power(c)}</div>
-      <div><span class="lbl">Level:</span> <b style="color:var(--coin)">Lv.${cardLevel(c.id)}</b>${cardLevel(c.id)>1?` <span style="color:#7ddc8c">(+${Math.round((lvlMult(cardLevel(c.id))-1)*100)}% to all stats)</span>`:` (base — collect duplicates to level up)`} &nbsp;•&nbsp; <span class="lbl">Max:</span> Lv.10</div>
+      <div><span class="lbl">Level:</span> <b style="color:var(--coin)">Lv.${cardLevel(c.id)}</b>${cardLevel(c.id)>1?` <span style="color:#7ddc8c">(+${Math.round((lvlMult(cardLevel(c.id))-1)*100)}% to all stats)</span>`:` (base — win battles, collect duplicates, or spend 📘 Training Tokens)`} &nbsp;•&nbsp; <span class="lbl">Max:</span> Lv.10</div>
       <div><span class="lbl">Ability:</span> ${TYPE_TRAITS[c.type].label} — ${TYPE_TRAITS[c.type].desc}</div>
       <div><span class="lbl">Defense:</span> ${defRating(c)}</div>
       <div><span class="lbl">Shop price:</span> <span class="coin-amt">${priceOf(c)} 🪙</span> &nbsp;•&nbsp; <span class="lbl">You own:</span> ${ownCount(c.id)}</div>
@@ -1134,7 +1214,7 @@ function cpuDeck(size,targetAvg,avgLevel){
   return out;
 }
 function startBattle(cpuEntries,stake){
-  battle={p:arenaTeam.map(id=>makeFighter(id,cardLevel(id))),c:cpuEntries.map(e=>makeFighter(e.id,e.level)),pa:0,ca:0,phase:"player",log:[],stake:stake,pEnergy:3,cEnergy:3};
+  battle={p:arenaTeam.map(id=>makeFighter(id,cardLevel(id))),c:cpuEntries.map(e=>makeFighter(e.id,e.level)),pa:0,ca:0,phase:"player",log:[],stake:stake,pEnergy:(typeof startEnergy==='function'?startEnergy():3),cEnergy:3,focusStreak:0,surge:false};
   document.getElementById('battle').classList.add('show');
   blog('The battle begins!');
   renderBattle();
@@ -1160,16 +1240,16 @@ const TYPE_TRAITS={
 function traitKey(type){return (TYPE_TRAITS[type]||{}).key;}
 function accuracyOf(cost){return Math.max(0.78, 1.04 - 0.045*cost);}
 function defRating(c){let r=Math.min(.25,c.hp/1600);const k=traitKey(c.type);if(k==='sturdy')r+=.18;if(k==='flow')r+=.12;return r>=.30?'High 🛡️🛡️🛡️':r>=.16?'Medium 🛡️🛡️':'Low 🛡️';}
-function computeHit(atkF,atk,defF){
+function computeHit(atkF,atk,defF,force){
   const a=atkF.c,d=defF.c;
-  if(Math.random()>accuracyOf(atk.cost)) return {miss:true};
-  if(traitKey(d.type)==='evade' && Math.random()<0.15) return {miss:true,dodged:true};
+  if(!force && Math.random()>accuracyOf(atk.cost)) return {miss:true};
+  if(!force && traitKey(d.type)==='evade' && Math.random()<0.15) return {miss:true,dodged:true};
   const mult=eff(atkF,defF);
   let dmg=atk.d*lvlMult(atkF.level)*mult;
   dmg*=0.85+Math.random()*0.15;
   let blaze=false; if(traitKey(a.type)==='blaze'){dmg*=1.2;blaze=true;}
   let critChance=0.10+(traitKey(a.type)==='crit'?0.12:0);
-  let crit=false; if(Math.random()<critChance){dmg*=1.6;crit=true;}
+  let crit=false; if(force){dmg*=1.6;crit=true;} else if(Math.random()<critChance){dmg*=1.6;crit=true;}
   let red=Math.min(.25,d.hp/1600); const dk=traitKey(d.type); let guard=false;
   if(dk==='sturdy'){red+=.18;guard=true;} else if(dk==='flow'){red+=.12;guard=true;}
   red=Math.min(.55,red);
@@ -1230,7 +1310,7 @@ function renderBattle(){
        <div class="bench">${benchHTML(battle.p,battle.pa)}</div></div>
    </div>
    ${youTurn?`<div class="eff-hint ${m>1?'sup':m<1?'weak':''}">${m>1?'🔥 Your '+p.c.type+' attacks are SUPER EFFECTIVE on '+c.c.name+'!':m<1?'🛡️ '+p.c.type+' is not very effective on '+c.c.name+'…':'💡 '+c.c.name+"'s weakness is "+c.c.weak+' — hit it for double damage!'}</div><div class="energy-bar">⚡ Energy ${battle.pEnergy}/8</div>`:''}
-   <div class="atk-tray">${youTurn?p.c.atk.map((a,i)=>{const can=battle.pEnergy>=a.cost;return `<button ${can?'':'disabled'} style="background:linear-gradient(180deg,${TYPES[p.c.type].c},rgba(0,0,0,.5))" onclick="playerAttack(${i})">${a.n}<span class="d">💥 ${effDmg(a.d,p.level)}${a.self?' ⚠️-'+effDmg(a.self,p.level):''}</span><span class="cost">⚡${a.cost} · 🎯${Math.round(Math.max(78,104-4.5*a.cost))}%${can?'':' (need '+(a.cost-battle.pEnergy)+')'}</span></button>`;}).join('')+`<button class="charge" onclick="chargeTurn()">⚡ Charge<span class="d">+1 energy</span></button>`:'<div class="waiting">🤖 Rival is attacking…</div>'}</div>
+   <div class="atk-tray">${youTurn?p.c.atk.map((a,i)=>{const can=battle.pEnergy>=a.cost;return `<button ${can?'':'disabled'} style="background:linear-gradient(180deg,${TYPES[p.c.type].c},rgba(0,0,0,.5))" onclick="playerAttack(${i})">${a.n}<span class="d">💥 ${effDmg(a.d,p.level)}${a.self?' ⚠️-'+effDmg(a.self,p.level):''}</span><span class="cost">⚡${a.cost} · 🎯${Math.round(Math.max(78,104-4.5*a.cost))}%${can?'':' (need '+(a.cost-battle.pEnergy)+')'}</span></button>`;}).join('')+(eduOn()?`<button class="focusbtn" onclick="focusCharge()">🧠 Focus<span class="d">+${focusGain()}⚡</span></button>`:'')+`<button class="charge" onclick="chargeTurn()">⚡ Charge<span class="d">+1 energy</span></button>`:'<div class="waiting">🤖 Rival is attacking…</div>'}</div>
    <div class="fxlayer" id="fxLayer"></div>`;
 }
 function playerAttack(i){
@@ -1242,7 +1322,7 @@ function playerAttack(i){
   const tray=document.querySelector('.atk-tray');if(tray)tray.innerHTML='<div class="waiting">\uD83D\uDCA5</div>';
   setTimeout(()=>{
     if(pp)pp.style.transform='';
-    const A=activeP(),D=activeC();const res=computeHit(A,atk,D);
+    const A=activeP(),D=activeC();const _surge=!!(battle&&battle.surge);if(_surge)battle.surge=false;const res=computeHit(A,atk,D,_surge);
     if(res.miss){flash('cpu');popText('cpu',res.dodged?'DODGED!':'MISS!','miss');blog(`${A.c.name}'s ${atk.n} ${res.dodged?'was dodged by '+D.c.name+'!':'missed!'}`);}
     else{D.hp-=res.dmg;flash('cpu');floatDmg('cpu',res.dmg,res.mult,res.crit);
       let x=res.crit?' Critical hit!':res.mult>1?' Super effective!':res.mult<1?' Not very effective…':'';
@@ -1300,12 +1380,17 @@ function afterCpuHit(){
 }
 function endBattle(win){
   battle.phase='ended';const el=document.getElementById('battle');
-  if(win){confetti();const ids=battle.c.map(f=>f.id);
+  if(win){confetti();
+    if(!state.stats)state.stats={};state.stats.wins=(state.stats.wins||0)+1;
+    if(typeof addScholarXP==='function')addScholarXP(20);
+    if(typeof grantCardXp==='function')battle.p.forEach(f=>{grantCardXp(f.id,f.hp>0?45:25);});
+    save();if(typeof checkAchievements==='function')checkAchievements();
+    const ids=battle.c.map(f=>f.id);
     el.insertAdjacentHTML('beforeend',`<div class="battle-result" id="battleResult">
       <h1 class="win-title">\uD83C\uDFC6 YOU WON!</h1>
       <p class="sub">Pick one card to take from the rival's deck:</p>
       <div class="steal-cards">${ids.map(id=>`<div onclick="claimCard('${id}')">${renderCard(CARD_BY_ID[id],{flat:true})}</div>`).join('')}</div></div>`);
-  }else{const lost=Math.min(state.coins,(battle.stake||WAGER));addCoins(-lost,'Lost a battle');
+  }else{if(!state.stats)state.stats={};state.stats.losses=(state.stats.losses||0)+1;save();const lost=Math.min(state.coins,(battle.stake||WAGER));addCoins(-lost,'Lost a battle');
     el.insertAdjacentHTML('beforeend',`<div class="battle-result" id="battleResult">
       <h1 style="color:#ff8a8a">\uD83D\uDE13 Defeated</h1>
       <p class="sub">Your team fainted. You lost <b>${lost} \uD83E\uDE99</b>. Train up and try again!</p>
@@ -1433,6 +1518,24 @@ function renderParent(){
   });
   html+=`<div style="margin-top:8px"><button class="btn ghost" onclick="resetPrices()">↺ Reset all prices to auto</button></div>`;
 
+  // academy controls
+  html+=`<h3 style="margin:20px 0 8px">🎓 Academy (Education)</h3>
+    <p class="sub" style="margin-bottom:8px">Switch on learning questions and pick the year level. Lincoln earns coins, levels up beasts and unlocks special cards by answering ICAS-style questions.</p>
+    <div class="row" style="gap:8px;flex-wrap:wrap">
+      <button class="btn ${eduOn()?'green':'ghost'}" onclick="setEduOn(true)">${eduOn()?'✅ ':''}Academy ON</button>
+      <button class="btn ${!eduOn()?'red':'ghost'}" onclick="setEduOn(false)">${!eduOn()?'✅ ':''}Academy OFF</button>
+    </div>
+    <div class="row" style="gap:8px;margin-top:8px;flex-wrap:wrap;align-items:center">
+      <span class="sub">Year level:</span>
+      <button class="btn ${eduYear()===2?'gold':'ghost'}" onclick="setEduYear(2)">Year 2</button>
+      <button class="btn ${eduYear()===3?'gold':'ghost'}" onclick="setEduYear(3)">Year 3</button>
+    </div>
+    <div class="row" style="gap:8px;margin-top:8px;flex-wrap:wrap;align-items:center">
+      <span class="sub">Subjects:</span>
+      ${["English","Maths","Science"].map(s=>`<button class="btn ${subjOn(s)?'green':'ghost'}" onclick="toggleEduSubj('${s}')">${subjOn(s)?'✅':'⬜'} ${s}</button>`).join('')}
+    </div>
+    <div class="sub" style="margin-top:8px">Scholar Level ${scholarLevel()} · ${state.scholar?state.scholar.correct:0} correct answers · 📘 ${tokens()} tokens</div>`;
+
   // settings + log
   html+=`<h3 style="margin:18px 0 8px">⚙️ Settings</h3>
     <div class="row" style="align-items:flex-end">
@@ -1518,6 +1621,7 @@ function switchTab(tab){
   if(tab==="binder")renderBinder();
   if(tab==="arena")renderArena();
   if(tab==="quests")renderQuests();
+  if(tab==="academy")renderAcademy();
   if(tab==="parent"){if(!parentUnlocked)document.getElementById('pinInput').value="";renderParent();}
 }
 document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>switchTab(b.dataset.tab));
@@ -1536,6 +1640,385 @@ function confetti(){const box=document.createElement('div');box.className="confe
     s.style.animationDelay=(Math.random()*.5)+"s";box.appendChild(s);}
   document.body.appendChild(box);setTimeout(()=>box.remove(),3500);}
 function renderAll(){refreshHeader();renderStore();renderBinder();renderArena();renderQuests();renderParent();}
+
+/* =================== ACADEMY (educational layer) =================== */
+/* Original ICAS-style questions (Year 2 = Introductory, Year 3 = Paper A).
+   y:2 questions are shown to BOTH year levels; y:3 only to Year 3. */
+const QUIZ=[
+/* ---- MATHS ---- */
+{s:"Maths",y:2,q:"A trainer counts coins in fives: 5, 10, 15, 20, __. What comes next?",opts:["21","25","30","50"],a:1,ex:"Counting by 5s: after 20 comes 25."},
+{s:"Maths",y:2,q:"What is the value of the 4 in the number 47?",opts:["4","14","40","400"],a:2,ex:"The 4 is in the tens place, so it means 40."},
+{s:"Maths",y:2,q:"Look at the pattern: ▲ ● ▲ ● ▲ __ . Which shape comes next?",opts:["▲","●","■","★"],a:1,ex:"The pattern alternates triangle, circle — so a circle is next."},
+{s:"Maths",y:2,q:"The arena opens at 3 o'clock. A battle lasts 1 hour. What time does it finish?",opts:["2 o'clock","3 o'clock","4 o'clock","5 o'clock"],a:2,ex:"One hour after 3 o'clock is 4 o'clock."},
+{s:"Maths",y:2,q:"A bag holds 3 red gems and 1 blue gem. You grab one without looking. Which colour are you most likely to get?",opts:["Red","Blue","Both the same","Cannot tell"],a:0,ex:"There are more red gems, so red is most likely."},
+{s:"Maths",y:2,q:"Lincoln has 8 cards. He wins 5 more, then gives 3 to a friend. How many does he have now?",opts:["9","10","11","13"],a:1,ex:"8 + 5 = 13, then 13 − 3 = 10."},
+{s:"Maths",y:2,q:"Each beast has 2 wings. How many wings do 4 beasts have altogether?",opts:["6","8","10","12"],a:1,ex:"4 groups of 2 = 8 wings."},
+{s:"Maths",y:2,q:"A pack costs 60 coins. You pay with 100 coins. How much change do you get?",opts:["30","40","50","60"],a:1,ex:"100 − 60 = 40 coins change."},
+{s:"Maths",y:2,q:"Which is the largest number?",opts:["38","83","33","80"],a:1,ex:"83 is the biggest — it has 8 tens and 3 ones."},
+{s:"Maths",y:2,q:"What is double 9?",opts:["11","16","18","20"],a:2,ex:"Double means add it to itself: 9 + 9 = 18."},
+{s:"Maths",y:3,q:"A pizza is cut into 8 equal slices. You eat 4 of them. What fraction is left?",opts:["One half","One quarter","One eighth","Three quarters"],a:0,ex:"4 out of 8 is left, and 4/8 is the same as one half."},
+{s:"Maths",y:3,q:"24 cards are shared equally among 4 trainers. How many does each trainer get?",opts:["4","6","8","12"],a:1,ex:"24 ÷ 4 = 6 cards each."},
+{s:"Maths",y:3,q:"Each booster pack has 4 cards. How many cards are in 6 booster packs?",opts:["10","18","24","28"],a:2,ex:"6 × 4 = 24 cards."},
+{s:"Maths",y:3,q:"Which 3D shape has 6 square faces?",opts:["Cube","Cylinder","Sphere","Cone"],a:0,ex:"A cube has 6 equal square faces."},
+{s:"Maths",y:3,q:"How many sides does a hexagon have?",opts:["5","6","7","8"],a:1,ex:"A hexagon has 6 sides."},
+{s:"Maths",y:3,q:"A tally chart shows Fire = 5, Water = 3, Grass = 7. Which type has the most cards?",opts:["Fire","Water","Grass","They are equal"],a:2,ex:"Grass has 7, which is the largest count."},
+{s:"Maths",y:3,q:"Which fraction is bigger?",opts:["1/4","1/2","1/8","They are equal"],a:1,ex:"One half is bigger than a quarter or an eighth."},
+{s:"Maths",y:3,q:"A trainer earns 7 coins every day. How many coins after one whole week (7 days)?",opts:["14","42","49","56"],a:2,ex:"7 × 7 = 49 coins."},
+{s:"Maths",y:3,q:"The pattern doubles each time: 2, 4, 8, 16, __ . What comes next?",opts:["18","24","30","32"],a:3,ex:"Each number doubles: 16 × 2 = 32."},
+{s:"Maths",y:3,q:"You share 25 stickers equally between 4 friends. How many are left over?",opts:["0","1","2","3"],a:1,ex:"4 × 6 = 24, so 1 sticker is left over."},
+{s:"Maths",y:3,q:"What is one quarter of 20?",opts:["4","5","10","16"],a:1,ex:"20 ÷ 4 = 5."},
+{s:"Maths",y:3,q:"A clock shows 2:45. The match began at 2:30. How many minutes have passed?",opts:["10","15","20","25"],a:1,ex:"From 2:30 to 2:45 is 15 minutes."},
+/* ---- ENGLISH ---- */
+{s:"English",y:2,q:"Which word is a naming word (a noun)?",opts:["run","happy","dragon","quickly"],a:2,ex:"A noun names a person, place or thing — 'dragon' is a thing."},
+{s:"English",y:2,q:"More than one 'beast' is...",opts:["beastes","beasts","beasties","beast's"],a:1,ex:"Add 's' to make most plurals: beast → beasts."},
+{s:"English",y:2,q:"Choose the joining word: 'I wanted to battle ___ I was too tired.'",opts:["and","but","so","or"],a:1,ex:"'But' joins two ideas that are opposite."},
+{s:"English",y:2,q:"Which word means the OPPOSITE of 'brave'?",opts:["scared","strong","bold","loud"],a:0,ex:"The opposite of brave is scared."},
+{s:"English",y:2,q:"Which word rhymes with 'light'?",opts:["night","lit","let","load"],a:0,ex:"'Night' ends with the same sound as 'light'."},
+{s:"English",y:2,q:"Add 'un' to 'happy'. The new word 'unhappy' means...",opts:["very happy","not happy","happy again","happy now"],a:1,ex:"The prefix 'un' means 'not' — unhappy means not happy."},
+{s:"English",y:3,q:"Read: 'Aqua beasts live near rivers. They drink lots of water and their scales shine when wet.' What is this MOSTLY about?",opts:["How to win a battle","Where aqua beasts live and what they need","A river holiday","How to draw a beast"],a:1,ex:"Both sentences describe aqua beasts and their needs."},
+{s:"English",y:3,q:"'First the egg cracked. Next a tiny beast appeared. Finally it learned to fly.' What happened SECOND?",opts:["The egg cracked","A tiny beast appeared","It learned to fly","It found food"],a:1,ex:"'Next' tells us the second event: a tiny beast appeared."},
+{s:"English",y:3,q:"Choose the correct word: 'Yesterday the hero ___ to the arena.'",opts:["walk","walks","walked","walking"],a:2,ex:"'Yesterday' means past tense, so 'walked' is correct."},
+{s:"English",y:3,q:"Choose the joining word: 'We won the match ___ we trained hard.'",opts:["because","but","or","before"],a:0,ex:"'Because' gives the reason we won."},
+{s:"English",y:3,q:"The beast was ENORMOUS. The word 'enormous' means...",opts:["very small","very big","very fast","very old"],a:1,ex:"'Enormous' means extremely large."},
+{s:"English",y:3,q:"Which sentence is written correctly?",opts:["where is my card?","Where is my card?","Where is my card","where is my card."],a:1,ex:"A sentence starts with a capital letter; a question ends with '?'."},
+{s:"English",y:3,q:"'Sara loves her dragon. ___ feeds it every day.' Which word fits?",opts:["He","She","It","They"],a:1,ex:"Sara is one girl, so we use 'She'."},
+{s:"English",y:3,q:"In 'the shiny card', which word is the describing word (adjective)?",opts:["the","shiny","card","none"],a:1,ex:"'Shiny' describes the card, so it is the adjective."},
+{s:"English",y:3,q:"Read: 'Milo grabbed his umbrella before he left the house.' What was the weather PROBABLY like?",opts:["Sunny","Rainy","Snowy","Windy"],a:1,ex:"People take umbrellas when it is rainy — that's a good clue."},
+{s:"English",y:3,q:"Which word means ALMOST the same as 'fast'?",opts:["quick","slow","heavy","quiet"],a:0,ex:"'Quick' is a synonym for fast."},
+/* ---- SCIENCE ---- */
+{s:"Science",y:2,q:"Which of these is a LIVING thing?",opts:["a rock","a tree","a cup","a coin"],a:1,ex:"A tree grows, needs water and is alive."},
+{s:"Science",y:2,q:"What do plants need to make their own food?",opts:["sunlight","darkness","toys","milk"],a:0,ex:"Plants use sunlight to make their food."},
+{s:"Science",y:2,q:"Which body part do you use to HEAR?",opts:["ears","eyes","nose","hands"],a:0,ex:"We hear sounds with our ears."},
+{s:"Science",y:2,q:"Which material is BEST for an umbrella because it keeps water out?",opts:["paper","plastic","tissue","cotton wool"],a:1,ex:"Plastic is waterproof, so water cannot soak through."},
+{s:"Science",y:2,q:"Which animal is a mammal?",opts:["dog","fish","frog","snake"],a:0,ex:"A dog has fur and feeds its babies milk — that makes it a mammal."},
+{s:"Science",y:3,q:"Which of these gives off BOTH light and heat?",opts:["the Sun","a mirror","the Moon","ice"],a:0,ex:"The Sun makes its own light and heat; a mirror only reflects."},
+{s:"Science",y:3,q:"Water is left in the freezer overnight. What happens to it?",opts:["it freezes into ice","it boils","it disappears","it turns to gas"],a:0,ex:"Cold turns liquid water into solid ice."},
+{s:"Science",y:3,q:"Which comes FIRST in a butterfly's life cycle?",opts:["egg","caterpillar","cocoon","butterfly"],a:0,ex:"A butterfly starts life as an egg."},
+{s:"Science",y:3,q:"Which object will a magnet stick to?",opts:["a steel nail","a wooden stick","a glass marble","a rubber band"],a:0,ex:"Magnets stick to objects made of iron or steel."},
+{s:"Science",y:3,q:"A ball rolls across grass and slowly stops. Which force slowed it down?",opts:["friction","light","sound","magnetism"],a:0,ex:"Friction between the ball and grass slows it down."},
+{s:"Science",y:3,q:"A plant is kept in a dark cupboard for two weeks. What will MOST LIKELY happen?",opts:["it turns yellow and weak","it grows bigger","it flowers","nothing changes"],a:0,ex:"Without light a plant cannot make food, so it turns pale and weak."},
+{s:"Science",y:3,q:"Why are cooking pot handles often made of plastic or wood, not metal?",opts:["they do not get hot quickly","they look nicer","they are heavier","they are magnetic"],a:0,ex:"Plastic and wood do not carry heat well, so the handle stays cool."},
+{s:"Science",y:3,q:"What causes day and night on Earth?",opts:["the Earth spins around","the Sun flies around Earth","clouds cover the Sun","the Moon hides the Sun"],a:0,ex:"Earth spins, so each side takes turns facing the Sun."},
+{s:"Science",y:3,q:"You predict which object will FLOAT on water. Which is most likely to float?",opts:["a wooden block","a metal spoon","a stone","a coin"],a:0,ex:"Light wood floats; heavy, dense objects tend to sink."}
+];
+
+/* ---------- scholar progression ---------- */
+function eduOn(){return !!(state.edu&&state.edu.on);}
+function eduYear(){return (state.edu&&state.edu.year)||2;}
+function subjOn(s){return !!(state.edu&&state.edu.subj&&state.edu.subj[s]);}
+function enabledSubjects(){return ["English","Maths","Science"].filter(subjOn);}
+function scholarXP(){return (state.scholar&&state.scholar.xp)||0;}
+function tokens(){return (state.scholar&&state.scholar.tokens)||0;}
+function xpForLevel(L){return L*120;}            // XP needed to clear level L
+function scholarLevel(){let xp=scholarXP(),L=1;while(xp>=xpForLevel(L)&&L<50){xp-=xpForLevel(L);L++;}return L;}
+function scholarProgress(){let xp=scholarXP(),L=1;while(xp>=xpForLevel(L)&&L<50){xp-=xpForLevel(L);L++;}return {into:xp,need:xpForLevel(L)};}
+function addScholarXP(n){if(!state.scholar)return;state.scholar.xp+=n;}
+function addTokens(n){if(!state.scholar)return;state.scholar.tokens=Math.max(0,state.scholar.tokens+n);}
+
+/* ---------- perks (trainer + scholar) ---------- */
+function startEnergy(){return 3 + (trainerLevel()>=5?1:0) + (scholarLevel()>=4?1:0);}
+function focusGain(){return 2 + (scholarLevel()>=6?1:0);}
+function studyCoinMult(){return scholarLevel()>=3?1.25:1;}
+function PERKS(){return [
+  {have:trainerLevel()>=5, t:"Trainer Lv.5 — Battle Ready", d:"+1 starting energy in every battle"},
+  {have:scholarLevel()>=3, t:"Scholar Lv.3 — Eager Learner", d:"+25% coins from study answers"},
+  {have:scholarLevel()>=4, t:"Scholar Lv.4 — Focused Mind", d:"+1 starting energy in every battle"},
+  {have:scholarLevel()>=6, t:"Scholar Lv.6 — Big Brain", d:"Focus answers give +3 energy instead of +2"}
+];}
+
+/* ---------- battle XP onto cards (roadmap: cards level from winning) ---------- */
+function cardXpNeed(L){return 100+ (L-1)*60;}
+function grantCardXp(id,n){
+  if(!state.cardXp)state.cardXp={};
+  let L=cardLevel(id); if(L>=10)return;
+  state.cardXp[id]=(state.cardXp[id]||0)+n;
+  let leveled=false;
+  while(L<10 && state.cardXp[id]>=cardXpNeed(L)){state.cardXp[id]-=cardXpNeed(L);if(!state.levels)state.levels={};state.levels[id]=L+1;L++;leveled=true;}
+  return leveled;
+}
+
+/* ---------- seasons (limited-edition celestial; academic unlock) ---------- */
+const SEASON_POOL=["astrapios","atlasos","sylvanus","poseidran","anemos","borynar","ignios","vulcaron","erebos","solarius"];
+function seasonId(){const d=new Date();return d.getFullYear()+"-"+(d.getMonth()+1);}
+function seasonInfo(){
+  const d=new Date(); const idx=(d.getFullYear()*12+d.getMonth())%SEASON_POOL.length;
+  const cid=SEASON_POOL[idx];
+  const goal=eduYear()>=3?50:35;
+  const names=["January","February","March","April","May","June","July","August","September","October","November","December"];
+  return {sid:seasonId(), cardId:cid, goal:goal, monthName:names[d.getMonth()]};
+}
+function seasonState(){
+  const inf=seasonInfo();
+  if(!state.season||state.season.sid!==inf.sid){state.season={sid:inf.sid,progress:0,claimed:false};save();}
+  return state.season;
+}
+function seasonBump(){const s=seasonState();s.progress++;save();}
+function claimSeason(){
+  const inf=seasonInfo(); const s=seasonState();
+  if(s.progress<inf.goal)return toast("Keep studying to unlock this season's beast!");
+  if(s.claimed)return toast("Already claimed this month's beast.");
+  addCard(inf.cardId,1); s.claimed=true; save(); confetti();
+  toast("🌙 Limited edition "+CARD_BY_ID[inf.cardId].name+" claimed!");
+  renderAcademy(); renderBinder();
+}
+
+/* ---------- achievements ---------- */
+function sStat(k){return (state.stats&&state.stats[k])||0;}
+function subjCorrect(s){return (state.scholar&&state.scholar.perSubj&&state.scholar.perSubj[s])?state.scholar.perSubj[s].c:0;}
+function ownsAnyCelestial(){return CARDS.some(c=>c.rarity==="CELESTIAL"&&ownCount(c.id)>0);}
+const ACH=[
+  {id:"first_win",ic:"🥇",t:"First Victory",d:"Win your first battle",r:25,test:()=>sStat("wins")>=1},
+  {id:"wins_10",ic:"🏆",t:"Arena Champ",d:"Win 10 battles",r:60,test:()=>sStat("wins")>=10},
+  {id:"col_25",ic:"📒",t:"Collector",d:"Own 25 different cards",r:30,test:()=>uniqueOwned()>=25},
+  {id:"col_50",ic:"📚",t:"Curator",d:"Own 50 different cards",r:60,test:()=>uniqueOwned()>=50},
+  {id:"col_100",ic:"🗂️",t:"Master Collector",d:"Own 100 different cards",r:120,test:()=>uniqueOwned()>=100},
+  {id:"celest",ic:"🌟",t:"Touched by Gods",d:"Own a Celestial card",r:100,test:ownsAnyCelestial},
+  {id:"math_25",ic:"🔢",t:"Maths Whiz",d:"Answer 25 maths questions right",r:40,test:()=>subjCorrect("Maths")>=25},
+  {id:"math_100",ic:"➗",t:"Number Ninja",d:"Answer 100 maths questions right",r:100,test:()=>subjCorrect("Maths")>=100},
+  {id:"eng_25",ic:"📖",t:"Bookworm",d:"Answer 25 English questions right",r:40,test:()=>subjCorrect("English")>=25},
+  {id:"eng_100",ic:"✍️",t:"Word Wizard",d:"Answer 100 English questions right",r:100,test:()=>subjCorrect("English")>=100},
+  {id:"sci_25",ic:"🔬",t:"Lab Coat",d:"Answer 25 science questions right",r:40,test:()=>subjCorrect("Science")>=25},
+  {id:"sci_100",ic:"🧪",t:"Mad Scientist",d:"Answer 100 science questions right",r:100,test:()=>subjCorrect("Science")>=100},
+  {id:"streak_3",ic:"🔥",t:"On a Roll",d:"Study 3 days in a row",r:30,test:()=>sStat("bestStreak")>=3},
+  {id:"streak_7",ic:"⚡",t:"Study Streak",d:"Study 7 days in a row",r:80,test:()=>sStat("bestStreak")>=7},
+  {id:"surge",ic:"🧠",t:"Brain Surge",d:"Trigger a Brain Surge in battle",r:30,test:()=>sStat("surges")>=1},
+  {id:"flawless",ic:"💯",t:"Flawless Round",d:"Get 5/5 in a study round",r:50,test:()=>sStat("flawless")>=1},
+  {id:"scholar_5",ic:"🎓",t:"Honour Roll",d:"Reach Scholar Level 5",r:75,test:()=>scholarLevel()>=5}
+];
+function checkAchievements(){
+  if(!state.ach)state.ach={};
+  ACH.forEach(a=>{ if(!state.ach[a.id] && a.test()){ state.ach[a.id]=Date.now(); addCoins(a.r,"Achievement: "+a.t); toast(a.ic+" Achievement unlocked: "+a.t+" (+"+a.r+" 🪙)"); } });
+  save();
+}
+
+/* ---------- recording an answer ---------- */
+function bumpStreakDay(){
+  const today=new Date().toDateString();
+  if(!state.scholar)return;
+  if(state.scholar.lastStudyDay===today)return;
+  const y=new Date(Date.now()-86400000).toDateString();
+  state.scholar.streakDays = (state.scholar.lastStudyDay===y)?(state.scholar.streakDays+1):1;
+  state.scholar.lastStudyDay=today;
+  if(!state.stats)state.stats={};
+  state.stats.bestStreak=Math.max(state.stats.bestStreak||0,state.scholar.streakDays);
+}
+function recordAnswer(correct,subj){
+  if(!state.scholar)return;
+  state.scholar.answered++;
+  if(!state.scholar.perSubj[subj])state.scholar.perSubj[subj]={a:0,c:0};
+  state.scholar.perSubj[subj].a++;
+  if(correct){
+    state.scholar.correct++;
+    state.scholar.perSubj[subj].c++;
+    bumpStreakDay();
+    const xp=10 + Math.min(8,(state.scholar.streakDays||1)*2);
+    addScholarXP(xp);
+    const coins=Math.round((3+Math.floor(Math.random()*3))*studyCoinMult());
+    addCoins(coins,"Study: correct "+subj+" answer");
+    // tokens: 1 every 5 correct answers
+    if(state.scholar.correct % 5 === 0) addTokens(1);
+    seasonBump();
+  }
+  save(); checkAchievements();
+}
+
+/* ---------- question picker (avoids recent repeats) ---------- */
+function pickQuestion(subj){
+  const yr=eduYear();
+  let pool=QUIZ.filter((qq,i)=>qq.y<=yr && (subj==="Mixed"?subjOn(qq.s):qq.s===subj));
+  if(!pool.length)pool=QUIZ.filter(qq=>qq.y<=yr);
+  const recent=(state.scholar&&state.scholar.recent)||[];
+  let fresh=pool.filter(qq=>!recent.includes(QUIZ.indexOf(qq)));
+  if(fresh.length<1)fresh=pool;
+  const chosen=fresh[Math.floor(Math.random()*fresh.length)];
+  const gi=QUIZ.indexOf(chosen);
+  if(state.scholar){state.scholar.recent=[gi].concat(recent).slice(0,16);}
+  return chosen;
+}
+
+/* =================== ACADEMY TAB UI =================== */
+let acadSubj="Mixed";
+function renderAcademy(){
+  const box=document.getElementById('academyBody'); if(!box)return;
+  if(!eduOn()){
+    box.innerHTML=`<div class="acad-gate"><div class="ic">🎓</div><h2>AURABEASTS Academy</h2>
+      <p class="sub">A grown-up can switch on Academy in the <b>Parent Panel</b> and choose Year 2 or Year 3. Then answer questions to earn coins, power up your beasts and unlock special cards!</p></div>`;
+    return;
+  }
+  const pr=scholarProgress(); const inf=seasonInfo(); const ss=seasonState();
+  let html="";
+  // header card
+  html+=`<div class="acad-hero">
+    <div class="acad-hero-top"><span class="acad-lv">🎓 Scholar Lv.${scholarLevel()}</span>
+      <span class="acad-chip">📘 ${tokens()} tokens</span></div>
+    <div class="xpbar"><div class="xpfill" style="width:${Math.round(pr.into/pr.need*100)}%"></div></div>
+    <div class="acad-sub">${pr.into} / ${pr.need} XP to next level · Year ${eduYear()}</div></div>`;
+
+  // practice
+  const subs=["Mixed"].concat(enabledSubjects());
+  html+=`<h3 class="acad-h">📝 Practice</h3>
+    <div class="chiprow">${subs.map(s=>`<button class="subchip ${acadSubj===s?'on':''}" onclick="setAcadSubj('${s}')">${s==='Mixed'?'🎲 Mixed':(s==='Maths'?'🔢 Maths':s==='English'?'📖 English':'🔬 Science')}</button>`).join('')}</div>
+    <button class="btn gold big" onclick="startRound()">▶ Start a 5-question round</button>`;
+
+  // training tokens
+  html+=`<h3 class="acad-h">📘 Power Up a Beast</h3>
+    <p class="sub">Spend a Training Token to level up <b>any</b> card by +1 — no duplicate needed.</p>
+    <button class="btn ${tokens()>0?'green':'ghost'}" ${tokens()>0?'':'disabled'} onclick="openTokenSpend()">Use a Training Token (${tokens()} left)</button>`;
+
+  // mastery
+  html+=`<h3 class="acad-h">📊 My Mastery</h3>`;
+  ["English","Maths","Science"].forEach(s=>{
+    if(!subjOn(s))return;
+    const ps=(state.scholar.perSubj&&state.scholar.perSubj[s])||{a:0,c:0};
+    const pct=ps.a?Math.round(ps.c/ps.a*100):0;
+    html+=`<div class="mastery"><div class="mlabel">${s} <span>${ps.c}/${ps.a} right (${pct}%)</span></div>
+      <div class="mbar"><div class="mfill" style="width:${pct}%"></div></div></div>`;
+  });
+  html+=`<div class="acad-streak">🔥 Study streak: <b>${(state.scholar.streakDays||0)}</b> day${(state.scholar.streakDays===1)?'':'s'}</div>`;
+
+  // season
+  const sc=CARD_BY_ID[inf.cardId];
+  const done=ss.progress>=inf.goal;
+  html+=`<h3 class="acad-h">🌙 ${inf.monthName} Season — Limited Edition</h3>
+    <div class="season-card">
+      <img src="${ART[inf.cardId]}" alt="">
+      <div class="season-info"><div class="season-name">${sc?sc.name:''}</div>
+        <div class="sub">Answer <b>${inf.goal}</b> questions correctly this month to unlock this Celestial.</div>
+        <div class="mbar"><div class="mfill gold" style="width:${Math.min(100,Math.round(ss.progress/inf.goal*100))}%"></div></div>
+        <div class="sub">${Math.min(ss.progress,inf.goal)} / ${inf.goal}</div>
+        <button class="btn ${done&&!ss.claimed?'gold':'ghost'}" ${done&&!ss.claimed?'':'disabled'} onclick="claimSeason()">${ss.claimed?'✓ Claimed this month':done?'🎁 Claim now!':'🔒 Locked'}</button>
+      </div></div>`;
+
+  // perks
+  html+=`<h3 class="acad-h">⭐ Perks</h3>`;
+  PERKS().forEach(p=>{html+=`<div class="perk ${p.have?'on':''}"><span class="perk-ic">${p.have?'✅':'🔒'}</span><div><b>${p.t}</b><div class="sub">${p.d}</div></div></div>`;});
+
+  // achievements
+  const got=ACH.filter(a=>state.ach&&state.ach[a.id]).length;
+  html+=`<h3 class="acad-h">🏆 Achievements <span class="sub">(${got}/${ACH.length})</span></h3><div class="achgrid">`;
+  ACH.forEach(a=>{const u=state.ach&&state.ach[a.id];
+    html+=`<div class="achcard ${u?'on':''}"><div class="ach-ic">${u?a.ic:'🔒'}</div><div class="ach-t">${a.t}</div><div class="ach-d">${a.d}</div><div class="ach-r">+${a.r} 🪙</div></div>`;});
+  html+=`</div>`;
+
+  box.innerHTML=html;refreshHeader();
+}
+function setAcadSubj(s){acadSubj=s;renderAcademy();}
+
+/* ---------- study round flow ---------- */
+let roundState=null;
+function startRound(){
+  roundState={subj:acadSubj,idx:0,correct:0,total:5,answered:false};
+  showRoundQ();
+}
+function showRoundQ(){
+  const q=pickQuestion(roundState.subj); roundState.q=q; roundState.answered=false;
+  openModal(`<div class="quizwrap">
+    <div class="quiz-top"><span class="quiz-prog">Question ${roundState.idx+1} of ${roundState.total}</span>
+      <span class="quiz-sub">${q.s} · Year ${eduYear()}</span></div>
+    <div class="quiz-q">${q.q}</div>
+    <div class="quiz-opts" id="quizOpts">${q.opts.map((o,i)=>`<button class="quiz-opt" onclick="answerRound(${i})">${o}</button>`).join('')}</div>
+    <div class="quiz-fb" id="quizFb"></div>
+  </div>`);
+}
+function answerRound(i){
+  if(roundState.answered)return; roundState.answered=true;
+  const q=roundState.q; const right=(i===q.a);
+  if(right)roundState.correct++;
+  recordAnswer(right,q.s);
+  document.querySelectorAll('#quizOpts .quiz-opt').forEach((b,bi)=>{
+    b.disabled=true;
+    if(bi===q.a)b.classList.add('correct');
+    else if(bi===i)b.classList.add('wrong');
+  });
+  const fb=document.getElementById('quizFb');
+  if(fb)fb.innerHTML=`<div class="fb-line ${right?'ok':'no'}">${right?'✅ Correct!':'❌ Not quite.'}</div>
+    <div class="fb-ex">${q.ex}</div>
+    <button class="btn gold" onclick="nextRound()">${roundState.idx+1>=roundState.total?'See results':'Next question →'}</button>`;
+  refreshHeader();
+}
+function nextRound(){
+  roundState.idx++;
+  if(roundState.idx>=roundState.total)return endRound();
+  showRoundQ();
+}
+function endRound(){
+  if(roundState.correct===roundState.total){if(!state.stats)state.stats={};state.stats.flawless=(state.stats.flawless||0)+1;save();checkAchievements();}
+  const c=roundState.correct;
+  openModal(`<div class="quizwrap" style="text-align:center">
+    <h2>${c===5?'💯 Flawless!':c>=3?'🎉 Great job!':'👍 Keep going!'}</h2>
+    <div class="round-score">${c} / ${roundState.total}</div>
+    <p class="sub">You earned coins and Scholar XP. ${c>=1?'Beasts are getting stronger!':''}</p>
+    <div class="row" style="justify-content:center;gap:8px;flex-wrap:wrap">
+      <button class="btn gold" onclick="closeModal();startRound()">▶ Another round</button>
+      <button class="btn ghost" onclick="closeModal();renderAcademy()">Done</button></div>
+  </div>`);
+  roundState=null;
+}
+
+/* ---------- spend a training token ---------- */
+function openTokenSpend(){
+  if(tokens()<=0)return toast("No tokens yet — answer questions to earn them!");
+  const owned=CARDS.filter(c=>ownCount(c.id)>0 && cardLevel(c.id)<10).sort((a,b)=>a.num-b.num);
+  if(!owned.length)return toast("All your cards are max level!");
+  openModal(`<button class="x" onclick="closeModal()">×</button><h2>📘 Power Up a Beast</h2>
+    <p class="sub">Pick a card to raise by +1 level (costs 1 token).</p>
+    <div class="grid">${owned.map(c=>`<div onclick="spendToken('${c.id}')">${renderCard(c,{flat:true})}<div class="tok-lv">Lv.${cardLevel(c.id)} → ${cardLevel(c.id)+1}</div></div>`).join('')}</div>`);
+}
+function spendToken(id){
+  if(tokens()<=0)return toast("No tokens left");
+  if(cardLevel(id)>=10)return toast("Already max level");
+  addTokens(-1);
+  if(!state.levels)state.levels={};
+  state.levels[id]=cardLevel(id)+1; save(); confetti();
+  toast("📘 "+CARD_BY_ID[id].name+" powered up to Lv."+cardLevel(id)+"!");
+  closeModal(); renderAcademy(); renderBinder(); refreshHeader();
+}
+
+/* =================== BATTLE FOCUS (in-fight quiz) =================== */
+function focusCharge(){
+  if(!battle||battle.phase!=='player')return;
+  const q=pickQuestion("Mixed"); battle._fq=q;
+  const ov=document.getElementById('focusOverlay'); 
+  ov.innerHTML=`<div class="focus-modal">
+    <div class="focus-title">🧠 Focus! Answer to charge up</div>
+    <div class="focus-q">${q.q}</div>
+    <div class="focus-opts" id="focusOpts">${q.opts.map((o,i)=>`<button class="quiz-opt" onclick="focusAnswer(${i})">${o}</button>`).join('')}</div>
+    <div class="focus-fb" id="focusFb"></div></div>`;
+  ov.classList.add('show');
+}
+function focusAnswer(i){
+  const q=battle._fq; if(!q)return; const right=(i===q.a);
+  recordAnswer(right,q.s);
+  document.querySelectorAll('#focusOpts .quiz-opt').forEach((b,bi)=>{b.disabled=true;if(bi===q.a)b.classList.add('correct');else if(bi===i)b.classList.add('wrong');});
+  let msg;
+  if(right){
+    const g=focusGain(); battle.pEnergy=Math.min(8,battle.pEnergy+g);
+    battle.focusStreak=(battle.focusStreak||0)+1;
+    msg=`✅ Correct! +${g} energy.`;
+    if(battle.focusStreak>=3){battle.surge=true;battle.focusStreak=0;if(!state.stats)state.stats={};state.stats.surges=(state.stats.surges||0)+1;save();checkAchievements();msg+=" 🧠 BRAIN SURGE — your next attack is a guaranteed CRITICAL!";}
+  } else {
+    battle.pEnergy=Math.min(8,battle.pEnergy+1); battle.focusStreak=0;
+    msg=`❌ Close! The answer was "${q.opts[q.a]}". +1 energy anyway.`;
+  }
+  const fb=document.getElementById('focusFb');
+  if(fb)fb.innerHTML=`<div class="fb-line ${right?'ok':'no'}">${msg}</div><div class="fb-ex">${q.ex}</div><button class="btn gold" onclick="closeFocus()">Continue ⚔️</button>`;
+}
+function closeFocus(){
+  const ov=document.getElementById('focusOverlay'); ov.classList.remove('show'); ov.innerHTML='';
+  battle.phase='busy';
+  blog(`${activeP().c.name} focused and charged up!`); updateTicker();
+  const tray=document.querySelector('.atk-tray'); if(tray)tray.innerHTML='<div class="waiting">🧠⚡</div>';
+  setTimeout(afterPlayerHit,650);
+}
+
+/* ---------- parent controls ---------- */
+function setEduOn(v){if(!state.edu)state.edu={year:2,subj:{English:true,Maths:true,Science:true}};state.edu.on=!!v;save();refreshHeader();renderParent();toast('Academy '+(v?'ON':'OFF'));}
+function setEduYear(y){if(!state.edu)return;state.edu.year=y;save();renderParent();toast('Year level set to '+y);}
+function toggleEduSubj(s){if(!state.edu)return;if(!state.edu.subj)state.edu.subj={English:true,Maths:true,Science:true};const on=Object.values(state.edu.subj).filter(Boolean).length;if(state.edu.subj[s]&&on<=1)return toast('Keep at least one subject switched on');state.edu.subj[s]=!state.edu.subj[s];save();renderParent();}
+
+/* ---------- ensure in-battle focus overlay element exists ---------- */
+(function(){try{if(typeof document!=='undefined'&&document.body&&!document.getElementById('focusOverlay')){var d=document.createElement('div');d.id='focusOverlay';d.className='focus-overlay';document.body.appendChild(d);}}catch(e){}})();
+
 
 /* =================== BOOT =================== */
 load();renderAll();
