@@ -759,7 +759,7 @@ let state;
 function freshState(){return{coins:150,collection:{},levels:{},tasks:JSON.parse(JSON.stringify(DEFAULT_TASKS)),
   pending:[],log:[],parentPin:"0811",motion:false,priceOverrides:{},arenaLockUntil:0,lastGift:0,
   edu:{on:false,year:2,subj:{English:true,Maths:true,Science:true}},
-  scholar:{xp:0,tokens:0,answered:0,correct:0,perSubj:{English:{a:0,c:0},Maths:{a:0,c:0},Science:{a:0,c:0}},streakDays:0,lastStudyDay:"",recent:[]},
+  scholar:{xp:0,tokens:0,answered:0,correct:0,perSubj:{English:{a:0,c:0},Maths:{a:0,c:0},Science:{a:0,c:0}},streakDays:0,lastStudyDay:"",recent:[],masteredQ:{},prize:{}},
   cardXp:{},ach:{},season:null,stats:{wins:0,losses:0,surges:0,flawless:0,bestStreak:0}};}
 function load(){
   try{const s=JSON.parse(localStorage.getItem(SAVE_KEY));
@@ -770,7 +770,7 @@ function load(){
       state.priceOverrides=s.priceOverrides||{};state.arenaLockUntil=s.arenaLockUntil||0;
       state.levels=s.levels||{};state.lastGift=s.lastGift||0;
       state.edu=Object.assign({on:false,year:2,subj:{English:true,Maths:true,Science:true}},s.edu||{});if(!state.edu.subj)state.edu.subj={English:true,Maths:true,Science:true};
-      state.scholar=Object.assign({xp:0,tokens:0,answered:0,correct:0,perSubj:{English:{a:0,c:0},Maths:{a:0,c:0},Science:{a:0,c:0}},streakDays:0,lastStudyDay:"",recent:[]},s.scholar||{});if(!state.scholar.perSubj)state.scholar.perSubj={};["English","Maths","Science"].forEach(k=>{if(!state.scholar.perSubj[k])state.scholar.perSubj[k]={a:0,c:0};});if(!Array.isArray(state.scholar.recent))state.scholar.recent=[];
+      state.scholar=Object.assign({xp:0,tokens:0,answered:0,correct:0,perSubj:{English:{a:0,c:0},Maths:{a:0,c:0},Science:{a:0,c:0}},streakDays:0,lastStudyDay:"",recent:[]},s.scholar||{});if(!state.scholar.perSubj)state.scholar.perSubj={};["English","Maths","Science"].forEach(k=>{if(!state.scholar.perSubj[k])state.scholar.perSubj[k]={a:0,c:0};});if(!Array.isArray(state.scholar.recent))state.scholar.recent=[];if(!state.scholar.masteredQ)state.scholar.masteredQ={};if(!state.scholar.prize)state.scholar.prize={};
       state.cardXp=s.cardXp||{};state.ach=s.ach||{};state.season=s.season||null;
       state.stats=Object.assign({wins:0,losses:0,surges:0,flawless:0,bestStreak:0},s.stats||{});}
   }catch(e){state=freshState();}
@@ -1895,29 +1895,34 @@ function grantCardXp(id,n){
 }
 
 /* ---------- seasons (limited-edition celestial; academic unlock) ---------- */
-const SEASON_POOL=["astrapios","atlasos","sylvanus","poseidran","anemos","borynar","ignios","vulcaron","erebos","solarius"];
-function seasonId(){const d=new Date();return d.getFullYear()+"-"+(d.getMonth()+1);}
-function seasonInfo(){
-  const d=new Date(); const idx=(d.getFullYear()*12+d.getMonth())%SEASON_POOL.length;
-  const cid=SEASON_POOL[idx];
-  const goal=eduYear()>=3?50:35;
-  const names=["January","February","March","April","May","June","July","August","September","October","November","December"];
-  return {sid:seasonId(), cardId:cid, goal:goal, monthName:names[d.getMonth()]};
+/* ---------- Scholar Grand Prize: a GIGA earned by mastering ALL of a year's questions ---------- */
+const GIGA_POOL=["gigamagmaw","gigaglaciowl","gigathornmaw","gigatempestrike","gigaglaciathan","gigapyroclast","gigaaurelynx","gigastonehorn","gigablazehound","gigatsunamaw","gigastormraptor","giganocturnyx","gigacrysthart","gigablazequill","gigavinelash"];
+function yearQuestions(){const y=eduYear();return QUIZ.filter(q=>q.y===y);}
+function yearTotal(){return yearQuestions().length;}
+function masteredCount(){const mq=(state.scholar&&state.scholar.masteredQ)||{};return yearQuestions().filter(q=>mq[q.q]).length;}
+function markMastered(q){if(!state.scholar)return;if(!state.scholar.masteredQ)state.scholar.masteredQ={};if(q&&!state.scholar.masteredQ[q.q])state.scholar.masteredQ[q.q]=1;}
+function prizeForYear(){
+  const y=eduYear(); if(!state.scholar.prize)state.scholar.prize={};
+  if(!state.scholar.prize[y]){
+    const otherY=(y===2?3:2);
+    const taken=(state.scholar.prize[otherY]&&state.scholar.prize[otherY].id)||null;
+    let pool=GIGA_POOL.filter(id=>CARD_BY_ID[id]&&id!==taken);
+    let unowned=pool.filter(id=>ownCount(id)===0);
+    let pick=(unowned.length?unowned:pool);
+    const id=pick[Math.floor(Math.random()*pick.length)];
+    state.scholar.prize[y]={id:id,claimed:false}; save();
+  }
+  return state.scholar.prize[y];
 }
-function seasonState(){
-  const inf=seasonInfo();
-  if(!state.season||state.season.sid!==inf.sid){state.season={sid:inf.sid,progress:0,claimed:false};save();}
-  return state.season;
+function claimPrize(){
+  const y=eduYear(); const p=prizeForYear();
+  if(masteredCount()<yearTotal())return toast("Master all "+yearTotal()+" Year "+y+" questions to unlock the Grand Prize!");
+  if(p.claimed)return toast("You've already claimed the Year "+y+" Grand Prize.");
+  addCard(p.id,1); p.claimed=true; save(); confetti();
+  toast("🏅 Grand Prize unlocked: "+CARD_BY_ID[p.id].name+" (GIGA)!");
+  renderAcademy(); renderBinder(); refreshHeader();
 }
-function seasonBump(){const s=seasonState();s.progress++;save();}
-function claimSeason(){
-  const inf=seasonInfo(); const s=seasonState();
-  if(s.progress<inf.goal)return toast("Keep studying to unlock this season's beast!");
-  if(s.claimed)return toast("Already claimed this month's beast.");
-  addCard(inf.cardId,1); s.claimed=true; save(); confetti();
-  toast("🌙 Limited edition "+CARD_BY_ID[inf.cardId].name+" claimed!");
-  renderAcademy(); renderBinder();
-}
+
 
 /* ---------- achievements ---------- */
 function sStat(k){return (state.stats&&state.stats[k])||0;}
@@ -1974,7 +1979,6 @@ function recordAnswer(correct,subj){
     addCoins(coins,"Study: correct "+subj+" answer");
     // tokens: 1 every 5 correct answers
     if(state.scholar.correct % 5 === 0) addTokens(1);
-    seasonBump();
   }
   save(); checkAchievements();
 }
@@ -2002,7 +2006,7 @@ function renderAcademy(){
       <p class="sub">A grown-up can switch on Academy in the <b>Parent Panel</b> and choose Year 2 or Year 3. Then answer questions to earn coins, power up your beasts and unlock special cards!</p></div>`;
     return;
   }
-  const pr=scholarProgress(); const inf=seasonInfo(); const ss=seasonState();
+  const pr=scholarProgress();
   let html="";
   // header card
   html+=`<div class="acad-hero">
@@ -2034,16 +2038,15 @@ function renderAcademy(){
   html+=`<div class="acad-streak">🔥 Study streak: <b>${(state.scholar.streakDays||0)}</b> day${(state.scholar.streakDays===1)?'':'s'}</div>`;
 
   // season
-  const sc=CARD_BY_ID[inf.cardId];
-  const done=ss.progress>=inf.goal;
-  html+=`<h3 class="acad-h">🌙 ${inf.monthName} Season — Limited Edition</h3>
+  const p=prizeForYear(); const pc=CARD_BY_ID[p.id]; const mc=masteredCount(); const tot=yearTotal(); const pdone=mc>=tot;
+  html+=`<h3 class="acad-h">🏅 Scholar's Grand Prize</h3>
     <div class="season-card">
-      <img src="${ART[inf.cardId]}" alt="">
-      <div class="season-info"><div class="season-name">${sc?sc.name:''}</div>
-        <div class="sub">Answer <b>${inf.goal}</b> questions correctly this month to unlock this Celestial.</div>
-        <div class="mbar"><div class="mfill gold" style="width:${Math.min(100,Math.round(ss.progress/inf.goal*100))}%"></div></div>
-        <div class="sub">${Math.min(ss.progress,inf.goal)} / ${inf.goal}</div>
-        <button class="btn ${done&&!ss.claimed?'gold':'ghost'}" ${done&&!ss.claimed?'':'disabled'} onclick="claimSeason()">${ss.claimed?'✓ Claimed this month':done?'🎁 Claim now!':'🔒 Locked'}</button>
+      <img src="${ART[p.id]}" alt="">
+      <div class="season-info"><div class="season-name">${pc?pc.name:''} <span class="sub">· GIGA</span></div>
+        <div class="sub">Master <b>all ${tot}</b> Year ${eduYear()} questions (get each one right at least once) to earn this GIGA beast. Celestials stay rare — they can't be won here!</div>
+        <div class="mbar"><div class="mfill gold" style="width:${Math.round(mc/tot*100)}%"></div></div>
+        <div class="sub">${mc} / ${tot} questions mastered</div>
+        <button class="btn ${pdone&&!p.claimed?'gold':'ghost'}" ${pdone&&!p.claimed?'':'disabled'} onclick="claimPrize()">${p.claimed?'✓ Grand Prize claimed':pdone?'🎁 Claim your GIGA!':'🔒 Locked'}</button>
       </div></div>`;
 
   // perks
@@ -2080,7 +2083,7 @@ function showRoundQ(){
 function answerRound(i){
   if(roundState.answered)return; roundState.answered=true;
   const q=roundState.q; const right=(i===q.a);
-  if(right)roundState.correct++;
+  if(right){roundState.correct++; markMastered(q);}
   recordAnswer(right,q.s);
   document.querySelectorAll('#quizOpts .quiz-opt').forEach((b,bi)=>{
     b.disabled=true;
@@ -2145,6 +2148,7 @@ function focusCharge(){
 }
 function focusAnswer(i){
   const q=battle._fq; if(!q)return; const right=(i===q.a);
+  if(right)markMastered(q);
   recordAnswer(right,q.s);
   document.querySelectorAll('#focusOpts .quiz-opt').forEach((b,bi)=>{b.disabled=true;if(bi===q.a)b.classList.add('correct');else if(bi===i)b.classList.add('wrong');});
   let msg;
