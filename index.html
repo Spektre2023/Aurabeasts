@@ -355,6 +355,16 @@ textarea{min-height:90px;resize:vertical}
 .glitz.celestial::before{width:60%;background:linear-gradient(90deg,transparent,rgba(255,240,180,.85),rgba(255,255,255,.92),rgba(255,225,130,.85),transparent);animation-duration:2.1s}
 .glitz.celestial::after{animation-duration:1.05s;filter:drop-shadow(0 0 3px #ffe9a8)}
 
+.card.cosmic{animation:cosmicpulse 2.3s ease-in-out infinite}
+@keyframes cosmicpulse{0%,100%{box-shadow:0 0 0 2px #c061ff,0 0 18px rgba(192,97,255,.65),0 0 34px rgba(150,80,255,.4)}50%{box-shadow:0 0 0 3px #e4b3ff,0 0 32px rgba(192,97,255,.95),0 0 64px rgba(150,80,255,.6)}}
+.card.cosmic .rbadge{background:linear-gradient(90deg,#8a2be2,#c061ff,#ff6bd6)!important;color:#fff}
+.glitz.cosmic::before{width:60%;background:linear-gradient(90deg,transparent,rgba(192,97,255,.7),rgba(255,255,255,.9),rgba(120,180,255,.7),transparent);animation-duration:2.0s}
+.glitz.cosmic::after{animation-duration:1.0s;filter:drop-shadow(0 0 3px #e4b3ff)}
+.card.titan{animation:titanpulse 2.8s ease-in-out infinite}
+@keyframes titanpulse{0%,100%{box-shadow:0 0 0 3px #41e6d4,0 0 20px rgba(65,230,212,.6),0 0 40px rgba(60,200,255,.4)}50%{box-shadow:0 0 0 4px #a8fff2,0 0 40px rgba(65,230,212,.95),0 0 80px rgba(60,200,255,.65)}}
+.card.titan .rbadge{background:linear-gradient(90deg,#1fd1c0,#41e6d4,#9ad0ff)!important;color:#06201d}
+.glitz.titan::before{width:68%;background:linear-gradient(90deg,transparent,rgba(65,230,212,.8),rgba(255,255,255,.95),rgba(154,208,255,.8),transparent);animation-duration:1.7s}
+.glitz.titan::after{animation-duration:.85s;filter:drop-shadow(0 0 4px #a8fff2)}
 /* ===== Academy styles ===== */
 nav button{font-size:12.5px;padding:9px 2px}
 nav button .ic{font-size:18px}
@@ -558,7 +568,7 @@ nav button .ic{font-size:18px}
 
 <script>
 /* =================== ART (injected) =================== */
-const ART = {"sparkit": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/sparkit.jpg", "pebblepup": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/pebblepup.jpg", "sprigling": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/sprigling.jpg", "puddlet": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/puddlet.jpg", "gustling": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gustling.jpg", "frostfawn": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/frostfawn.jpg", "bramblebuck": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/bramblebuck.jpg", "tidewhisker": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/tidewhisker.jpg", "cinderquill": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/cinderquill.jpg", "stonehorn": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/stonehorn.jpg", "voltcrest": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/voltcrest.jpg", "mirefang": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/mirefang.jpg", "glaciowl": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/glaciowl.jpg", "aurelynx": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/aurelynx.jpg", "tempestrike": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/tempestrike.jpg", "thornmaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/thornmaw.jpg", "glaciathan": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/glaciathan.jpg", "pyroclast": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/pyroclast.jpg", "magmaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/magmaw.jpg", "celestidrake": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/celestidrake.jpg", "flarepup": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/flarepup.jpg", "blazehound": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/blazehound.jpg", "finnow": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/finnow.jpg", "wavetail": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/wavetail.jpg", "tsunamaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/tsunamaw.jpg", "budbun": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/budbun.jpg", "bloomlop": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/bloomlop.jpg", "zaplet": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/zaplet.jpg", "voltic": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/voltic.jpg", "thundron": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/thundron.jpg", "snowkit": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/snowkit.jpg", "glacipaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/glacipaw.jpg", "rocklet": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/rocklet.jpg", "boulderon": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/boulderon.jpg", "shadewisp": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/shadewisp.jpg", "nightmaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/nightmaw.jpg", "lumicub": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/lumicub.jpg", "solarae": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/solarae.jpg", "emberdrake": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/emberdrake.jpg", "aurorath": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/aurorath.jpg", "cindercub": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/cindercub.jpg", "pyrowolf": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/pyrowolf.jpg", "bubblet": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/bubblet.jpg", "coralisk": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/coralisk.jpg", "seedsprout": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/seedsprout.jpg", "leaflynx": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/leaflynx.jpg", "forestguard": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/forestguard.jpg", "sparkfly": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/sparkfly.jpg", "thunderwing": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/thunderwing.jpg", "iciclebit": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/iciclebit.jpg", "frostmane": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/frostmane.jpg", "mudpup": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/mudpup.jpg", "claytitan": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/claytitan.jpg", "gloomling": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gloomling.jpg", "umbrowl": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/umbrowl.jpg", "glowmoth": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/glowmoth.jpg", "prismwing": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/prismwing.jpg", "breezel": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/breezel.jpg", "cyclorin": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/cyclorin.jpg", "cinderling": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/cinderling.jpg", "magmalith": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/magmalith.jpg", "aquadrake": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/aquadrake.jpg", "voidpanther": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/voidpanther.jpg", "seraphwing": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/seraphwing.jpg", "tempestlord": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/tempestlord.jpg", "cryoceros": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/cryoceros.jpg", "verdantitan": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/verdantitan.jpg", "terravore": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/terravore.jpg", "pyrothar": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/pyrothar.jpg", "celestion": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/celestion.jpg", "voltfox": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/voltfox.jpg", "craghound": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/craghound.jpg", "vinelash": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/vinelash.jpg", "splashfin": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/splashfin.jpg", "zephyon": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/zephyon.jpg", "crysthart": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/crysthart.jpg", "blazequill": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/blazequill.jpg", "pearltide": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/pearltide.jpg", "nocturnyx": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/nocturnyx.jpg", "stormraptor": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/stormraptor.jpg", "gigamagmaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigamagmaw.jpg", "gigaglaciowl": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigaglaciowl.jpg", "gigathornmaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigathornmaw.jpg", "gigatempestrike": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigatempestrike.jpg", "gigaglaciathan": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigaglaciathan.jpg", "gigapyroclast": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigapyroclast.jpg", "gigaaurelynx": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigaaurelynx.jpg", "gigastonehorn": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigastonehorn.jpg", "gigablazehound": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigablazehound.jpg", "gigatsunamaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigatsunamaw.jpg", "voidmonarch": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/voidmonarch2.jpg", "leviarch": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/leviarch2.jpg", "gaialord": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gaialord.jpg", "gigastormraptor": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigastormraptor.jpg", "giganocturnyx": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/giganocturnyx.jpg", "gigacrysthart": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigacrysthart.jpg", "gigablazequill": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigablazequill.jpg", "gigavinelash": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigavinelash.jpg", "umbraking": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/umbraking.jpg", "galethron": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/galethron.jpg", "magmara": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/magmara.jpg", "cryowyrm": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/cryowyrm.jpg", "aetherion": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/aetherion2.jpg", "nyxaroth": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/nyxaroth2.jpg", "pyrovornax": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/pyrovornax2.jpg", "glacemortis": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/glacemortis2.jpg", "tempestarch": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/tempestarch2.jpg", "sparklet": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/sparklet.jpg", "dustpup": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/dustpup.jpg", "leafling": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/leafling.jpg", "dewlet": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/dewlet.jpg", "breezling": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/breezling.jpg", "snowflit": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/snowflit.jpg", "cindermouse": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/cindermouse.jpg", "lavapup": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/lavapup.jpg", "sporelet": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/sporelet.jpg", "mistfox": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/mistfox.jpg", "tidepup": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/tidepup.jpg", "sparkfin": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/sparkfin.jpg", "flamekit": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/flamekit.jpg", "frostbun": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/frostbun.jpg", "shadelet": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/shadelet.jpg", "glimmercub": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/glimmercub.jpg", "boulderram": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/boulderram.jpg", "galehawk": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/galehawk.jpg", "magmaram": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/magmaram.jpg", "voltlynx": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/voltlynx.jpg", "titanex": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/titanex.jpg", "borealyn": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/borealyn.jpg", "voltarynn": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/voltarynn.jpg", "cindraxis": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/cindraxis.jpg", "zephyrax": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/zephyrax.jpg", "astrapios": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/astrapios.jpg", "atlasos": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/atlasos.jpg", "sylvanus": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/sylvanus.jpg", "poseidran": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/poseidran.jpg", "anemos": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/anemos.jpg", "borynar": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/borynar.jpg", "ignios": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/ignios.jpg", "vulcaron": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/vulcaron.jpg", "erebos": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/erebos.jpg", "solarius": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/solarius.jpg"};
+const ART = {"sparkit": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/sparkit.jpg", "pebblepup": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/pebblepup.jpg", "sprigling": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/sprigling.jpg", "puddlet": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/puddlet.jpg", "gustling": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gustling.jpg", "frostfawn": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/frostfawn.jpg", "bramblebuck": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/bramblebuck.jpg", "tidewhisker": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/tidewhisker.jpg", "cinderquill": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/cinderquill.jpg", "stonehorn": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/stonehorn.jpg", "voltcrest": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/voltcrest.jpg", "mirefang": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/mirefang.jpg", "glaciowl": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/glaciowl.jpg", "aurelynx": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/aurelynx.jpg", "tempestrike": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/tempestrike.jpg", "thornmaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/thornmaw.jpg", "glaciathan": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/glaciathan.jpg", "pyroclast": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/pyroclast.jpg", "magmaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/magmaw.jpg", "celestidrake": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/celestidrake.jpg", "flarepup": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/flarepup.jpg", "blazehound": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/blazehound.jpg", "finnow": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/finnow.jpg", "wavetail": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/wavetail.jpg", "tsunamaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/tsunamaw.jpg", "budbun": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/budbun.jpg", "bloomlop": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/bloomlop.jpg", "zaplet": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/zaplet.jpg", "voltic": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/voltic.jpg", "thundron": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/thundron.jpg", "snowkit": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/snowkit.jpg", "glacipaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/glacipaw.jpg", "rocklet": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/rocklet.jpg", "boulderon": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/boulderon.jpg", "shadewisp": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/shadewisp.jpg", "nightmaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/nightmaw.jpg", "lumicub": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/lumicub.jpg", "solarae": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/solarae.jpg", "emberdrake": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/emberdrake.jpg", "aurorath": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/aurorath.jpg", "cindercub": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/cindercub.jpg", "pyrowolf": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/pyrowolf.jpg", "bubblet": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/bubblet.jpg", "coralisk": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/coralisk.jpg", "seedsprout": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/seedsprout.jpg", "leaflynx": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/leaflynx.jpg", "forestguard": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/forestguard.jpg", "sparkfly": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/sparkfly.jpg", "thunderwing": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/thunderwing.jpg", "iciclebit": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/iciclebit.jpg", "frostmane": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/frostmane.jpg", "mudpup": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/mudpup.jpg", "claytitan": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/claytitan.jpg", "gloomling": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gloomling.jpg", "umbrowl": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/umbrowl.jpg", "glowmoth": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/glowmoth.jpg", "prismwing": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/prismwing.jpg", "breezel": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/breezel.jpg", "cyclorin": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/cyclorin.jpg", "cinderling": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/cinderling.jpg", "magmalith": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/magmalith.jpg", "aquadrake": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/aquadrake.jpg", "voidpanther": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/voidpanther.jpg", "seraphwing": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/seraphwing.jpg", "tempestlord": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/tempestlord.jpg", "cryoceros": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/cryoceros.jpg", "verdantitan": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/verdantitan.jpg", "terravore": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/terravore.jpg", "pyrothar": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/pyrothar.jpg", "celestion": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/celestion.jpg", "voltfox": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/voltfox.jpg", "craghound": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/craghound.jpg", "vinelash": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/vinelash.jpg", "splashfin": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/splashfin.jpg", "zephyon": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/zephyon.jpg", "crysthart": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/crysthart.jpg", "blazequill": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/blazequill.jpg", "pearltide": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/pearltide.jpg", "nocturnyx": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/nocturnyx.jpg", "stormraptor": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/stormraptor.jpg", "gigamagmaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigamagmaw.jpg", "gigaglaciowl": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigaglaciowl.jpg", "gigathornmaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigathornmaw.jpg", "gigatempestrike": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigatempestrike.jpg", "gigaglaciathan": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigaglaciathan.jpg", "gigapyroclast": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigapyroclast.jpg", "gigaaurelynx": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigaaurelynx.jpg", "gigastonehorn": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigastonehorn.jpg", "gigablazehound": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigablazehound.jpg", "gigatsunamaw": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigatsunamaw.jpg", "voidmonarch": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/voidmonarch2.jpg", "leviarch": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/leviarch2.jpg", "gaialord": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gaialord.jpg", "gigastormraptor": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigastormraptor.jpg", "giganocturnyx": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/giganocturnyx.jpg", "gigacrysthart": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigacrysthart.jpg", "gigablazequill": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigablazequill.jpg", "gigavinelash": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gigavinelash.jpg", "umbraking": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/umbraking.jpg", "galethron": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/galethron.jpg", "magmara": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/magmara.jpg", "cryowyrm": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/cryowyrm.jpg", "aetherion": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/aetherion2.jpg", "nyxaroth": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/nyxaroth2.jpg", "pyrovornax": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/pyrovornax2.jpg", "glacemortis": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/glacemortis2.jpg", "tempestarch": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/tempestarch2.jpg", "sparklet": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/sparklet.jpg", "dustpup": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/dustpup.jpg", "leafling": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/leafling.jpg", "dewlet": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/dewlet.jpg", "breezling": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/breezling.jpg", "snowflit": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/snowflit.jpg", "cindermouse": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/cindermouse.jpg", "lavapup": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/lavapup.jpg", "sporelet": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/sporelet.jpg", "mistfox": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/mistfox.jpg", "tidepup": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/tidepup.jpg", "sparkfin": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/sparkfin.jpg", "flamekit": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/flamekit.jpg", "frostbun": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/frostbun.jpg", "shadelet": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/shadelet.jpg", "glimmercub": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/glimmercub.jpg", "boulderram": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/boulderram.jpg", "galehawk": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/galehawk.jpg", "magmaram": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/magmaram.jpg", "voltlynx": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/voltlynx.jpg", "titanex": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/titanex.jpg", "borealyn": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/borealyn.jpg", "voltarynn": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/voltarynn.jpg", "cindraxis": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/cindraxis.jpg", "zephyrax": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/zephyrax.jpg", "astrapios": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/astrapios.jpg", "atlasos": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/atlasos.jpg", "sylvanus": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/sylvanus.jpg", "poseidran": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/poseidran.jpg", "anemos": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/anemos.jpg", "borynar": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/borynar.jpg", "ignios": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/ignios.jpg", "vulcaron": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/vulcaron.jpg", "erebos": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/erebos.jpg", "solarius": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/solarius.jpg", "nebryx": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/nebryx.jpg", "quasaror": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/quasaror.jpg", "vortheon": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/vortheon.jpg", "pulsaris": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/pulsaris.jpg", "singularis": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/singularis.jpg", "astralisk": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/astralisk.jpg", "cindravox": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/cindravox.jpg", "gravimoth": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/gravimoth.jpg", "abyssion": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/abyssion.jpg", "cosmaranth": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/cosmaranth.jpg", "titanos": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/titanos.jpg", "galaxar": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/galaxar.jpg", "eonyx": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/eonyx.jpg", "colossun": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/colossun.jpg", "oblivar": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/oblivar.jpg", "vastreon": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/vastreon.jpg", "tempestus": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/tempestus.jpg", "verdathor": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/verdathor.jpg", "zephyrant": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/zephyrant.jpg", "pyrgantua": "https://cdn.jsdelivr.net/gh/Spektre2023/Aurabeasts@main/Cards/pyrgantua.jpg"};
 
 /* =================== DATA =================== */
 const TYPES = {
@@ -578,7 +588,9 @@ const RARITY = {
   GIGA:{label:"Giga Form",c:"#ff5470",mult:8.0,weight:4,holo:true},
   APEX:{label:"Apex Beast",c:"#ffd23f",mult:13.0,weight:2,holo:true},
   LEGEND:{label:"Legendary",c:"#a0f0ff",mult:20.0,weight:1,holo:true},
-  CELESTIAL:{label:"Celestial",c:"#ffe08a",mult:24.0,weight:0.5,holo:true}
+  CELESTIAL:{label:"Celestial",c:"#ffe08a",mult:24.0,weight:0.5,holo:true},
+  COSMIC:{label:"Cosmic Giant",c:"#c061ff",mult:32.0,weight:0.25,holo:true},
+  TITAN:{label:"Titan",c:"#41e6d4",mult:42.0,weight:0.1,holo:true}
 };
 // id, name, type, rarity, hp, weak, flavor, attacks[{n,d,cost,self}]
 const CARDS = [
@@ -723,7 +735,27 @@ const CARDS = [
  {id:"ignios",name:"Ignios",type:"Ember",rarity:"CELESTIAL",hp:475,weak:"Aqua",num:139,flavor:"God of Flame. The sun itself bows to his blazing will.",atk:[{n:"Solar Flare",d:185,cost:4},{n:"Cataclysm Inferno",d:345,cost:5}]},
  {id:"vulcaron",name:"Vulcaron",type:"Magma",rarity:"CELESTIAL",hp:500,weak:"Aqua",num:140,flavor:"God of the Forge. His hammer shapes mountains and melts kingdoms.",atk:[{n:"Forge of Creation",d:178,cost:4},{n:"Mountain's End",d:338,cost:5}]},
  {id:"erebos",name:"Erebos",type:"Shadow",rarity:"CELESTIAL",hp:480,weak:"Radiant",num:141,flavor:"God of Night. He wraps the cosmos in endless, starless dark.",atk:[{n:"Veil of Oblivion",d:182,cost:4},{n:"Eternal Eclipse",d:342,cost:5}]},
- {id:"solarius",name:"Solarius",type:"Radiant",rarity:"CELESTIAL",hp:490,weak:"Shadow",num:142,flavor:"God of the Sun and king of the gods. His light is the dawn of creation.",atk:[{n:"Dawn's Decree",d:185,cost:4},{n:"Big Bang Genesis",d:350,cost:5}]}
+ {id:"solarius",name:"Solarius",type:"Radiant",rarity:"CELESTIAL",hp:490,weak:"Shadow",num:142,flavor:"God of the Sun and king of the gods. His light is the dawn of creation.",atk:[{n:"Dawn's Decree",d:185,cost:4},{n:"Big Bang Genesis",d:350,cost:5}]},
+ {id:"nebryx",name:"Nebryx",type:"Radiant",rarity:"COSMIC",hp:600,weak:"Shadow",num:143,flavor:"A living nebula given will. Where it drifts, new stars are born and old ones are unmade.",atk:[{n:"Starfall",d:235,cost:4},{n:"Nebula Burst",d:410,cost:5}]},
+ {id:"quasaror",name:"Quasaror",type:"Storm",rarity:"COSMIC",hp:580,weak:"Terra",num:144,flavor:"The sovereign of quasars. Its heartbeat broadcasts across a thousand light-years.",atk:[{n:"Quasar Lance",d:250,cost:4},{n:"Gamma Nova",d:420,cost:5}]},
+ {id:"vortheon",name:"Vortheon",type:"Gale",rarity:"COSMIC",hp:620,weak:"Frost",num:145,flavor:"A maw of spinning void that swallows comets whole and exhales solar wind.",atk:[{n:"Void Spiral",d:225,cost:4},{n:"Maelstrom",d:395,cost:5}]},
+ {id:"pulsaris",name:"Pulsaris",type:"Radiant",rarity:"COSMIC",hp:560,weak:"Shadow",num:146,flavor:"Its pulse keeps time for the galaxy. Each beat is a flare that blinds worlds.",atk:[{n:"Pulse Wave",d:240,cost:4},{n:"Stellar Flare",d:430,cost:5}]},
+ {id:"singularis",name:"Singularis",type:"Shadow",rarity:"COSMIC",hp:640,weak:"Radiant",num:147,flavor:"The devouring point. Light bends, time slows, and nothing that nears it returns.",atk:[{n:"Event Horizon",d:230,cost:4},{n:"Singularity",d:400,cost:5}]},
+ {id:"astralisk",name:"Astralisk",type:"Frost",rarity:"COSMIC",hp:600,weak:"Magma",num:148,flavor:"A glacier adrift in the void, trailing frozen comets like a cloak of shards.",atk:[{n:"Comet Shards",d:245,cost:4},{n:"Absolute Zero",d:405,cost:5}]},
+ {id:"cindravox",name:"Cindravox",type:"Magma",rarity:"COSMIC",hp:590,weak:"Aqua",num:149,flavor:"A forge the size of a sun. It hammers raw starlight into molten thunder.",atk:[{n:"Solar Forge",d:255,cost:4},{n:"Supernova",d:415,cost:5}]},
+ {id:"gravimoth",name:"Gravimoth",type:"Terra",rarity:"COSMIC",hp:660,weak:"Verdant",num:150,flavor:"Gravity made flesh. Its wings fold space; its weight bends the orbits of moons.",atk:[{n:"Gravity Well",d:220,cost:4},{n:"Collapse",d:380,cost:5}]},
+ {id:"abyssion",name:"Abyssion",type:"Aqua",rarity:"COSMIC",hp:630,weak:"Storm",num:151,flavor:"The tide that flows between worlds, vast and dark and older than oceans.",atk:[{n:"Cosmic Tide",d:235,cost:4},{n:"Abyssal Surge",d:400,cost:5}]},
+ {id:"cosmaranth",name:"Cosmaranth",type:"Verdant",rarity:"COSMIC",hp:610,weak:"Ember",num:152,flavor:"A bloom of galaxies. Each petal is a spiral arm seeded with a billion suns.",atk:[{n:"Spore Galaxy",d:240,cost:4},{n:"Genesis Bloom",d:420,cost:5}]},
+ {id:"titanos",name:"Titanos",type:"Terra",rarity:"TITAN",hp:800,weak:"Verdant",num:153,flavor:"The world that walks. Mountains are its knuckles; continents ride upon its back.",atk:[{n:"Tectonic Smash",d:300,cost:5},{n:"Worldbreaker",d:540,cost:6}]},
+ {id:"galaxar",name:"Galaxar",type:"Radiant",rarity:"TITAN",hp:760,weak:"Shadow",num:154,flavor:"A being so vast that galaxies orbit its brow like fireflies round a lantern.",atk:[{n:"Light of Creation",d:310,cost:5},{n:"Galaxy Devourer",d:560,cost:6}]},
+ {id:"eonyx",name:"Eonyx",type:"Shadow",rarity:"TITAN",hp:780,weak:"Radiant",num:155,flavor:"Older than time itself. It remembers the dark before the first star was lit.",atk:[{n:"Entropy",d:295,cost:5},{n:"Oblivion",d:545,cost:6}]},
+ {id:"colossun",name:"Colossun",type:"Magma",rarity:"TITAN",hp:770,weak:"Aqua",num:156,flavor:"A star with hands. Its footsteps leave craters that cool into new worlds.",atk:[{n:"Solar Fist",d:315,cost:5},{n:"Coronal Mass",d:555,cost:6}]},
+ {id:"oblivar",name:"Oblivar",type:"Frost",rarity:"TITAN",hp:790,weak:"Magma",num:157,flavor:"The long silence at the end of things, gliding between dying suns.",atk:[{n:"Glacial Epoch",d:290,cost:5},{n:"Absolute End",d:520,cost:6}]},
+ {id:"vastreon",name:"Vastreon",type:"Aqua",rarity:"TITAN",hp:810,weak:"Storm",num:158,flavor:"An ocean that spans the space between worlds, deep enough to drown the stars.",atk:[{n:"Tidal Cataclysm",d:300,cost:5},{n:"Drown the Stars",d:530,cost:6}]},
+ {id:"tempestus",name:"Tempestus",type:"Storm",rarity:"TITAN",hp:750,weak:"Terra",num:159,flavor:"A storm the size of a solar system, its lightning measured in light-years.",atk:[{n:"Storm of Eons",d:320,cost:5},{n:"Heaven's Fury",d:565,cost:6}]},
+ {id:"verdathor",name:"Verdathor",type:"Verdant",rarity:"TITAN",hp:800,weak:"Ember",num:160,flavor:"The world-root from which life first crawled. Its branches cradle young planets.",atk:[{n:"World Root",d:300,cost:5},{n:"Genesis Wrath",d:540,cost:6}]},
+ {id:"zephyrant",name:"Zephyrant",type:"Gale",rarity:"TITAN",hp:740,weak:"Frost",num:161,flavor:"The solar wind given a titan's shape, vast enough to becalm a galaxy.",atk:[{n:"Solar Wind",d:325,cost:5},{n:"Stratos Collapse",d:560,cost:6}]},
+ {id:"pyrgantua",name:"Pyrgantua",type:"Ember",rarity:"TITAN",hp:780,weak:"Aqua",num:162,flavor:"The burning world. Its surface is an ocean of fire that has raged for eons.",atk:[{n:"Magma Ocean",d:305,cost:5},{n:"Burning World",d:555,cost:6}]}
 ];
 const CARD_BY_ID = Object.fromEntries(CARDS.map(c=>[c.id,c]));
 const TOTAL=CARDS.length;
@@ -796,7 +828,7 @@ function teamSize(){const lv=trainerLevel();return lv>=60?6:lv>=40?5:lv>=10?4:3;
 
 /* =================== HELPERS =================== */
 function pipsHTML(type,n){let h='<span class="pips">';for(let i=0;i<n;i++)h+=`<span class="pip" style="background:${TYPES[type].c}"></span>`;return h+'</span>';}
-function cardClasses(c){const r=RARITY[c.rarity];let cl="card";if(r.holo){cl+=" holo";if(c.rarity==="RR")cl+=" rr";}if(c.rarity==="APEX")cl+=" apex";if(c.rarity==="GIGA")cl+=" giga";if(c.rarity==="LEGEND")cl+=" legend";if(c.rarity==="CELESTIAL")cl+=" celestial";return cl;}
+function cardClasses(c){const r=RARITY[c.rarity];let cl="card";if(r.holo){cl+=" holo";if(c.rarity==="RR")cl+=" rr";}if(c.rarity==="APEX")cl+=" apex";if(c.rarity==="GIGA")cl+=" giga";if(c.rarity==="LEGEND")cl+=" legend";if(c.rarity==="CELESTIAL")cl+=" celestial";if(c.rarity==="COSMIC")cl+=" cosmic";if(c.rarity==="TITAN")cl+=" titan";return cl;}
 function evoLineHTML(c){
   if(c.gigaOf){const b=CARD_BY_ID[c.gigaOf];return '<div><span class="lbl">Form:</span> ⚡ Giant <b style="color:#ff7a90">GIGA</b> form of '+(b?b.name:c.gigaOf)+'</div>';}
   const from=c.evoFrom?CARD_BY_ID[c.evoFrom]:null;
@@ -819,7 +851,7 @@ function renderCard(c,opts={}){
   let dupes = (opts.binder&&owned>1)?`<div class="dupes">×${owned}</div>`:'';
   let owntag = (opts.store&&owned)?`<div class="owntag">✓ Owned ×${owned}</div>`:'';
   const click = opts.flat?'':`onclick="showDetail('${c.id}')"`;
-  const glitz=(c.rarity==='APEX'||c.rarity==='LEGEND'||c.rarity==='CELESTIAL')?`<div class="glitz ${c.rarity.toLowerCase()}"></div>`:'';
+  const glitz=(c.rarity==='APEX'||c.rarity==='LEGEND'||c.rarity==='CELESTIAL'||c.rarity==='COSMIC'||c.rarity==='TITAN')?`<div class="glitz ${c.rarity.toLowerCase()}"></div>`:'';
   const lvl = (opts.lvl!=null)?opts.lvl:(opts.store?1:(owned?cardLevel(c.id):1));
   const lvtag = (lvl>1)?`<div class="lvbadge">Lv.${lvl}</div>`:'';
   return `<div class="${cardClasses(c)}" style="background:${border}" ${click}>
@@ -855,10 +887,10 @@ function weeklyStore(){
   pick=pick.concat(pickSeeded(by(["C","U"]),9,rnd));        // everyday cards (shelves)
   pick=pick.concat(pickSeeded(by(["R","RR"]),5,rnd));        // solid mid cards (shelves)
   pick=pick.concat(pickSeeded(by(["SR","SAR","UR"]),4,rnd)); // strong cards (cabinet)
-  pick=pick.concat(pickSeeded(by(["MUR","GIGA","APEX","LEGEND","CELESTIAL"]),2,rnd)); // chase headliners (cabinet)
+  pick=pick.concat(pickSeeded(by(["MUR","GIGA","APEX","LEGEND","CELESTIAL","COSMIC","TITAN"]),2,rnd)); // chase headliners (cabinet)
   return pick.map(c=>c.id);
 }
-const PREMIUM_R=["SR","SAR","UR","MUR","GIGA","APEX","LEGEND","CELESTIAL"];
+const PREMIUM_R=["SR","SAR","UR","MUR","GIGA","APEX","LEGEND","CELESTIAL","COSMIC","TITAN"];
 function renderStore(){
   document.getElementById('mysteryPrice').textContent=MYSTERY_PRICE;
   document.getElementById('packPrice').textContent=PACK_PRICE;
@@ -960,7 +992,7 @@ function buyUltimate(){
   const com=CARDS.filter(c=>["C","U","R"].includes(c.rarity));
   const mid=CARDS.filter(c=>["R","RR","SR"].includes(c.rarity));
   const strong=CARDS.filter(c=>["SR","SAR","UR"].includes(c.rarity));
-  const head=CARDS.filter(c=>["UR","MUR","GIGA","APEX","LEGEND","CELESTIAL"].includes(c.rarity));
+  const head=CARDS.filter(c=>["UR","MUR","GIGA","APEX","LEGEND","CELESTIAL","COSMIC","TITAN"].includes(c.rarity));
   const pulls=[];
   for(let i=0;i<6;i++)pulls.push(weightedPull(com));
   for(let i=0;i<3;i++)pulls.push(weightedPull(mid));
@@ -997,7 +1029,7 @@ function openRevealModal(cards,title){
     <button class="btn ghost" onclick="closeModal();afterReveal()">Done</button></div>`;
   openModal(html);
   // celebrate big pulls
-  if(["SR","SAR","UR","MUR","GIGA","APEX","LEGEND","CELESTIAL"].includes(best.rarity))setTimeout(()=>confetti(),400);
+  if(["SR","SAR","UR","MUR","GIGA","APEX","LEGEND","CELESTIAL","COSMIC","TITAN"].includes(best.rarity))setTimeout(()=>confetti(),400);
 }
 function miniReveal(c){const r=RARITY[c.rarity],t=TYPES[c.type];
   return `<div class="${cardClasses(c)}" style="background:linear-gradient(160deg,${t.c},#1a1f3d 70%);padding:5px;height:100%">
@@ -1199,18 +1231,26 @@ let battle=null;
 function makeFighter(id,level){const c=CARD_BY_ID[id];level=level||1;const hp=effHp(c,level);return{id,c,level,hp,maxHp:hp};}
 function cpuDeck(size,targetAvg,avgLevel){
   size=size||3; targetAvg=targetAvg||120; avgLevel=avgLevel||1;
-  // build a rival roster comparable to the player's fielded team strength
-  const lo=targetAvg*0.82, hi=targetAvg*1.3;
-  let band=CARDS.filter(c=>{const p=power(c);return p>=lo&&p<=hi;});
-  if(band.length<size) band=CARDS.slice().sort((a,b)=>Math.abs(power(a)-targetAvg)-Math.abs(power(b)-targetAvg)).slice(0,Math.max(size*3,10));
-  const out=[],used={}; let guard=0;
-  const rollLv=()=>Math.max(1,Math.min(10,Math.round(avgLevel + (Math.floor(Math.random()*3)-1)))); // random ~avg ±1
-  while(out.length<size && guard++<300){
-    const c=band[Math.floor(Math.random()*band.length)];
-    if(used[c.id] && band.length>size) continue;   // prefer distinct cards when we can
-    used[c.id]=1; out.push({id:c.id,level:rollLv()});
+  // Opponents are matched to the player's general strength, but the TOP TIERS
+  // (Legendary / Celestial, and to a lesser extent Apex) are deliberately RARE
+  // so the kids aren't constantly fighting god-tier teams.
+  const baseTarget=targetAvg/lvlMult(avgLevel);          // leveled target -> base power
+  const maxPow=baseTarget*1.25, minPow=baseTarget*0.30;
+  const RW={C:6,U:8,R:12,RR:12,SR:14,SAR:8,UR:12,MUR:14,GIGA:14,APEX:9,LEGEND:2,CELESTIAL:1,COSMIC:0.5,TITAN:0.25};
+  let cand=CARDS.filter(c=>{const p=power(c);return p>=minPow&&p<=maxPow;});
+  if(cand.length<size*2) cand=CARDS.slice().sort((a,b)=>Math.abs(power(a)-baseTarget)-Math.abs(power(b)-baseTarget)).slice(0,Math.max(size*4,16));
+  const wOf=c=>(RW[c.rarity]!=null?RW[c.rarity]:8);
+  const pick=()=>{let t=0;cand.forEach(c=>t+=wOf(c));let r=Math.random()*t;for(const c of cand){r-=wOf(c);if(r<=0)return c;}return cand[cand.length-1];};
+  const isTop=c=>(c.rarity==='LEGEND'||c.rarity==='CELESTIAL'||c.rarity==='COSMIC'||c.rarity==='TITAN');
+  const rollLv=()=>Math.max(1,Math.min(10,Math.round(avgLevel + (Math.floor(Math.random()*3)-1)))); // ~avg +/-1
+  const out=[],used={}; let guard=0, topCount=0;
+  while(out.length<size && guard++<500){
+    const c=pick();
+    if(used[c.id] && cand.length>size) continue;       // prefer distinct cards
+    if(isTop(c) && topCount>=1) continue;              // at most ONE top-tier rival per team
+    used[c.id]=1; if(isTop(c))topCount++; out.push({id:c.id,level:rollLv()});
   }
-  while(out.length<size) out.push({id:band[0].id,level:rollLv()});
+  while(out.length<size) out.push({id:cand[0].id,level:rollLv()});
   return out;
 }
 function startBattle(cpuEntries,stake){
@@ -1385,11 +1425,11 @@ function endBattle(win){
     if(typeof addScholarXP==='function')addScholarXP(20);
     if(typeof grantCardXp==='function')battle.p.forEach(f=>{grantCardXp(f.id,f.hp>0?45:25);});
     save();if(typeof checkAchievements==='function')checkAchievements();
-    const ids=battle.c.map(f=>f.id);
+    const spoils=battle.c.map(f=>({id:f.id,level:f.level||1}));
     el.insertAdjacentHTML('beforeend',`<div class="battle-result" id="battleResult">
       <h1 class="win-title">\uD83C\uDFC6 YOU WON!</h1>
       <p class="sub">Pick one card to take from the rival's deck:</p>
-      <div class="steal-cards">${ids.map(id=>`<div onclick="claimCard('${id}')">${renderCard(CARD_BY_ID[id],{flat:true})}</div>`).join('')}</div></div>`);
+      <div class="steal-cards">${spoils.map(s=>`<div onclick="claimCard('${s.id}',${s.level})">${renderCard(CARD_BY_ID[s.id],{flat:true,lvl:s.level})}</div>`).join('')}</div></div>`);
   }else{if(!state.stats)state.stats={};state.stats.losses=(state.stats.losses||0)+1;save();const lost=Math.min(state.coins,(battle.stake||WAGER));addCoins(-lost,'Lost a battle');
     el.insertAdjacentHTML('beforeend',`<div class="battle-result" id="battleResult">
       <h1 style="color:#ff8a8a">\uD83D\uDE13 Defeated</h1>
@@ -1397,8 +1437,42 @@ function endBattle(win){
       <button class="btn" onclick="exitBattle()">Back to Arena</button></div>`);
   }
 }
-function claimCard(id){addCard(id);confetti();const r=document.getElementById('battleResult');
-  if(r)r.innerHTML=`<h1 class="win-title">\uD83C\uDF89 Got it!</h1><p class="sub"><b>${CARD_BY_ID[id].name}</b> was added to your binder!</p><button class="btn green" onclick="exitBattle()">Awesome!</button>`;}
+function claimCard(id,lvl){
+  lvl=Math.min(10,Math.max(1,Math.round(lvl||1)));
+  const r=document.getElementById('battleResult'); const name=CARD_BY_ID[id].name;
+  if(!ownCount(id)){
+    addCard(id,lvl); confetti();
+    if(r)r.innerHTML=`<h1 class="win-title">\uD83C\uDF89 Got it!</h1><p class="sub"><b>${name}</b>${lvl>1?' at <b>Lv.'+lvl+'</b>':''} was added to your binder!</p><button class="btn green" onclick="exitBattle()">Awesome!</button>`;
+    return;
+  }
+  const cur=cardLevel(id);
+  if(lvl>cur){
+    if(r)r.innerHTML=`<h1 class="win-title">\uD83C\uDCCF Duplicate!</h1>
+      <p class="sub">You already own <b>${name}</b> at <b>Lv.${cur}</b> — and this one is <b>Lv.${lvl}</b>! Keep the higher level?</p>
+      <div class="row" style="justify-content:center;flex-wrap:wrap;gap:8px">
+        <button class="btn gold" onclick="upgradeClaim('${id}',${lvl})">\u2B06\uFE0F Upgrade to Lv.${lvl}</button>
+        <button class="btn green" onclick="keepSpare('${id}',${lvl})">\uD83C\uDCCF Keep as spare</button>
+      </div>`;
+    return;
+  }
+  addCard(id,lvl); confetti();
+  if(r)r.innerHTML=`<h1 class="win-title">\uD83C\uDCCF Duplicate!</h1><p class="sub">Another <b>${name}</b> joined your binder as a spare — level up or sell it from the Binder.</p><button class="btn green" onclick="exitBattle()">Nice!</button>`;
+}
+function upgradeClaim(id,lvl){
+  if(!state.levels)state.levels={};
+  const newL=Math.min(10,Math.max(cardLevel(id),Math.round(lvl||1)));
+  state.levels[id]=newL; save(); confetti();
+  if(typeof checkAchievements==='function')checkAchievements();
+  const r=document.getElementById('battleResult');
+  if(r)r.innerHTML=`<h1 class="win-title">\u2B06\uFE0F Upgraded!</h1><p class="sub">Your <b>${CARD_BY_ID[id].name}</b> jumped straight to <b>Lv.${newL}</b>!</p><button class="btn green" onclick="exitBattle()">Awesome!</button>`;
+  renderBinder();
+}
+function keepSpare(id,lvl){
+  addCard(id,lvl); confetti();
+  const r=document.getElementById('battleResult');
+  if(r)r.innerHTML=`<h1 class="win-title">\uD83C\uDCCF Saved!</h1><p class="sub">A spare <b>${CARD_BY_ID[id].name}</b> went into your binder — use it to level up or sell.</p><button class="btn green" onclick="exitBattle()">Nice!</button>`;
+  renderBinder();
+}
 function exitBattle(){const b=document.getElementById('battle');b.classList.remove('show');b.innerHTML='';arenaTeam=[];renderArena();renderBinder();renderStore();refreshHeader();}
 
 /* =================== QUESTS =================== */
@@ -1856,7 +1930,207 @@ const QUIZ=[
 {s:"Science",y:3,q:"Which would best keep a hot drink warm?",opts:["a foam cup","a thin metal cup","a thin paper cup","a wet cloth"],a:0,ex:"Foam traps heat (it is an insulator), keeping the drink warm."},
 {s:"Science",y:3,q:"Which food gives you the most energy for running?",opts:["bread and pasta","a glass of water","lettuce only","an ice cube"],a:0,ex:"Carbohydrates like bread and pasta give the body energy."},
 {s:"Science",y:3,q:"What do we call water when it freezes into a solid?",opts:["ice","steam","rain","fog"],a:0,ex:"Frozen water is ice."},
-{s:"Science",y:3,q:"Two seeds are planted. One is watered, one is not; both get light. Only the watered one grows. What does this show?",opts:["seeds need water to grow","seeds need light","light stops growth","seeds grow without water"],a:0,ex:"The only difference was water, so water is needed to grow."}
+{s:"Science",y:3,q:"Two seeds are planted. One is watered, one is not; both get light. Only the watered one grows. What does this show?",opts:["seeds need water to grow","seeds need light","light stops growth","seeds grow without water"],a:0,ex:"The only difference was water, so water is needed to grow."},
+{s:"Maths",y:2,q:"A trainer had 30 coins and earned 40 more. How many coins now?",opts:["70", "60", "34", "80"],a:0,ex:"30 + 40 = 70."},
+{s:"Maths",y:2,q:"There are 16 cards and 9 are Fire type. How many are NOT Fire?",opts:["5", "8", "6", "7"],a:3,ex:"16 − 9 = 7."},
+{s:"Maths",y:2,q:"Which number is between 45 and 50?",opts:["51", "52", "44", "47"],a:3,ex:"47 sits between 45 and 50."},
+{s:"Maths",y:2,q:"Count back by 2s: 12, 10, 8, __ . What is next?",opts:["6", "4", "5", "7"],a:0,ex:"8 − 2 = 6."},
+{s:"Maths",y:2,q:"A toy costs 25 coins. You buy 2 of them. What do they cost altogether?",opts:["27", "50", "40", "52"],a:1,ex:"25 + 25 = 50."},
+{s:"Maths",y:2,q:"Which of these is the HEAVIEST?",opts:["a brick", "a feather", "a leaf", "a sheet of paper"],a:0,ex:"A brick is the heaviest."},
+{s:"Maths",y:2,q:"What is half of 14?",opts:["8", "7", "12", "6"],a:1,ex:"14 split into two equal parts is 7."},
+{s:"Maths",y:2,q:"There are 5 nests with 2 eggs in each. How many eggs altogether?",opts:["9", "12", "7", "10"],a:3,ex:"5 groups of 2 = 10."},
+{s:"Maths",y:2,q:"Which number is the smallest?",opts:["41", "14", "40", "44"],a:1,ex:"14 is the smallest."},
+{s:"Maths",y:2,q:"What is 100 − 50?",opts:["40", "50", "150", "60"],a:1,ex:"100 − 50 = 50."},
+{s:"Maths",y:2,q:"A film runs from 1 o'clock to 4 o'clock. How many hours long is it?",opts:["5", "3", "2", "4"],a:1,ex:"From 1 to 4 o'clock is 3 hours."},
+{s:"Maths",y:2,q:"There are 3 packs with 5 stickers in each. How many stickers altogether?",opts:["12", "15", "8", "18"],a:1,ex:"3 groups of 5 = 15."},
+{s:"Maths",y:2,q:"Which of these makes 20?",opts:["10 + 5", "15 + 3", "10 + 10", "12 + 6"],a:2,ex:"10 + 10 = 20."},
+{s:"Maths",y:2,q:"What number is 5 less than 23?",opts:["17", "16", "28", "18"],a:3,ex:"23 − 5 = 18."},
+{s:"Maths",y:2,q:"Ordering smallest first: 8, 3, 11, 6. Which number comes first?",opts:["11", "3", "6", "8"],a:1,ex:"3 is the smallest."},
+{s:"Maths",y:2,q:"How many days are there in a week?",opts:["10", "6", "7", "5"],a:2,ex:"A week has 7 days."},
+{s:"Maths",y:2,q:"Which shape has 4 equal sides?",opts:["circle", "triangle", "square", "oval"],a:2,ex:"A square has 4 equal sides."},
+{s:"Maths",y:2,q:"There are 9 birds. 4 fly away, then 2 come back. How many birds now?",opts:["5", "6", "11", "7"],a:3,ex:"9 − 4 = 5, then 5 + 2 = 7."},
+{s:"Maths",y:2,q:"How many 5s make 15?",opts:["2", "3", "5", "4"],a:1,ex:"5 + 5 + 5 = 15, that is three 5s."},
+{s:"Maths",y:2,q:"Which of these is the LONGEST?",opts:["a ruler", "a pin", "a crayon", "a paperclip"],a:0,ex:"A ruler is longer than the others."},
+{s:"Maths",y:2,q:"What is double 8?",opts:["14", "15", "18", "16"],a:3,ex:"8 + 8 = 16."},
+{s:"Maths",y:2,q:"A jar has 10 lollies. You eat 3 and your friend eats 4. How many are left?",opts:["6", "4", "2", "3"],a:3,ex:"10 − 3 − 4 = 3."},
+{s:"Maths",y:2,q:"Which number is between 19 and 21?",opts:["20", "22", "29", "18"],a:0,ex:"20 is between 19 and 21."},
+{s:"Maths",y:2,q:"How many corners does a triangle have?",opts:["4", "2", "5", "3"],a:3,ex:"A triangle has 3 corners."},
+{s:"Maths",y:2,q:"A bag has 6 red and 6 blue marbles. Which colour are you more likely to pick?",opts:["Blue", "Red", "Equally likely", "Green"],a:2,ex:"Equal numbers means they are equally likely."},
+{s:"Maths",y:2,q:"What is 7 + 8?",opts:["15", "13", "16", "14"],a:0,ex:"7 + 8 = 15."},
+{s:"Maths",y:2,q:"A tray has 4 rows of 2 cakes. How many cakes altogether?",opts:["2", "8", "6", "10"],a:1,ex:"4 rows of 2 = 8."},
+{s:"Maths",y:2,q:"Which coin is worth the MOST?",opts:["5", "10", "20", "50"],a:3,ex:"50 is the largest value here."},
+{s:"Maths",y:2,q:"Skip counting by 10 from 0, what is the 3rd number you say?",opts:["10", "20", "40", "30"],a:3,ex:"10, 20, 30 — the third is 30."},
+{s:"Maths",y:2,q:"12 cards are shared equally between 2 people. How many does each get?",opts:["4", "6", "12", "5"],a:1,ex:"12 shared by 2 is 6 each."},
+{s:"Maths",y:2,q:"What is 50 + 25?",opts:["70", "65", "80", "75"],a:3,ex:"50 + 25 = 75."},
+{s:"Maths",y:2,q:"Which of these statements is correct?",opts:["7 is bigger than 9", "9 is bigger than 7", "5 is bigger than 9", "7 equals 9"],a:1,ex:"9 is bigger than 7."},
+{s:"Maths",y:2,q:"A clock has the big hand on 12 and the little hand on 9. What time is it?",opts:["12 o'clock", "3 o'clock", "half past 9", "9 o'clock"],a:3,ex:"Big hand on 12, little hand on 9 = 9 o'clock."},
+{s:"Maths",y:2,q:"8 cupcakes are shared equally onto 2 plates. How many on each plate?",opts:["3", "2", "6", "4"],a:3,ex:"8 shared by 2 is 4 each."},
+{s:"English",y:2,q:"Which word is a verb (a doing word)?",opts:["swim", "blue", "table", "soft"],a:0,ex:"'Swim' is an action."},
+{s:"English",y:2,q:"More than one 'man' is...",opts:["men", "mens", "mans", "manes"],a:0,ex:"The plural of man is men."},
+{s:"English",y:2,q:"What is the opposite of 'up'?",opts:["down", "over", "high", "top"],a:0,ex:"The opposite of up is down."},
+{s:"English",y:2,q:"Which word rhymes with 'tree'?",opts:["bee", "tray", "top", "true"],a:0,ex:"'Bee' rhymes with 'tree'."},
+{s:"English",y:2,q:"Which sentence ends with the correct mark?",opts:["are you ready", "Are you ready,", "Are you ready?", "Are you ready."],a:2,ex:"A question ends with a question mark."},
+{s:"English",y:2,q:"Choose the joining word: 'It was cold ___ sunny.'",opts:["then", "but", "because", "so"],a:1,ex:"'But' joins two different ideas."},
+{s:"English",y:2,q:"Which word is a describing word (an adjective)?",opts:["happy", "run", "jump", "quickly"],a:0,ex:"'Happy' describes how someone feels."},
+{s:"English",y:2,q:"How many syllables are in 'elephant'? (el-e-phant)",opts:["4", "1", "2", "3"],a:3,ex:"El-e-phant has 3 beats."},
+{s:"English",y:2,q:"Add 'ing' to the word 'play'.",opts:["plaid", "playing", "plays", "playd"],a:1,ex:"play + ing = playing."},
+{s:"English",y:2,q:"Which word means the same as 'happy'?",opts:["sad", "mad", "tired", "glad"],a:3,ex:"'Glad' means happy."},
+{s:"English",y:2,q:"Choose the word: 'Ben and I ___ friends.'",opts:["am", "was", "is", "are"],a:3,ex:"Two people use 'are': Ben and I are friends."},
+{s:"English",y:2,q:"Which word should start with a capital letter?",opts:["jump", "monday", "dog", "ball"],a:1,ex:"Days like Monday begin with a capital letter."},
+{s:"English",y:2,q:"Read: 'The baby laughed and clapped.' How does the baby feel?",opts:["sad", "scared", "angry", "happy"],a:3,ex:"Laughing and clapping show happiness."},
+{s:"English",y:2,q:"What does 'un' mean in the word 'untie'?",opts:["before", "very", "to undo / opposite", "again"],a:2,ex:"'Un' means to undo — untie means to undo a knot."},
+{s:"English",y:2,q:"Which word comes FIRST in alphabetical order?",opts:["frog", "mouse", "snake", "bird"],a:3,ex:"'Bird' begins with 'b', earliest in the alphabet."},
+{s:"English",y:2,q:"Choose the word: 'She has ___ apple.'",opts:["the", "a", "an", "some"],a:2,ex:"Use 'an' before a vowel sound: an apple."},
+{s:"English",y:2,q:"What is the opposite of 'open'?",opts:["wide", "big", "shut", "push"],a:2,ex:"The opposite of open is shut."},
+{s:"English",y:2,q:"Which word is a naming word (a noun)?",opts:["sing", "green", "garden", "fast"],a:2,ex:"'Garden' is a place, so it is a noun."},
+{s:"English",y:2,q:"Read: 'It was snowing, so Sam wore a coat.' Why did Sam wear a coat?",opts:["it was cold and snowing", "he was tired", "it was hot", "it was sunny"],a:0,ex:"He wore a coat because it was cold."},
+{s:"English",y:2,q:"Which word rhymes with 'cake'?",opts:["kick", "cook", "lake", "cup"],a:2,ex:"'Lake' rhymes with 'cake'."},
+{s:"English",y:2,q:"The plural of 'box' is...",opts:["boxxes", "box", "boxes", "boxs"],a:2,ex:"Words ending in 'x' add 'es': boxes."},
+{s:"English",y:2,q:"Choose the word: 'The cat sat ___ the mat.'",opts:["is", "on", "of", "and"],a:1,ex:"'On' tells us where the cat sat."},
+{s:"English",y:2,q:"Which sentence is a command (telling someone to do something)?",opts:["I like cake.", "Close the door.", "What a day!", "Is it raining?"],a:1,ex:"A command tells you to do something."},
+{s:"English",y:2,q:"What does the word 'enormous' mean?",opts:["very kind", "very fast", "very big", "very small"],a:2,ex:"Enormous means very big."},
+{s:"English",y:2,q:"Which word is spelled correctly?",opts:["frend", "friend", "frien", "freind"],a:1,ex:"The correct spelling is 'friend'."},
+{s:"English",y:2,q:"Read: 'Maya hid under the blanket when she heard the loud bang.' How did Maya feel?",opts:["excited", "hungry", "scared", "bored"],a:2,ex:"Hiding from a loud bang shows she was scared."},
+{s:"English",y:2,q:"Which word means more than one 'child'?",opts:["childrens", "children", "childes", "childs"],a:1,ex:"The plural of child is children."},
+{s:"English",y:2,q:"Choose the joining word: 'I will read ___ I am tired.'",opts:["and", "then", "but", "or"],a:2,ex:"'But' shows a contrast — reading even though tired."},
+{s:"English",y:2,q:"Which one is a question word?",opts:["happy", "jump", "slowly", "where"],a:3,ex:"'Where' is used to ask a question."},
+{s:"English",y:2,q:"What is the opposite of 'fast'?",opts:["speedy", "quick", "slow", "rapid"],a:2,ex:"The opposite of fast is slow."},
+{s:"English",y:2,q:"The words 'can' and 'not' joined together make...",opts:["connot", "cant", "cannot", "cannt"],a:2,ex:"can + not = cannot."},
+{s:"English",y:2,q:"Read: 'The flowers grew tall in the warm sun.' Where are the flowers?",opts:["in a box", "outside in a garden", "in the fridge", "under the bed"],a:1,ex:"Flowers growing in the sun are outside."},
+{s:"English",y:2,q:"Which word describes the noun in 'a tiny mouse'?",opts:["a", "none", "mouse", "tiny"],a:3,ex:"'Tiny' describes the mouse."},
+{s:"Science",y:2,q:"Which of these is ALIVE?",opts:["a hat", "a worm", "a stone", "a bottle"],a:1,ex:"A worm grows and moves — it is alive."},
+{s:"Science",y:2,q:"What do baby animals usually need from their parents?",opts:["money", "food and care", "toys", "homework"],a:1,ex:"Baby animals need food and care to survive."},
+{s:"Science",y:2,q:"Which sense do you use to enjoy music?",opts:["hearing", "smell", "taste", "touch"],a:0,ex:"We hear music with our ears."},
+{s:"Science",y:2,q:"Which of these would FLOAT in water?",opts:["a rock", "a metal nail", "a coin", "a cork"],a:3,ex:"Cork is light and floats."},
+{s:"Science",y:2,q:"Pulling a wagon towards you is an example of a...",opts:["throw", "pull", "drop", "push"],a:1,ex:"Bringing it towards you is a pull."},
+{s:"Science",y:2,q:"Which animal lives in water?",opts:["a chicken", "a horse", "a cat", "a fish"],a:3,ex:"A fish lives in water."},
+{s:"Science",y:2,q:"What happens to ice cream left out in the hot sun?",opts:["it freezes harder", "it turns blue", "it melts", "nothing happens"],a:2,ex:"Heat melts the ice cream."},
+{s:"Science",y:2,q:"Which body part pumps blood around your body?",opts:["brain", "foot", "heart", "ear"],a:2,ex:"The heart pumps blood."},
+{s:"Science",y:2,q:"A torch and the Sun both...?",opts:["give out light", "make sound", "are cold", "are food"],a:0,ex:"Both give out light."},
+{s:"Science",y:2,q:"A baby sheep is called a...?",opts:["lamb", "kitten", "calf", "chick"],a:0,ex:"A baby sheep is a lamb."},
+{s:"Science",y:2,q:"Plants make their own food using...?",opts:["plastic", "sunlight", "darkness", "sand"],a:1,ex:"Plants use sunlight to make food."},
+{s:"Science",y:2,q:"Which material is best for keeping rain off you?",opts:["tissue paper", "a cotton t-shirt", "a plastic raincoat", "a paper towel"],a:2,ex:"Plastic keeps water out."},
+{s:"Science",y:2,q:"Which one can you NOT see through?",opts:["a glass window", "a wooden door", "a clean window", "clear water"],a:1,ex:"You cannot see through a wooden door."},
+{s:"Science",y:2,q:"What do we breathe in to stay alive?",opts:["water", "milk", "air", "sand"],a:2,ex:"We breathe in air (oxygen)."},
+{s:"Science",y:2,q:"Which animal has feathers?",opts:["a parrot", "a fish", "a frog", "a dog"],a:0,ex:"A parrot has feathers — it is a bird."},
+{s:"Science",y:2,q:"Which is the correct order of growing up?",opts:["adult, child, baby", "adult, baby, child", "baby, child, adult", "child, baby, adult"],a:2,ex:"You grow from baby to child to adult."},
+{s:"Science",y:2,q:"What do your eyes help you to do?",opts:["hear", "taste", "see", "smell"],a:2,ex:"Eyes are for seeing."},
+{s:"Science",y:2,q:"Which is a healthy thing to do?",opts:["eat only lollies", "never brush your teeth", "never sleep", "wash your hands before eating"],a:3,ex:"Washing hands keeps germs away."},
+{s:"Science",y:2,q:"A magnet will stick to which object?",opts:["a rubber band", "a metal paperclip", "a plastic ruler", "a wooden pencil"],a:1,ex:"Magnets stick to metal like a paperclip."},
+{s:"Science",y:2,q:"Which season comes straight after winter?",opts:["spring", "summer", "autumn", "winter again"],a:0,ex:"Spring follows winter."},
+{s:"Science",y:2,q:"Why do we wear sunglasses on a very bright day?",opts:["to keep warm", "to taste food", "to hear better", "to protect our eyes from the sun"],a:3,ex:"Sunglasses shield our eyes from bright sunlight."},
+{s:"Science",y:2,q:"Which of these would SINK in water?",opts:["a cork", "a feather", "a heavy coin", "a leaf"],a:2,ex:"A heavy coin sinks."},
+{s:"Science",y:2,q:"What do plants take up through their roots?",opts:["juice", "water", "oil", "milk"],a:1,ex:"Roots take in water."},
+{s:"Science",y:2,q:"Which animal is an insect with 6 legs?",opts:["a dog", "a snake", "an ant", "a fish"],a:2,ex:"An ant is an insect with 6 legs."},
+{s:"Science",y:2,q:"Where does a bird usually lay its eggs?",opts:["in a nest", "in a kennel", "underground", "in the sea"],a:0,ex:"Birds lay eggs in a nest."},
+{s:"Science",y:2,q:"Which would feel the WARMEST?",opts:["standing in the fridge", "holding an ice cube", "holding a cold drink", "sitting in the sun"],a:3,ex:"The sun makes you feel warm."},
+{s:"Science",y:2,q:"To stay healthy, you should...?",opts:["eat only sweets", "eat fruit and vegetables", "skip sleep", "never move around"],a:1,ex:"Fruit and vegetables keep you healthy."},
+{s:"Science",y:2,q:"Which of these is NOT a living thing?",opts:["a person", "a tree", "a bird", "a toy car"],a:3,ex:"A toy car is not alive."},
+{s:"Science",y:2,q:"It is daytime when our part of Earth faces...?",opts:["a cloud", "the Moon", "the Sun", "away from the Sun"],a:2,ex:"It is day when we face the Sun."},
+{s:"Science",y:2,q:"Which material can you squash and stretch?",opts:["a rock", "glass", "playdough", "a brick"],a:2,ex:"Playdough can be squashed and stretched."},
+{s:"Science",y:2,q:"A baby frog is called a...?",opts:["puppy", "cub", "joey", "tadpole"],a:3,ex:"A baby frog is a tadpole."},
+{s:"Science",y:2,q:"Which of these helps a plant grow?",opts:["sand only", "sunlight and water", "plastic only", "darkness and no water"],a:1,ex:"Plants need sunlight and water."},
+{s:"Science",y:2,q:"What makes a shadow on a sunny day?",opts:["your body blocking the sunlight", "a cloud only", "the rain", "the wind"],a:0,ex:"Your body blocks the sun's light, making a shadow."},
+{s:"Maths",y:3,q:"A machine doubles a number, then subtracts 3. You put in 7. What comes out?",opts:["17", "13", "10", "11"],a:3,ex:"7 × 2 = 14, then 14 − 3 = 11."},
+{s:"Maths",y:3,q:"What is 9 × 6?",opts:["56", "48", "63", "54"],a:3,ex:"9 × 6 = 54."},
+{s:"Maths",y:3,q:"What is 63 ÷ 7?",opts:["6", "8", "9", "7"],a:2,ex:"7 × 9 = 63, so 63 ÷ 7 = 9."},
+{s:"Maths",y:3,q:"What is three quarters of 12?",opts:["12", "9", "3", "6"],a:1,ex:"One quarter of 12 is 3, so three quarters is 9."},
+{s:"Maths",y:3,q:"A rectangle is 8 cm long and 2 cm wide. What is its perimeter?",opts:["10 cm", "16 cm", "24 cm", "20 cm"],a:3,ex:"8 + 2 + 8 + 2 = 20 cm."},
+{s:"Maths",y:3,q:"A chapter runs from minute 24 to minute 31 of a show. How many minutes long is it?",opts:["55", "8", "7", "6"],a:2,ex:"31 − 24 = 7 minutes."},
+{s:"Maths",y:3,q:"What is 145 rounded to the nearest ten?",opts:["140", "200", "150", "100"],a:2,ex:"145 rounds up to 150."},
+{s:"Maths",y:3,q:"Pencils come in packs of 8. How many pencils are in 5 packs?",opts:["40", "32", "13", "45"],a:0,ex:"5 × 8 = 40."},
+{s:"Maths",y:3,q:"Which fraction is the LARGEST?",opts:["1/4", "1/3", "1/2", "1/5"],a:2,ex:"1/2 is the biggest piece."},
+{s:"Maths",y:3,q:"There are 4 tables with 6 chairs each. 3 chairs are taken away. How many chairs now?",opts:["24", "18", "21", "27"],a:2,ex:"4 × 6 = 24, then 24 − 3 = 21."},
+{s:"Maths",y:3,q:"A clock reads 3:40. How many minutes until 4:00?",opts:["15", "20", "25", "40"],a:1,ex:"60 − 40 = 20 minutes."},
+{s:"Maths",y:3,q:"Which number is EVEN and greater than 30?",opts:["31", "33", "34", "29"],a:2,ex:"34 is even and more than 30."},
+{s:"Maths",y:3,q:"What is half of 46?",opts:["26", "23", "24", "22"],a:1,ex:"46 ÷ 2 = 23."},
+{s:"Maths",y:3,q:"A bus holds 30 people. How many people do two full buses carry?",opts:["50", "32", "33", "60"],a:3,ex:"2 × 30 = 60."},
+{s:"Maths",y:3,q:"What is 7 × 8?",opts:["56", "54", "48", "64"],a:0,ex:"7 × 8 = 56."},
+{s:"Maths",y:3,q:"The rule is 'multiply by 2'. The pattern is 4, 8, 16, __ . What comes next?",opts:["18", "32", "20", "24"],a:1,ex:"16 × 2 = 32."},
+{s:"Maths",y:3,q:"Mia spent 45 coins and had 25 left. How many coins did she start with?",opts:["20", "65", "70", "60"],a:2,ex:"Work backwards: 45 + 25 = 70."},
+{s:"Maths",y:3,q:"How many right angles are in a rectangle?",opts:["3", "4", "2", "0"],a:1,ex:"A rectangle has 4 right angles."},
+{s:"Maths",y:3,q:"26 sweets are shared equally among 5 children. How many are LEFT OVER?",opts:["2", "1", "0", "3"],a:1,ex:"5 × 5 = 25, so 26 − 25 = 1 left over."},
+{s:"Maths",y:3,q:"A graph shows books read: Mon 12, Tue 9, Wed 15. How many MORE were read on Wed than Tue?",opts:["6", "24", "9", "3"],a:0,ex:"15 − 9 = 6."},
+{s:"Maths",y:3,q:"What is one third of 18?",opts:["12", "3", "9", "6"],a:3,ex:"18 ÷ 3 = 6."},
+{s:"Maths",y:3,q:"Which is heavier: 1 kg or 800 g?",opts:["800 g", "1 kg", "they are the same", "can't tell"],a:1,ex:"1 kg = 1000 g, which is more than 800 g."},
+{s:"Maths",y:3,q:"A pizza is cut into 6 equal slices and you eat 2. What fraction did you eat?",opts:["1/6", "1/3", "1/2", "1/4"],a:1,ex:"2 out of 6 is 2/6, which simplifies to 1/3."},
+{s:"Maths",y:3,q:"What is 200 − 75?",opts:["115", "135", "125", "175"],a:2,ex:"200 − 75 = 125."},
+{s:"Maths",y:3,q:"A train leaves at 2:15 and arrives at 3:00. How long is the trip?",opts:["15 minutes", "60 minutes", "45 minutes", "35 minutes"],a:2,ex:"From 2:15 to 3:00 is 45 minutes."},
+{s:"Maths",y:3,q:"Which 3D shape has a curved surface and no corners?",opts:["sphere", "cube", "cuboid", "pyramid"],a:0,ex:"A sphere is round with no corners."},
+{s:"Maths",y:3,q:"If 4 apples cost 20 coins, how much is 1 apple?",opts:["6", "5", "16", "4"],a:1,ex:"20 ÷ 4 = 5 coins each."},
+{s:"Maths",y:3,q:"All cats are animals. Tom is a cat. Which MUST be true?",opts:["Tom is a dog", "Tom barks", "Tom is an animal", "All animals are cats"],a:2,ex:"If all cats are animals and Tom is a cat, Tom must be an animal."},
+{s:"Maths",y:3,q:"What is double 35?",opts:["75", "65", "60", "70"],a:3,ex:"35 + 35 = 70."},
+{s:"Maths",y:3,q:"A number rounds to 400 to the nearest hundred. Which number could it be?",opts:["452", "460", "355", "349"],a:2,ex:"355 rounds to 400; the others do not."},
+{s:"Maths",y:3,q:"How many minutes are there in 2 hours?",opts:["60", "100", "140", "120"],a:3,ex:"2 × 60 = 120 minutes."},
+{s:"Maths",y:3,q:"Which fraction is the same as 1/4?",opts:["2/8", "1/2", "2/4", "3/4"],a:0,ex:"2/8 simplifies to 1/4."},
+{s:"Maths",y:3,q:"Ben has 3 boxes of 9 marbles and loses 5. How many marbles does he have now?",opts:["23", "32", "22", "27"],a:2,ex:"3 × 9 = 27, then 27 − 5 = 22."},
+{s:"Maths",y:3,q:"A square has sides of 7 cm. What is its perimeter?",opts:["21 cm", "14 cm", "49 cm", "28 cm"],a:3,ex:"4 × 7 = 28 cm."},
+{s:"English",y:3,q:"Read: 'The path was slippery after the storm, so Dad walked carefully.' Why did Dad walk carefully?",opts:["he was running late", "he was tired", "the path was slippery", "it was dark"],a:2,ex:"He walked carefully because the path was slippery."},
+{s:"English",y:3,q:"Which word is the opposite of 'arrive'?",opts:["leave", "come", "reach", "stay"],a:0,ex:"'Arrive' means to come; the opposite is to leave."},
+{s:"English",y:3,q:"Choose the joining word: 'We stayed inside ___ it was raining.'",opts:["but", "because", "although", "or"],a:1,ex:"'Because' gives the reason they stayed in."},
+{s:"English",y:3,q:"Choose the correct word: 'Next week they ___ travel to the city.'",opts:["travels", "travelling", "travelled", "will travel"],a:3,ex:"'Next week' is the future, so 'will travel'."},
+{s:"English",y:3,q:"What is the short form (contraction) of 'I will'?",opts:["Iwill", "Ill", "I'l", "I'll"],a:3,ex:"I + will = I'll."},
+{s:"English",y:3,q:"Choose the correct word: 'The dog wagged ___ tail.'",opts:["its", "it", "its'", "it's"],a:0,ex:"'Its' shows belonging, with no apostrophe."},
+{s:"English",y:3,q:"Which sentence uses commas correctly?",opts:["I, packed shorts hat shoes.", "I packed shorts, a hat and shoes.", "I packed, shorts hat shoes.", "I packed shorts a hat, and shoes."],a:1,ex:"Commas separate items in a list."},
+{s:"English",y:3,q:"What does the prefix 'dis' mean in the word 'disagree'?",opts:["not / the opposite", "after", "again", "before"],a:0,ex:"'Dis' means not — to disagree is to not agree."},
+{s:"English",y:3,q:"What does the word 'hopeful' mean?",opts:["without hope", "full of hope", "giving up", "a little afraid"],a:1,ex:"The suffix 'ful' means full of — hopeful means full of hope."},
+{s:"English",y:3,q:"Read: 'She tiptoed past the sleeping baby.' Why did she tiptoe?",opts:["to stay quiet", "to dance", "to run fast", "to wake the baby"],a:0,ex:"Tiptoeing past a sleeping baby keeps things quiet."},
+{s:"English",y:3,q:"What is the main idea? 'Volcanoes can erupt suddenly. Scientists watch them closely to keep people safe.'",opts:["scientists watch volcanoes to keep people safe", "why rocks are hot", "how to climb a mountain", "types of weather"],a:0,ex:"Both sentences are about watching volcanoes for safety."},
+{s:"English",y:3,q:"'First he warmed up, then he ran the race, and finally he rested.' What did he do BETWEEN warming up and resting?",opts:["went home", "slept", "ate lunch", "ran the race"],a:3,ex:"Between warming up and resting, he ran the race."},
+{s:"English",y:3,q:"Which sentence shows the speech punctuation written correctly?",opts:["Help me! cried Sam", "Help me cried Sam", "\"Help me cried Sam\"", "\"Help me!\" cried Sam."],a:3,ex:"Speech marks go around the exact words, with the ! inside."},
+{s:"English",y:3,q:"Which one shows something belonging to the girls (more than one girl)?",opts:["the girls's bags", "the girls' bags", "the girl's bags", "the girls bags"],a:1,ex:"For more than one girl, the apostrophe goes after the s: girls'."},
+{s:"English",y:3,q:"Choose the correct word: 'I am not sure ___ to wear the red or blue cape.'",opts:["whether", "weather", "wheather", "wether"],a:0,ex:"'Whether' is used for a choice; 'weather' is rain and sun."},
+{s:"English",y:3,q:"Which word means almost the same as 'tired'?",opts:["weary", "strong", "awake", "fresh"],a:0,ex:"'Weary' is a synonym for tired."},
+{s:"English",y:3,q:"Read: 'The classroom buzzed with excited chatter before the trip.' How did the children feel?",opts:["sleepy", "bored", "sad", "excited"],a:3,ex:"'Excited chatter' tells us they felt excited."},
+{s:"English",y:3,q:"Which word is the ODD ONE OUT?",opts:["cheerful", "joyful", "happy", "gloomy"],a:3,ex:"Happy, cheerful and joyful are positive; gloomy is the opposite."},
+{s:"English",y:3,q:"Choose the best joining word: '___ it was late, they kept playing.'",opts:["Although", "So", "Because", "And"],a:0,ex:"'Although' shows a surprising contrast."},
+{s:"English",y:3,q:"Which sentence is an exclamation?",opts:["What a goal!", "Pass the ball.", "Where is it?", "I have a ball."],a:0,ex:"An exclamation shows strong feeling and ends with '!'."},
+{s:"English",y:3,q:"The prefix 're' in the word 'rebuild' means...?",opts:["before", "not", "wrongly", "again"],a:3,ex:"'Re' means again — rebuild means to build again."},
+{s:"English",y:3,q:"A person who sails boats is called a...?",opts:["sails", "sailor", "sailed", "sailing"],a:1,ex:"Adding 'or' names the person: sailor."},
+{s:"English",y:3,q:"Read: 'Empty wrappers lay everywhere after the party.' What probably happened?",opts:["it rained inside", "nobody came", "people ate snacks", "everyone slept"],a:2,ex:"Empty wrappers are a clue that people ate snacks."},
+{s:"English",y:3,q:"Complete the simile: 'as quiet as a ___'.",opts:["storm", "drum", "mouse", "lion"],a:2,ex:"'As quiet as a mouse' is a common simile."},
+{s:"English",y:3,q:"Choose the correct word: 'I could ___ the bell ringing.'",opts:["hare", "hear", "heir", "here"],a:1,ex:"'Hear' is what you do with your ears."},
+{s:"English",y:3,q:"Which of these sentences gives an OPINION rather than a fact?",opts:["Chocolate is the tastiest food of all.", "Some chocolate is dark.", "Chocolate is made from cocoa.", "Chocolate can melt in heat."],a:0,ex:"'Tastiest of all' is a personal opinion, not a fact."},
+{s:"English",y:3,q:"Choose the best joining word: 'The bag was too heavy, ___ she asked for help.'",opts:["although", "or", "but", "so"],a:3,ex:"'So' shows the result — it was heavy, so she asked for help."},
+{s:"English",y:3,q:"What is the plural of 'foot'?",opts:["feets", "feet", "footes", "foots"],a:1,ex:"The plural of foot is feet."},
+{s:"English",y:3,q:"What does 'it' refer to? 'The kite soared high. Then it dipped suddenly.'",opts:["the wind", "the sky", "the kite", "the string"],a:2,ex:"'It' refers to the kite."},
+{s:"English",y:3,q:"Which word is an adverb (it tells HOW something is done)?",opts:["quickness", "quicken", "quick", "quickly"],a:3,ex:"'Quickly' describes how an action is done."},
+{s:"English",y:3,q:"Read: 'After months of practice, Sam finally played the song perfectly.' Sam is...?",opts:["careless", "unkind", "lazy", "determined"],a:3,ex:"Months of practice show Sam is determined."},
+{s:"English",y:3,q:"What would be the best title for a text about how bees help flowers grow?",opts:["How Bees Help Flowers", "Cooking with Honey", "A Rainy Day", "My Trip to the Zoo"],a:0,ex:"The title should match the topic — bees helping flowers."},
+{s:"English",y:3,q:"Which sentence is in the PAST tense?",opts:["She will paint a picture.", "She is painting a picture.", "She painted a picture.", "She paints a picture."],a:2,ex:"'Painted' shows it already happened."},
+{s:"Science",y:3,q:"Two plants get the SAME light. One is watered, one is not. Only the watered one grows tall. What does this show?",opts:["water stops growth", "plants need water to grow", "plants need light", "plants grow without water"],a:1,ex:"The only difference was water, so water is needed to grow."},
+{s:"Science",y:3,q:"To fairly test which ball bounces highest, what should stay the SAME?",opts:["the height you drop them from", "the time of day only", "who is watching", "the colour you like best"],a:0,ex:"Drop them from the same height so only the ball changes — a fair test."},
+{s:"Science",y:3,q:"Ice is left in a warm room. Predict what happens.",opts:["it melts into water", "it turns into steam straight away", "it gets harder", "nothing changes"],a:0,ex:"Warmth melts solid ice into liquid water."},
+{s:"Science",y:3,q:"A material is soft, bendy and bounces. It is most likely...?",opts:["rubber", "stone", "glass", "metal"],a:0,ex:"Soft, bendy and bouncy describes rubber."},
+{s:"Science",y:3,q:"In the food chain grass → grasshopper → frog, what does the grasshopper eat?",opts:["stones", "grass", "frogs", "water only"],a:1,ex:"The arrow shows the grasshopper eats grass."},
+{s:"Science",y:3,q:"Which change can be REVERSED (undone)?",opts:["baking bread", "freezing water into ice", "cooking an egg", "burning wood"],a:1,ex:"Ice can melt back to water; the others cannot be undone."},
+{s:"Science",y:3,q:"A book slides across a table and slows down. What force slows it?",opts:["friction", "magnetism", "sound", "gravity pulling sideways"],a:0,ex:"Friction between the book and table slows it down."},
+{s:"Science",y:3,q:"Water left in a saucer slowly disappears on a warm day. This is called...?",opts:["melting", "freezing", "raining", "evaporation"],a:3,ex:"The water evaporates into the air as a gas."},
+{s:"Science",y:3,q:"Which material would be the BEST to wrap around a cold drink to keep it cold?",opts:["cardboard with holes", "wet paper", "foam", "thin metal"],a:2,ex:"Foam is an insulator — it slows heat from getting in."},
+{s:"Science",y:3,q:"Why can you see your reflection in a mirror?",opts:["it is see-through", "it reflects light", "it is bendy", "it makes its own light"],a:1,ex:"A mirror reflects light back to your eyes."},
+{s:"Science",y:3,q:"How is the sound of a drum made?",opts:["the drum floats", "the drum glows", "the drum freezes", "the drum skin vibrates"],a:3,ex:"Hitting the drum makes its skin vibrate, creating sound."},
+{s:"Science",y:3,q:"What causes the seasons to change through the year?",opts:["the Sun switching off", "clouds moving", "the Moon growing", "the Earth moving around the Sun"],a:3,ex:"Earth's year-long journey around the Sun gives us the seasons."},
+{s:"Science",y:3,q:"Which stage comes LAST in a butterfly's life cycle?",opts:["butterfly", "egg", "caterpillar", "chrysalis"],a:0,ex:"Order: egg, caterpillar, chrysalis, then butterfly last."},
+{s:"Science",y:3,q:"A cactus stores water in its thick stem. This helps it live in a...?",opts:["dark cave", "hot, dry desert", "snowy mountain", "cold ocean"],a:1,ex:"Storing water suits a dry desert where rain is rare."},
+{s:"Science",y:3,q:"Which object would a magnet attract?",opts:["a glass bead", "a wooden ruler", "an iron nail", "a plastic cup"],a:2,ex:"Magnets attract iron and steel, not plastic, wood or glass."},
+{s:"Science",y:3,q:"A dropped apple falls to the ground because of...?",opts:["magnetism", "sound", "gravity", "wind"],a:2,ex:"Gravity pulls objects down towards Earth."},
+{s:"Science",y:3,q:"Which group contains only things that are LIVING?",opts:["a rock, a car, a cup", "a tree, a dog, a fish", "a cloud, a coin, a chair", "a spoon, a book, a toy"],a:1,ex:"A tree, dog and fish all grow and need food — they are living."},
+{s:"Science",y:3,q:"What is the main job of a plant's roots?",opts:["to take in water and hold the plant in place", "to make flowers", "to make seeds", "to catch sunlight"],a:0,ex:"Roots take up water and anchor the plant."},
+{s:"Science",y:3,q:"Sugar is stirred into hot water until it can't be seen. What happened to it?",opts:["it dissolved in the water", "it turned into water", "it vanished forever", "it floated away as gas"],a:0,ex:"The sugar dissolved — it is still there, spread through the water."},
+{s:"Science",y:3,q:"Which animal is a reptile?",opts:["a sparrow", "a dolphin", "a frog", "a lizard"],a:3,ex:"A lizard is a reptile with dry, scaly skin."},
+{s:"Science",y:3,q:"Why do we have day and night?",opts:["the Earth spins around once each day", "clouds cover the Sun at night", "the Sun moves around Earth", "the Moon blocks the Sun"],a:0,ex:"As Earth spins, each side takes turns facing the Sun."},
+{s:"Science",y:3,q:"Which would carry electricity (is a good conductor)?",opts:["a copper wire", "a wooden stick", "a plastic straw", "a rubber band"],a:0,ex:"Metals like copper conduct electricity well."},
+{s:"Science",y:3,q:"A shadow gets SHORTER as the day goes towards midday. This is because the Sun is...?",opts:["switched off", "higher in the sky", "lower in the sky", "behind a cloud"],a:1,ex:"A higher Sun makes shorter shadows."},
+{s:"Science",y:3,q:"How does regular exercise help your body?",opts:["it stops you breathing", "it makes you shorter", "it makes the heart and muscles stronger", "it makes bones weaker"],a:2,ex:"Exercise strengthens the heart and muscles."},
+{s:"Science",y:3,q:"Which of these is a source of its OWN light?",opts:["the Moon", "a mirror", "a candle flame", "a shiny spoon"],a:2,ex:"A flame makes its own light; the others only reflect light."},
+{s:"Science",y:3,q:"A polar bear's thick white fur helps it to...?",opts:["glow in the dark", "swim like a fish", "fly", "stay warm and blend into the snow"],a:3,ex:"Thick fur keeps it warm and white helps it hide in snow."},
+{s:"Science",y:3,q:"Which food group gives the body the most energy for running?",opts:["carbohydrates like bread and pasta", "a glass of water", "an ice cube", "a small lettuce leaf"],a:0,ex:"Carbohydrates such as bread and pasta give lots of energy."},
+{s:"Science",y:3,q:"When water boils in a kettle, it turns into a...?",opts:["rock", "solid", "liquid forever", "gas (steam)"],a:3,ex:"Boiling turns liquid water into steam, which is a gas."},
+{s:"Science",y:3,q:"A toy car rolls further on smooth tiles than on a fluffy rug. Why?",opts:["the rug has more friction", "the car is heavier on tiles", "the tiles are magnetic", "the rug has more gravity"],a:0,ex:"The fluffy rug has more friction, which slows the car."},
+{s:"Science",y:3,q:"Which part of the body protects the brain?",opts:["the spine only", "the skull", "the ribs", "the feet"],a:1,ex:"The hard skull surrounds and protects the brain."},
+{s:"Science",y:3,q:"Plants make their food using sunlight, water and a gas from the air. This process is called...?",opts:["reflection", "digestion", "evaporation", "photosynthesis"],a:3,ex:"Plants make food by photosynthesis using sunlight."},
+{s:"Science",y:3,q:"Which is the best example of a fair way to compare two paper planes?",opts:["use planes of different sizes", "throw one harder than the other", "throw each one the same way from the same spot", "let a different person throw each one"],a:2,ex:"Keep everything the same except the plane — that is a fair test."},
+{s:"Science",y:3,q:"A steel bike left in the rain develops orange flaky patches. This is...?",opts:["rust", "frost", "mould", "dust"],a:0,ex:"Steel rusts when exposed to water and air."}
 ];
 
 /* ---------- scholar progression ---------- */
@@ -1899,6 +2173,7 @@ function grantCardXp(id,n){
 const GIGA_POOL=["gigamagmaw","gigaglaciowl","gigathornmaw","gigatempestrike","gigaglaciathan","gigapyroclast","gigaaurelynx","gigastonehorn","gigablazehound","gigatsunamaw","gigastormraptor","giganocturnyx","gigacrysthart","gigablazequill","gigavinelash"];
 function yearQuestions(){const y=eduYear();return QUIZ.filter(q=>q.y===y);}
 function yearTotal(){return yearQuestions().length;}
+function prizeGoal(){return Math.min(100,yearTotal());}
 function masteredCount(){const mq=(state.scholar&&state.scholar.masteredQ)||{};return yearQuestions().filter(q=>mq[q.q]).length;}
 function markMastered(q){if(!state.scholar)return;if(!state.scholar.masteredQ)state.scholar.masteredQ={};if(q&&!state.scholar.masteredQ[q.q])state.scholar.masteredQ[q.q]=1;}
 function prizeForYear(){
@@ -1916,7 +2191,7 @@ function prizeForYear(){
 }
 function claimPrize(){
   const y=eduYear(); const p=prizeForYear();
-  if(masteredCount()<yearTotal())return toast("Master all "+yearTotal()+" Year "+y+" questions to unlock the Grand Prize!");
+  if(masteredCount()<prizeGoal())return toast("Get "+prizeGoal()+" Year "+y+" questions right to unlock the Grand Prize!");
   if(p.claimed)return toast("You've already claimed the Year "+y+" Grand Prize.");
   addCard(p.id,1); p.claimed=true; save(); confetti();
   toast("🏅 Grand Prize unlocked: "+CARD_BY_ID[p.id].name+" (GIGA)!");
@@ -2038,14 +2313,14 @@ function renderAcademy(){
   html+=`<div class="acad-streak">🔥 Study streak: <b>${(state.scholar.streakDays||0)}</b> day${(state.scholar.streakDays===1)?'':'s'}</div>`;
 
   // season
-  const p=prizeForYear(); const pc=CARD_BY_ID[p.id]; const mc=masteredCount(); const tot=yearTotal(); const pdone=mc>=tot;
+  const p=prizeForYear(); const pc=CARD_BY_ID[p.id]; const mc=masteredCount(); const tot=prizeGoal(); const pdone=mc>=tot;
   html+=`<h3 class="acad-h">🏅 Scholar's Grand Prize</h3>
     <div class="season-card">
       <img src="${ART[p.id]}" alt="">
       <div class="season-info"><div class="season-name">${pc?pc.name:''} <span class="sub">· GIGA</span></div>
-        <div class="sub">Master <b>all ${tot}</b> Year ${eduYear()} questions (get each one right at least once) to earn this GIGA beast. Celestials stay rare — they can't be won here!</div>
-        <div class="mbar"><div class="mfill gold" style="width:${Math.round(mc/tot*100)}%"></div></div>
-        <div class="sub">${mc} / ${tot} questions mastered</div>
+        <div class="sub">Answer <b>${tot}</b> different Year ${eduYear()} questions correctly to earn this GIGA beast. Celestials stay rare — they can't be won here!</div>
+        <div class="mbar"><div class="mfill gold" style="width:${Math.min(100,Math.round(mc/tot*100))}%"></div></div>
+        <div class="sub">${Math.min(mc,tot)} / ${tot} questions mastered</div>
         <button class="btn ${pdone&&!p.claimed?'gold':'ghost'}" ${pdone&&!p.claimed?'':'disabled'} onclick="claimPrize()">${p.claimed?'✓ Grand Prize claimed':pdone?'🎁 Claim your GIGA!':'🔒 Locked'}</button>
       </div></div>`;
 
